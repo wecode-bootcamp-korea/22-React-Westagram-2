@@ -3,18 +3,18 @@ import './Nav.scss';
 
 class Nav extends React.Component {
   render() {
-    return(
+    return (
       <header className="top-header">
         <div className="top-header-contents">
           <h1>Instagram</h1>
           <section className="search-container">
             <input type="text" placeholder="검색" />
             <i className="fas fa-search grey-letter"></i>
-            <ul className="search-result" style={{display: 'none'}}></ul>
+            <ul className="search-result" style={{ display: 'none' }}></ul>
           </section>
           <nav>
             <ul>
-              <li aria-label="홈" >
+              <li aria-label="홈">
                 <i className="fas fa-home"></i>
               </li>
               <li aria-label="다이렉트 메세지">
@@ -28,7 +28,10 @@ class Nav extends React.Component {
               </li>
               <li aria-label="내 프로필" className="my-profile-btn">
                 <i className="far fa-user"></i>
-                <section className="my-profile-menu" style={{display: 'none'}}>
+                <section
+                  className="my-profile-menu"
+                  style={{ display: 'none' }}
+                >
                   <ul>
                     <li>
                       <i className="far fa-user-circle"></i>
@@ -52,7 +55,7 @@ class Nav extends React.Component {
           </nav>
         </div>
       </header>
-    )
+    );
   }
 }
 
