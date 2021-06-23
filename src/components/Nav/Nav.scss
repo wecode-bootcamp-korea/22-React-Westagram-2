@@ -1,0 +1,141 @@
+// @import '../../styles/reset.scss';
+@import '../../styles/common.scss';
+
+.top-header {
+  @include display-flex(center, unset);
+  border-bottom: 1px solid $color-lightgray;
+  margin-bottom: 30px;
+
+  .top-header-contents {
+    @include display-flex(space-between, center);
+    width: 934px;
+    padding: 12px 0;
+
+    h1 {
+      margin-right: 82px;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .search-container {
+      position: relative;
+
+      input {
+        width: 215px;
+        padding: 7px 0 7px 26px;
+        border: 1px solid $color-lightgray;
+        // border-radius: $radius;
+        font-size: 13px;
+
+        &::placeholder {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-40%, -57%);
+        }
+        &:focus::placeholder {
+          left: 38px;
+        }
+        &:focus + i {
+          left: 10px;
+        }
+      }
+
+      i {
+        position: absolute;
+        top: 10px;
+        left: 82px;
+        font-size: 11px;
+      }
+
+      .search-result {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        border: 1px solid $color-lightgray;
+        // border-radius: $radius;
+        background: white;
+        z-index: 9999;
+        // box-shadow: rgb(0 0 0 / 20%) 0px 5px 13px;
+
+        li {
+          @include display-flex(unset, center);
+          padding: 15px;
+          cursor: pointer;
+
+          & + li {
+            border-top: 1px solid $color-lightgray;
+          }
+          img {
+            width: 45px;
+            height: 45px;
+            margin-right: 10px;
+          }
+          em {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    nav ul {
+      @include display-flex(space-around, unset);
+
+      & > li + li {
+        margin-left: 18px;
+      }
+
+      li {
+        cursor: pointer;
+
+        i {
+          font-size: 22px;
+        }
+      }
+
+      .my-profile-btn {
+        position: relative;
+
+        .my-profile-menu {
+          position: absolute;
+          top: 30px;
+          right: -5px;
+          width: 200px;
+          // border-radius: $radius;
+          background: white;
+          // box-shadow: rgb(0 0 0 / 20%) 0px 5px 13px;
+          cursor: default;
+          z-index: 9999;
+
+          ul {
+            @include display-flex(space-between, unset);
+            flex-direction: column;
+            padding: 10px 20px;
+            border-bottom: 1px solid $color-lightgray;
+
+            li {
+              @include display-flex(unset, center);
+              margin: 5px 0;
+              font-size: 14px;
+
+              i {
+                @include display-flex;
+                width: 20px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          div {
+            padding: 10px 20px;
+
+            span {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

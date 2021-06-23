@@ -1,0 +1,27 @@
+$color-active: #0095f6;
+$color-darkgray: #97989b;
+$color-lightgray: #dbdbdb;
+$color-black: #262626;
+$color-facebook: #385185;
+
+@mixin display-flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin bold-text($color: $color-black, $size: 14px) {
+  font-weight: 600;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin radius-img($border-color: #dbdbdb) {
+  border-radius: 50%;
+  border: 1px solid $border-color;
+  object-fit: cover;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+}
