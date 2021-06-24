@@ -75,7 +75,7 @@
 
         .detail-text {
           @include display-flex(unset, unset);
-          margin-bottom: 6px;
+          margin-bottom: 8px;
 
           .user-name {
             margin-right: 7px;
@@ -107,6 +107,9 @@
           & + .comment {
             margin-top: 3px;
           }
+          em {
+            margin-right: 7px;
+          }
           span {
             width: 100%;
           }
@@ -130,6 +133,11 @@
 
     input {
       width: 70%;
+    }
+
+    button {
+      @include bold-text($color-active, 14px);
+      cursor: pointer;
     }
   }
 }

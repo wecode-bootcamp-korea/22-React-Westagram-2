@@ -7,8 +7,8 @@ class Story extends React.Component {
     console.log(this.props);
     return (
       <ul className="story-container">
-        {this.props.storyLis.map(story => (
-          <li>
+        {this.props.storyLis.map((story, i) => (
+          <li key={i}>
             <div className="gradient-back img-container">
               <img
                 className="user-img"

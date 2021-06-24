@@ -3,11 +3,46 @@ import React from 'react';
 import './Feed.scss';
 
 class Feed extends React.Component {
+  state = {
+    commentInput: '',
+    comments: [],
+  };
+
+  handleComments = e => {
+    e.code === 'Enter'
+      ? this.handleSubmit()
+      : this.setState({ commentInput: e.target.value });
+  };
+
+  handleSubmit = () => {
+    if (this.state.commentInput === '') return;
+
+    this.setState({
+      comments: [...this.state.comments, this.state.commentInput],
+    });
+
+    this.setState({ commentInput: '' });
+  };
+
+  handleClickLike = e => {
+    console.log(e);
+  };
+
+  handleClickDel = e => {
+    const index = e.target.getAttribute('index');
+
+    this.setState({
+      comments: this.state.comments.filter(cmt => {
+        return cmt !== this.state.comments[index];
+      }),
+    });
+  };
+
   render() {
     return (
       <section className="feeds-container">
-        {this.props.feedLis.map(feed => (
-          <article className="feed">
+        {this.props.feedLis.map((feed, i) => (
+          <article className="feed" key={i}>
             <header className="feed-header">
               <div className="feed-user">
                 <div>
@@ -70,17 +105,38 @@ class Feed extends React.Component {
                       <b>{feed.postTime}</b> 전
                     </span>
                   </div>
-                  <ul className="detail-comments"></ul>
+                  <ul className="detail-comments">
+                    {this.state.comments.map((comment, i) => (
+                      <li key={i} className="comment">
+                        <em className="user-name">im_user</em>
+                        <span>{comment}</span>
+                        <div className="comment-icons">
+                          <i
+                            index={i}
+                            onClick={this.handleClickLike}
+                            className="far fa-heart cmt-like"
+                          ></i>
+                          <i
+                            index={i}
+                            onClick={this.handleClickDel}
+                            className="fas fa-times cmt-del"
+                          ></i>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </section>
               </section>
             </section>
             <section className="feed-comments-input">
               <input
+                onChange={this.handleComments}
+                value={this.state.commentInput}
                 type="text"
-                name="writing comments"
+                name="comments-input"
                 placeholder="댓글 달기..."
               />
-              <button className="blue-letter-btn">게시</button>
+              <button onClick={this.handleSubmit}>게시</button>
             </section>
           </article>
         ))}
