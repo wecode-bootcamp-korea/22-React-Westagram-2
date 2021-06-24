@@ -40,7 +40,7 @@ class LoginCw extends React.Component {
 
   render() {
     return (
-      <body className="LoginCw">
+      <section className="LoginCw">
         <div className="loginBackGroundColor">
           <main className="container">
             <span className="mainLogo">westagram</span>
@@ -72,7 +72,7 @@ class LoginCw extends React.Component {
             </span>
           </main>
         </div>
-      </body>
+      </section>
     );
   }
 }
