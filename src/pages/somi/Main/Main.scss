@@ -1,0 +1,392 @@
+@import '../../../styles/common.scss';
+@mixin side-box {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border: 1px solid rgb(237, 237, 237);
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: white;
+}
+@mixin side-box-top {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 40px;
+  padding: 15px;
+}
+@mixin side-box-content {
+  margin-top: 40px;
+  height: 158px;
+  overflow: scroll;
+}
+
+.mainBodySomi {
+  height: 100vh;
+  width: 100%;
+  @include display-flex(center, flex-start);
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* 메인 레이아웃*/
+  .mainMain {
+    @include display-flex(space-between);
+    align-items: flex-start;
+    width: 934px;
+    padding-top: 30px;
+
+    .feeds {
+      flex-direction: column;
+      width: 550px;
+      border: 1px solid $color-lightgray;
+      border-radius: 5px;
+      background-color: white;
+
+      /* 피드 상단 */
+      .feedTop {
+        @include display-flex;
+        padding: 10px;
+        height: 60px;
+        width: 100%;
+
+        .feedProfile {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .feedTopRight {
+          display: flex;
+          align-items: stretch;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 10px;
+
+          .userID {
+            color: black;
+            font-weight: bolder;
+          }
+        }
+      }
+
+      /* 피드 사진*/
+      .feedPicBox {
+        width: 548px;
+        height: 548px;
+        .feedPic {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      /* 피드 하단 */
+      /* like */
+      .likes {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+
+        .likesPic {
+          width: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .likesDesc {
+          margin-bottom: 5px;
+          padding-left: 10px;
+        }
+
+        .likes div {
+          padding-left: 10px;
+        }
+
+        .bolder {
+          font-weight: 600;
+          color: black;
+        }
+      }
+
+      /* 피드 하단 아이콘 */
+      .contentIcons {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 10px 0px 10px;
+
+        .contentBtn {
+          height: 25px;
+          padding-right: 5px;
+          background-color: white;
+          cursor: pointer;
+        }
+
+        .contentBtn:last-child {
+          padding-right: 0;
+        }
+
+        .contentBtn img {
+          height: 100%;
+        }
+      }
+
+      /* 피드하단 코멘트 */
+      .commentList {
+        padding: 0 10px;
+
+        .commentBox {
+          display: flex;
+          font-size: 1.1rem;
+          padding-bottom: 3px;
+        }
+
+        .commentContent {
+          flex: 1;
+          width: 60%;
+          padding-left: 5px;
+        }
+
+        .igID {
+          font-weight: 600;
+        }
+
+        .igID a {
+          color: black;
+        }
+
+        .moreBtn {
+          color: #8e8e8e;
+          background-color: transparent;
+          font-size: 1.1rem;
+          cursor: pointer;
+        }
+        .far.fa-heart {
+          color: #c8c8c8;
+        }
+
+        .deleteBtn {
+          background-color: white;
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .commentTime {
+        display: inline-block;
+        color: #c8c8c8;
+        padding: 5px 0 10px 10px;
+        font-size: 0.9rem;
+      }
+
+      /* 댓글달기 */
+      .commentInputBox {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 10px;
+        border-top: 1px solid rgb(237, 237, 237);
+
+        .commentInput {
+          flex-grow: 1;
+          font-size: 1.1rem;
+        }
+
+        .commentInput:focus {
+          outline: none;
+        }
+
+        .commentInput:focus::placeholder {
+          color: transparent;
+        }
+
+        .commentBtn {
+          margin-left: 5px;
+          color: #cfe7fc;
+          background-color: transparent;
+          font-size: 1.1rem;
+          cursor: pointer;
+        }
+
+        .activate {
+          color: #0095f6;
+        }
+      }
+    }
+
+    .mainRight {
+      position: sticky;
+      top: 85px;
+      width: 350px;
+      height: 100%;
+      padding: 10px 0 0 30px;
+
+      /* 사이드-프로필 */
+      .profile {
+        display: flex;
+        align-items: center;
+
+        .manRightProfilePic {
+          max-width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .profileDesc {
+          padding: 10px;
+
+          span {
+            display: block;
+          }
+
+          .profileID {
+            font-weight: 600;
+          }
+
+          .profileName {
+            color: #c8c8c8;
+          }
+        }
+      }
+
+      /* 사이드 */
+
+      .storyBox {
+        @include side-box;
+
+        .story {
+          display: flex;
+          align-items: center;
+          position: relative;
+          padding: 3px 10px 6px 15px;
+        }
+
+        .storyTop {
+          @include side-box-top;
+        }
+
+        .stories {
+          @include side-box-content;
+        }
+      }
+
+      .recommendationBox {
+        @include side-box;
+        .recommendationTop {
+          @include side-box-top;
+        }
+        .recommendations {
+          @include side-box-content;
+
+          .recommendation {
+            @include display-flex(center, space-between);
+            position: relative;
+            padding: 3px 0px;
+
+            button {
+              width: 60px;
+              color: $color-facebook;
+              background-color: transparent;
+              font-size: 1rem;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      .sideProfile {
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .sideDesc {
+        padding-left: 10px;
+
+        span {
+          display: block;
+          padding: 2px;
+          font-size: 0.9rem;
+        }
+      }
+
+      .sideId {
+        font-weight: 600;
+      }
+
+      .storyTime,
+      .connection {
+        color: #bdbdbd;
+        line-height: 130%;
+      }
+
+      /* 사이드-스토리 */
+      .storyPic {
+        padding: 2px;
+        background-color: white;
+      }
+
+      .story a {
+        z-index: 1;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0px;
+        left: 12px;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        background-image: linear-gradient(#ca1d7e, #e35157, #f2703f);
+        z-index: 0;
+      }
+
+      .smallTitle {
+        color: #ccc;
+        font-weight: 600;
+      }
+
+      .seeAll {
+        font-weight: 600;
+      }
+
+      /* 사이드-추천 */
+
+      .connection {
+        width: 170px;
+        overflow: hidden;
+        word-wrap: normal;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      /* footer */
+      footer {
+        padding: 10px;
+        color: #ccc;
+        line-height: 130%;
+
+        .copyright {
+          padding-top: 10px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      .mainRight {
+        display: none;
+      }
+    }
+  }
+}

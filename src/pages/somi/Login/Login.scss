@@ -1,0 +1,186 @@
+@import '../../../styles/common.scss';
+
+.loginBodySomi {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
+  @include display-flex;
+  a {
+    text-decoration: none;
+  }
+
+  .loginMain {
+    @include display-flex;
+
+    /* 아이폰 이미지 */
+    .phoneImg {
+      height: 600px;
+      width: 450px;
+      background-image: url('https://www.instagram.com/static/images/homepage/home-phones@2x.png/9364675fb26a.pngs');
+      background-size: cover;
+
+      .imgBox {
+        position: relative;
+      }
+
+      .phoneImgs {
+        display: none;
+        top: 95px;
+        position: absolute;
+        left: 146px;
+        height: 435px;
+      }
+
+      .visible {
+        display: block;
+      }
+    }
+
+    /* 오른쪽 부분 */
+    .rightBox {
+      display: flex;
+      flex-direction: column;
+      height: 560px;
+
+      .loginWrapper {
+        @include display-flex;
+        flex-direction: column;
+        width: 370px;
+        padding: 30px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+
+        .loginTitle {
+          margin: 10px 20px 30px 20px;
+          font-size: 3rem;
+        }
+
+        /* 로그인 박스 */
+        .loginContainer {
+          @include display-flex;
+          flex-direction: column;
+          width: 280px;
+
+          .input {
+            width: 100%;
+            padding: 15px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid $color-darkgray;
+            background-color: #fafafa;
+            color: black;
+          }
+
+          .button {
+            padding: 10px;
+            margin: 10px;
+            width: 100%;
+            background-color: #c4e1fb;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bolder;
+
+            a {
+              color: white;
+            }
+          }
+
+          .activate {
+            background-color: $color-facebook;
+          }
+        }
+
+        /* or */
+        .lineBox {
+          @include display-flex;
+          padding: 10px;
+          width: 100%;
+
+          .line {
+            flex: 1;
+            flex-grow: 1;
+            height: 1px;
+            background-color: $color-lightgray;
+          }
+
+          .or {
+            padding: 10px;
+            color: #8e8e8e;
+            font-size: 0.8rem;
+            font-weight: 800;
+          }
+        }
+
+        /* button fb */
+        .fb {
+          width: 200px;
+          padding: 10px;
+          background-color: transparent;
+          color: #385185;
+          font-weight: bolder;
+          font-size: 0.9rem;
+
+          a {
+            color: #385185;
+          }
+        }
+
+        /* 패스워드 찾기 */
+        .findPassword {
+          padding-top: 10px;
+          font-size: 0.8rem;
+          text-decoration: none;
+
+          a {
+            color: #385185;
+            font-weight: bolder;
+          }
+        }
+      }
+
+      /* 가입하기 */
+      .signUp {
+        @include display-flex;
+        height: 100px;
+        width: 370px;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 0.8rem;
+
+        p,
+        a {
+          display: inline-block;
+          padding: 5px;
+          font-weight: bolder;
+        }
+
+        a {
+          color: $color-facebook;
+        }
+      }
+
+      /* 어플 버튼 */
+      .app {
+        padding: 5px 10px;
+        text-align: center;
+      }
+
+      .appLink {
+        @include display-flex;
+
+        .appLinkBtn {
+          width: 130px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
