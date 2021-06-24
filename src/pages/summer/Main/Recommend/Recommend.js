@@ -4,32 +4,26 @@ import './Recommend.scss';
 
 class Recommend extends React.Component {
   render() {
+    console.log(this.props);
     return (
-      // <div className="recommend-container">
-      //   <span className="grey-letter">회원님을 위한 추천</span>
-      //   <ul>
-      //     {this.state.recommend.map(rec => (
-      //       <Recommend
-      //         userName={rec.userName}
-      //         userImg={rec.userImg}
-      //         userDesc={rec.userDesc}
-      //       />
-      //     ))}
-
-      <li>
-        <div className="img-container">
-          <img
-            alt={this.props.userImg}
-            src={this.props.userImg}
-            className="user-img"
-          />
-        </div>
-        <div className="recommended-info">
-          <em className="user-name">{this.props.userName}</em>
-          <span className="grey-letter">{this.props.userDesc}</span>
-        </div>
-        <button className="blue-letter-btn">팔로우</button>
-      </li>
+      <div className="recommend-container">
+        <span className="grey-letter">회원님을 위한 추천</span>
+        <ul>
+          {this.props.recommendLis.map(rec => (
+            <li>
+              <div className="img-container">
+                <img alt={rec.userImg} src={rec.userImg} className="user-img" />
+              </div>
+              <div className="recommended-info">
+                <em className="user-name">{rec.userName}</em>
+                <span className="grey-letter">{rec.userDesc}</span>
+              </div>
+              <button className="blue-letter-btn">팔로우</button>
+            </li>
+          ))}
+        </ul>
+        <button>모두 보기</button>
+      </div>
     );
   }
 }

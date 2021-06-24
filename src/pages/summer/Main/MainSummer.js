@@ -97,26 +97,8 @@ class MainSummer extends React.Component {
         <Nav />
         <main>
           <article className="contents-container">
-            <ul className="story-container">
-              {this.state.stories.map(story => (
-                <Story
-                  userImg={story.userImg}
-                  alt={story.userImg}
-                  userName={story.userName}
-                />
-              ))}
-            </ul>
-            <section className="feeds-container">
-              {this.state.feeds.map(feed => (
-                <Feed
-                  userName={feed.userName}
-                  userImg={feed.userImg}
-                  postImg={feed.postImg}
-                  postText={feed.postText}
-                  postTime={feed.postTime}
-                />
-              ))}
-            </section>
+            <Story storyLis={this.state.stories} />
+            <Feed feedLis={this.state.feeds} />
           </article>
           <div className="right-container">
             <aside>
@@ -133,20 +115,7 @@ class MainSummer extends React.Component {
                   <p>자기소개</p>
                 </div>
               </div>
-              {/* <Recommend {this.state.recommend={recommend}} /> */}
-              <div className="recommend-container">
-                <span className="grey-letter">회원님을 위한 추천</span>
-                <ul>
-                  {this.state.recommend.map(rec => (
-                    <Recommend
-                      userName={rec.userName}
-                      userImg={rec.userImg}
-                      userDesc={rec.userDesc}
-                    />
-                  ))}
-                </ul>
-                <button>모두 보기</button>
-              </div>
+              <Recommend recommendLis={this.state.recommend} />
             </aside>
             <Footer />
           </div>
