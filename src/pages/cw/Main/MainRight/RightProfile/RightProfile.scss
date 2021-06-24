@@ -1,15 +1,15 @@
-@import '../../../../Styles/MixinColor.scss';
+@import '../../../../../styles/common.scss';
 
 .RightProfile {
   margin-top: 40px;
   width: 100%;
-  @include flex;
+  @include display-flex(center, center);
   padding-left: 15px;
 
   .rightProfileThum img {
     height: 50px;
   }
-  
+
   .rightProfileText p {
     font-size: 1em;
     font-weight: bold;

@@ -1,16 +1,16 @@
-@import '../../Styles/MixinColor.scss';
+@import '../../../styles/common.scss';
 
-.Main {
+.MainCw {
   height: 100%;
 
   main {
     display: flex;
     justify-content: center;
-    background-color: $downBacground-color;
+    background-color: $color-lightgray;
     width: 100vw;
     height: 100%;
   }
-  
+
   .feeds {
     width: auto;
     height: auto;

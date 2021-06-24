@@ -1,4 +1,4 @@
-@import '../../../../Styles/MixinColor.scss';
+@import '../../../../../styles/common.scss';
 
 .Suggestion {
   margin-top: 15px;
@@ -6,29 +6,28 @@
   height: 200px;
   background-color: white;
   padding: 15px 15px;
-  @include border;
+  board: 1px solid $color-darkgray;
 
   .suggestionTop {
     display: flex;
     justify-content: space-between;
   }
-  
+
   .suggestionContent {
     margin-top: 15px;
     display: flex;
     width: 100%;
   }
-  
+
   .suggestionContent img {
     margin-left: 15px;
     height: 30px;
   }
-  
+
   .suggestionConetntID {
     margin-left: 20px;
-    
   }
-  
+
   .suggestionFollow {
     justify-self: right;
     margin-left: auto;

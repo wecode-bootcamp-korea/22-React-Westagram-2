@@ -15,7 +15,7 @@ class LoginCw extends React.Component {
   }
 
   goToMain = () => {
-    this.props.history.push('/MainCw');
+    this.props.history.push('/cw/main');
   };
 
   handleIdInput = event => {
