@@ -1,0 +1,18 @@
+@import '../../../../Styles/MixinColor.scss';
+
+.RightProfile {
+  margin-top: 40px;
+  width: 100%;
+  @include flex;
+  padding-left: 15px;
+
+  .rightProfileThum img {
+    height: 50px;
+  }
+  
+  .rightProfileText p {
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+}

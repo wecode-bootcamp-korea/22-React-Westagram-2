@@ -1,0 +1,19 @@
+@import '../../Styles/MixinColor.scss';
+
+.Main {
+  height: 100%;
+
+  main {
+    display: flex;
+    justify-content: center;
+    background-color: $downBacground-color;
+    width: 100vw;
+    height: 100%;
+  }
+  
+  .feeds {
+    width: auto;
+    height: auto;
+    display: flex;
+  }
+}

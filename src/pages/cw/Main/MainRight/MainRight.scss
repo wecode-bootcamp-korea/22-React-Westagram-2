@@ -1,0 +1,27 @@
+.MainRight {
+  width: 300px;
+  margin-left: 20px;
+  /* background-color: lawngreen; */
+
+
+  .rigthFoot {
+    margin-top: 15px;
+    width: 300px;
+    height: 80px;
+    color: rgb(207, 207, 207);
+  }
+  
+  .grayText {
+    color: rgb(161, 161, 161)
+  }
+  
+  .linkText {
+    color: blue;
+  }
+  
+  @media all and (max-width:800px){
+    .mainRight {
+      display: none;
+    }
+  }
+}

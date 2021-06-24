@@ -1,0 +1,121 @@
+@import '../../../Styles/MixinColor.scss';
+
+.Article {
+  height: auto;
+  width: 100%;
+  min-width: 450px;
+  max-width: 550px;
+  max-height: 800px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-top: 15px;
+  background-color: white;
+  @include border;
+  
+  .contentHead {
+    width: 100%;
+    display: flex;
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: white;
+  }
+  
+  .contentHeadProfileThum img {
+    margin-top: 5px;
+    margin-left: 15px;
+    height: 30px;
+  }
+  
+  .contentHeadProfile {
+    width: 150px;
+    padding-left: 15px;
+    align-self: center;
+  }
+  
+  .contentHeadProfile p {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  
+  .contentHeadMoreOption {
+    margin-left: auto;
+    margin-right: 5px;
+    align-self: center;
+  }
+
+  .contentHeadMoreOption button {
+    background: none;
+  }
+  
+  .imgContent {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .imgContent img {
+    width: 100%;
+  }
+  
+  .bottomBts {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+  
+  .bottomBts img {
+    height: 30px;
+    margin-left: 15px;
+  }
+  
+  #bookMark {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  
+  #likeCount {
+    font-weight: bold;
+    padding: 5px 0px 5px 15px;
+    background-color: white;
+  }
+  
+  #comments {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: white;
+  }
+  
+  #commentWrap {
+    width: 100%;
+    display: flex;
+    border-top: 1px solid rgb(235, 235, 235);
+  }
+  
+  #new-comment {
+    width: 100%;
+    height: 100%;
+    padding-top: 12px;
+    padding-left: 15px;
+    resize: none;
+    background-color: transparent;
+  }
+  
+  .comment-row {
+    width: 100%;
+    display: flex;
+    height: 40px;
+    align-items: center;
+  }
+  
+  .comment-row button {
+    width: 20%;
+    background-color: transparent;
+    color: rgb(197, 225, 252);
+  }
+  
+  .comment-content {
+    margin-left: 20px;
+  }
+}

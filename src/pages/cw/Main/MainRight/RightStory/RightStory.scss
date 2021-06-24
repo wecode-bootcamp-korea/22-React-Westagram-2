@@ -1,0 +1,30 @@
+@import '../../../../Styles/MixinColor.scss';
+
+.RightStory {
+  margin-top: 15px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  @include border;
+  padding: 15px 15px;
+  
+  
+  .rightStoryTop {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .rightStoryContent {
+    margin-top: 15px;
+    display: flex;
+  }
+  
+  .rightStoryContent img {
+    margin-left: 15px;
+    height: 30px;
+  }
+  
+  .rigtStoryConetntID {
+    margin-left: 20px;
+  }
+}
