@@ -4,8 +4,8 @@ import Nav from '../../../components/Nav/Nav';
 import Story from './Story/Story';
 import Feed from './Feed/Feed';
 import Recommend from './Recommend/Recommend';
-import Footer from './Footer/Footer';
 import MyInfo from './MyInfo/MyInfo';
+import Footer from '../components/Footer/Footer';
 
 import '../../../styles/reset.scss';
 import './Main.scss';

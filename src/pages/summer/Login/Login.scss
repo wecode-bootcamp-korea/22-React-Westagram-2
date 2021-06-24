@@ -120,42 +120,6 @@
     }
   }
 
-  /* FOOTER */
-  footer {
-    .footer-top {
-      @include display-flex(center, unset);
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-
-      li {
-        padding: 0 2px;
-        color: $color-darkgray;
-        font-size: 12px;
-
-        & + li {
-          margin-left: 12px;
-        }
-      }
-    }
-
-    .footer-bottom {
-      @include display-flex(center, unset);
-
-      select {
-        margin-right: 10px;
-        width: 55px;
-        border: none;
-        background: none;
-        font-size: 12px;
-        color: $color-darkgray;
-      }
-      span {
-        color: $color-darkgray;
-        font-size: 12px;
-      }
-    }
-  }
-
   /* media query */
 
   /* 874px 이하 */
@@ -167,11 +131,13 @@
 
   /* 549px 이하 */
   @media screen and (max-width: 549px) {
-    .footer-top {
-      padding: 0 20px;
-    }
-    .footer-top li {
-      padding: 0 2px 10px;
+    footer {
+      .footer-top {
+        padding: 0 20px;
+      }
+      .footer-top li {
+        padding: 0 2px 10px;
+      }
     }
   }
 }

@@ -40,14 +40,16 @@
 
   /* 974px 이하 */
   @media screen and (max-width: 974px) {
-    .contents-container {
-      margin: 0;
-    }
-    .right-container {
-      display: none;
-    }
     .top-header .top-header-contents {
       width: 90%;
+    }
+    main {
+      .contents-container {
+        margin: 0;
+      }
+      .right-container {
+        display: none;
+      }
     }
   }
 
@@ -68,22 +70,27 @@
     }
     .contents-container {
       width: 100%;
+
+      .story-container {
+        width: 100vw;
+      }
     }
-    .contents-container .story-container {
-      width: 100vw;
-    }
+
     .feeds-container .feed {
       border: none;
+
+      .feed-contents {
+        border-bottom: none;
+
+        .post-img-container img {
+          width: 100%;
+        }
+        .post-desc-container {
+          padding: 8px 20px 40px;
+        }
+      }
     }
-    .feed-contents {
-      border-bottom: none;
-    }
-    .post-img-container img {
-      width: 100%;
-    }
-    .post-desc-container {
-      padding: 8px 20px 40px;
-    }
+
     .feed-comments-input {
       display: none;
     }
