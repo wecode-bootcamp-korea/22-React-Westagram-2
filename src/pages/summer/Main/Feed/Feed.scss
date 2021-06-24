@@ -1,0 +1,131 @@
+@import '../../../../styles/common.scss';
+
+.feed {
+  .feed-header {
+    @include display-flex(space-between, unset);
+    padding: 16px;
+
+    .feed-user {
+      @include display-flex;
+      font-size: 0;
+
+      img {
+        width: 36px;
+        height: 36px;
+      }
+      em {
+        margin-left: 14px;
+      }
+    }
+
+    .feed-more .dots {
+      @include display-flex(space-between, unset);
+      width: 16px;
+      padding: 15px 6px 10px;
+      box-sizing: content-box;
+      cursor: pointer;
+
+      i {
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $color-black;
+      }
+    }
+  }
+
+  .feed-contents {
+    border-bottom: 1px solid $color-lightgray;
+
+    .post-img-container {
+      font-size: 0;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .post-desc-container {
+      padding: 8px 16px 40px;
+
+      .feed-btns {
+        @include display-flex(space-between, unset);
+        margin: 0px 0px 8px;
+
+        button i {
+          font-size: 23px;
+        }
+        .feed-btns-left button {
+          margin-right: 8px;
+        }
+      }
+
+      .sum-like {
+        margin: 0 0 10px;
+        @include bold-text;
+      }
+
+      .feed-details {
+        position: relative;
+
+        .detail-text {
+          @include display-flex(unset, unset);
+          margin-bottom: 6px;
+
+          .user-name {
+            margin-right: 7px;
+          }
+          .text-contents {
+            height: 18px;
+            margin-top: -1px;
+            line-height: 1.4;
+          }
+          .post-more-btn {
+            margin-left: 10px;
+            @include bold-text;
+            cursor: pointer;
+            min-width: 39px;
+          }
+        }
+
+        .detail-time {
+          position: absolute;
+          bottom: -25px;
+          left: 0;
+          font-size: 11px;
+          color: $color-darkgray;
+        }
+
+        .detail-comments .comment {
+          @include display-flex(space-between, center);
+
+          & + .comment {
+            margin-top: 3px;
+          }
+          span {
+            width: 100%;
+          }
+          div {
+            @include display-flex(unset, unset);
+          }
+
+          i {
+            margin-left: 8px;
+            font-size: 12px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .feed-comments-input {
+    @include display-flex(space-between, unset);
+    padding: 16px;
+
+    input {
+      width: 70%;
+    }
+  }
+}
