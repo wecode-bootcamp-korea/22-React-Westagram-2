@@ -1,0 +1,426 @@
+@import '../../../styles/common.scss';
+
+@mixin bold-text-main ( $color: $color-black, $size: 14px ) {
+  font-weight: 600;
+  color: $color;
+  font-size: $size;
+}
+
+*{
+  color: #262626;
+}
+
+.mainJJ{
+
+  .container {
+    @include display-flex;
+    width: 100%;
+
+    .center {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1000px;
+      padding-top: 50px;
+
+      #main {
+        @include display-flex;
+        flex: 2;
+
+        .mainBg {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          width: 90%;
+          border: 1px solid rgba(219, 219, 219, 1);
+          border-radius: 5px;
+
+          .mainTop {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 5%;
+            padding: 16px;
+
+            .profile {
+              @include display-flex;
+              font-size: 14px;
+
+              img {
+                width: 32px;
+                height: 32px;
+                margin-right: 10px;
+                border: none;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+
+              p{
+                @include bold-text-main($color-black, 17px);
+              }
+
+            }
+            .threeDot {
+              @include display-flex;
+              @include bold-text-main($color-black, 17px);
+              cursor: pointer;
+            }
+          }
+          .mainImg {
+            width: 100%;
+            height: 60%;
+
+            img {
+              width: 100%;
+            }
+
+          }
+
+          .mainBottom {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 35%;
+
+            .mbIconWrap {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+              padding: 10px;
+  
+              .mbIconLeft {
+
+                i {
+                  margin-right: 5px;
+                  font-size: 24px;
+                  cursor: pointer;
+                  
+                  &.fa-heart{
+                    color: red;
+                  }
+
+                  &.fa-comment,
+                  &.fa-paper-plane{
+                    color: #262626;
+                  }
+
+                }
+
+              }
+
+              .mIconRight {
+
+                i {
+                  font-size: 24px;
+                  cursor: pointer;
+                }
+
+              }
+
+            }
+
+            .mbLiked {
+              display: flex;
+              width: 100%;
+              padding: 10px;
+  
+              img {
+                width: 20px;
+                margin-right: 20px;
+              }
+  
+              p {
+                @include display-flex(left);
+
+                span {
+                  @include bold-text-main($color-black);
+                  cursor: pointer;
+                }
+
+              }
+            }
+            .mbWrittenComments {
+              display: flex;
+              flex-direction: column;
+              padding: 10px;
+              padding-top: 0px;
+  
+              .commentSection {
+                @include display-flex(space-between);
+                margin-top: 5px;
+  
+                .personalAccount {
+                  @include display-flex(space-between);
+                  width: 100%;
+
+                  .commentWrap {
+                    @include display-flex(space-between);
+
+                    .userId {
+                      margin-right: 5px;
+                      @include bold-text-main($color-black);
+                    }
+                  }
+                  .commentIconWrap {
+                    @include display-flex(space-between);
+                    
+                    i{
+                      cursor: pointer;
+
+                      &.likesBtn {
+                        margin-right: 5px;
+                      }
+
+                      &.deleteBtn {
+                        color: #262626;
+                      }
+
+                    }
+                  }
+                }
+              }
+            }
+            .mbWrittenTime {
+              padding: 10px;
+              padding-top: 0;
+              font-size: 11px;
+              font-weight: 400;
+  
+              p {
+                color: #8e8e8e;
+              }
+            }
+            .commentInput {
+              @include display-flex(space-between);
+              padding: 10px;
+              border-top: 1px solid rgba(219, 219, 219, 1);
+  
+              input {
+                flex: 9;
+                resize: none;
+                height: 30px;
+                padding-left: 10px;
+                color: #8e8e8e;
+                border: none;
+                border-radius: 5px;
+              }
+
+              button {
+                flex: 1;
+                background-color: transparent;
+                color: #0095f6;
+                border: none;
+                text-align: right;
+                cursor: pointer;
+              }
+
+            }
+          }
+        }
+      }
+
+      #aside {
+
+        .asMyAccount {
+          @include display-flex(start);
+          margin-bottom: 20px;
+          padding: 0 10px;
+          font-size: 13px;
+
+          img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .asMyProfile {
+            > p {
+              @include bold-text-main($color-black, 17px);
+            }
+
+            .asMyProfile_bottom {
+              display: flex;
+
+              p {
+                color: rgba(219, 219, 219, 1);
+                font-size: 14px;
+
+                &:first-child {
+                  padding-right: 10px;
+                  border-right: 1px solid rgba(219, 219, 219, 1);
+                }
+
+                &:last-child {
+                  padding-left: 10px;
+                }
+
+              }
+            }
+          }
+        }
+
+        .asStory {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          height: 200px;
+          margin-bottom: 20px;
+          border: 1px solid rgba(219, 219, 219, 1);
+          border-radius: 5px;
+  
+          .asStoryTop {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid rgba(219, 219, 219, 1);
+
+            p {
+              font-size: 14px;
+
+              &:first-child {
+                color: #c7c7c7;
+              }
+
+              &:nth-child(2) {
+                cursor: pointer;
+              }
+            }
+          }
+
+          .asStoryListWrap {
+            width: 100%;
+            padding: 0 10px;
+            overflow: hidden;
+
+            .asStoryList {
+              @include display-flex(left);
+              margin-bottom: 10px;
+              font-size: 13px;
+
+              &:first-child {
+                margin-top: 10px;
+              }
+
+              img {
+                width: 30px;
+                height: 30px;
+                border: none;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+
+              .asStoryInfo {
+                padding-left: 10px;
+
+                p {
+
+                  &:nth-child(2) {
+                    color: #c7c7c7;
+                    font-size: 13px;
+                  }
+
+                }
+              }
+            }
+          }
+        }
+
+        .asRecommandation {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          height: 200px;
+          margin-bottom: 20px;
+          border: 1px solid rgba(219, 219, 219, 1);
+          border-radius: 5px;
+
+          .asReTop {
+            @include display-flex(space-between);
+            padding: 10px;
+            border-bottom: 1px solid rgba(219, 219, 219, 1);
+
+            p {
+              font-size: 14px;
+
+              &:first-child {
+                color: #c7c7c7;
+              }
+
+              &:nth-child(2) {
+                cursor: pointer;
+              }
+
+            }
+          }
+
+          .asReListWrap {
+            width: 100%;
+            padding: 0 10px;
+            overflow: hidden;
+
+            .asReList {
+              @include display-flex(space-between);
+              margin-bottom: 10px;
+              font-size: 15px;
+              font-weight: 300;
+  
+              &:first-child {
+                margin-top: 10px;
+              }
+              .asReListLeft {
+                @include display-flex(left);
+
+                img {
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 10px;
+                  border: none;
+                  border-radius: 50%;
+                  object-fit: cover;
+                }
+
+                .asReInfo {
+
+                  p {
+                    @include bold-text-main($color-black);
+
+                    &:nth-child(2) {
+                      color: #c7c7c7;
+                      font-size: 13px;
+                    }
+
+                  }
+                }
+              }
+
+              .asReListfollowBox {
+                color: #0095f6;
+                font-weight: 500;
+                cursor: pointer;
+              }
+
+            }
+          }
+        }
+
+        .asInfoWrap {
+          padding: 0 10px;
+          font-size: 15px;
+
+          p {
+            color: #c7c7c7;
+
+            &:last-child {
+              margin-top: 20px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

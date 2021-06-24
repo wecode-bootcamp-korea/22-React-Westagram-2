@@ -10,7 +10,7 @@ $color-facebook: #385185;
   align-items: $align;
 }
 
-@mixin bold-text($color: $color-black, $size: 14px) {
+@mixin bold-text( $color: $color-black, $size: 14px) {
   font-weight: 600;
   font-size: $size;
   color: $color;
