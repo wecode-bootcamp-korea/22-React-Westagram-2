@@ -21,7 +21,7 @@
       justify-content: space-between;
       width: 100%;
       max-width: 1000px;
-      padding-top: 50px;
+    
 
       #main {
         @include display-flex;
@@ -34,6 +34,7 @@
           width: 90%;
           border: 1px solid rgba(219, 219, 219, 1);
           border-radius: 5px;
+          box-shadow: 10px 10px 10px #eee;
 
           .mainTop {
             display: flex;
@@ -227,6 +228,7 @@
           margin-bottom: 20px;
           padding: 0 10px;
           font-size: 13px;
+          
 
           img {
             width: 50px;
@@ -271,6 +273,7 @@
           margin-bottom: 20px;
           border: 1px solid rgba(219, 219, 219, 1);
           border-radius: 5px;
+          box-shadow: 10px 10px 10px #eee;
   
           .asStoryTop {
             display: flex;
@@ -317,6 +320,10 @@
                 padding-left: 10px;
 
                 p {
+                  &:first-child{
+                    @include bold-text-main(17px)
+
+                  }
 
                   &:nth-child(2) {
                     color: #c7c7c7;
@@ -337,6 +344,7 @@
           margin-bottom: 20px;
           border: 1px solid rgba(219, 219, 219, 1);
           border-radius: 5px;
+          box-shadow: 10px 10px 10px #eee;
 
           .asReTop {
             @include display-flex(space-between);
