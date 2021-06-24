@@ -1,0 +1,19 @@
+@import '../../../../styles/common.scss';
+
+.my-container {
+  @include display-flex(unset, center);
+  margin-bottom: 20px;
+
+  .img-container {
+    margin-right: 15px;
+
+    img {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  .my-info p {
+    margin-top: 3px;
+  }
+}

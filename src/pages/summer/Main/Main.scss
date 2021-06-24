@@ -15,105 +15,21 @@
 
   main {
     @include display-flex(center, unset);
-  }
 
-  .contents-container {
-    margin-right: 320px;
-    width: 612px;
-
-    .story-container {
-      @include display-flex(unset, unset);
-      padding: 16px 0 16px 10px;
-      margin-bottom: 24px;
-      border: 1px solid $color-lightgray;
-      border-radius: 4px;
-      overflow: hidden;
+    .contents-container {
+      margin-right: 320px;
+      width: 612px;
     }
 
-    .feed {
-      border: 1px solid $color-lightgray;
-      border-radius: 4px;
-      margin-bottom: 30px;
+    .right-container {
+      position: fixed;
+      top: 90px;
+      left: calc(50vw + 180px);
+      width: 290px;
     }
   }
 
-  /* ASIDE */
-  /* aside > .my-container */
-  .right-container {
-    position: fixed;
-    top: 90px;
-    left: calc(50vw + 180px);
-    width: 290px;
-
-    aside {
-      .my-container {
-        @include display-flex(unset, center);
-        margin-bottom: 20px;
-
-        .img-container {
-          margin-right: 15px;
-
-          img {
-            width: 56px;
-            height: 56px;
-          }
-        }
-
-        .my-info p {
-          margin-top: 3px;
-        }
-      }
-
-      /* aside > .recommend-container */
-      .recommend-container {
-        position: relative;
-        padding-bottom: 18px;
-      }
-    }
-
-    /* FOOTER */
-    footer {
-      ul {
-        @include display-flex(unset, unset);
-        flex-wrap: wrap;
-        margin-bottom: 15px;
-
-        li {
-          position: relative;
-          padding: 3px 0;
-          color: $color-darkgray;
-          font-size: 12px;
-
-          &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -4px;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 1px;
-            background: $color-darkgray;
-            border-radius: 50%;
-          }
-          & + li {
-            margin-left: 8px;
-          }
-          &:nth-child(7) {
-            margin-left: 0;
-          }
-          &:last-of-type::after {
-            background: transparent;
-          }
-        }
-      }
-      span {
-        color: $color-darkgray;
-        font-size: 12px;
-      }
-    }
-  }
-
-  /* media query */
+  /* MEDIA QUERY */
 
   /* 1129px이하*/
   @media screen and (max-width: 1129px) {

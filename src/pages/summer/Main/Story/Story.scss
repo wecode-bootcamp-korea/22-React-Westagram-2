@@ -1,6 +1,13 @@
 @import '../../../../styles/common.scss';
 
 .story-container {
+  @include display-flex(unset, unset);
+  padding: 16px 0 16px 10px;
+  margin-bottom: 24px;
+  border: 1px solid $color-lightgray;
+  border-radius: 4px;
+  overflow: hidden;
+
   li {
     @include display-flex(unset, unset);
     flex-direction: column;

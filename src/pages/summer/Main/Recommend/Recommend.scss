@@ -1,6 +1,9 @@
 @import '../../../../styles/common.scss';
 
 .recommend-container {
+  position: relative;
+  padding-bottom: 18px;
+
   & > span {
     display: block;
     margin-bottom: 8px;

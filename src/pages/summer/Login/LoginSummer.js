@@ -1,5 +1,7 @@
 import React from 'react';
 
+import MobileScreen from './MobileScreen/MobileScreen';
+
 import '../../../styles/reset.scss';
 import './Login.scss';
 
@@ -38,18 +40,7 @@ class LoginSummer extends React.Component {
     return (
       <div className="Login-summer">
         <main>
-          <div className="mobile-display">
-            <img
-              className="iphone"
-              alt="아이폰"
-              src="/images/summer/43cc71bb1b43.png"
-            />
-            <img
-              className="inner-img"
-              alt="아이폰 화면"
-              src="/images/summer/0a2d3016f375.jpg"
-            />
-          </div>
+          <MobileScreen />
           <div className="right-container">
             <section className="login-container">
               <h1>Westagram</h1>

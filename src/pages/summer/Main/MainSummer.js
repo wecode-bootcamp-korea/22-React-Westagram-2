@@ -5,12 +5,18 @@ import Story from './Story/Story';
 import Feed from './Feed/Feed';
 import Recommend from './Recommend/Recommend';
 import Footer from './Footer/Footer';
+import MyInfo from './MyInfo/MyInfo';
 
 import '../../../styles/reset.scss';
 import './Main.scss';
 
 class MainSummer extends React.Component {
   state = {
+    myInfo: {
+      userName: 'summer_always',
+      userImg: '/images/summer/myprofile.jpg',
+      userDesc: 'Hi! Have a nice day:)',
+    },
     stories: [
       {
         userName: 'doggy',
@@ -102,19 +108,7 @@ class MainSummer extends React.Component {
           </article>
           <div className="right-container">
             <aside>
-              <div className="my-container">
-                <div className="img-container">
-                  <img
-                    alt="프로필"
-                    src="/images/summer/myprofile.jpg"
-                    className="user-img"
-                  />
-                </div>
-                <div className="my-info">
-                  <em className="user-name">usually_summer</em>
-                  <p>자기소개</p>
-                </div>
-              </div>
+              <MyInfo myInfo={this.state.myInfo} />
               <Recommend recommendLis={this.state.recommend} />
             </aside>
             <Footer />

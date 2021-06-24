@@ -1,6 +1,10 @@
 @import '../../../../styles/common.scss';
 
 .feed {
+  border: 1px solid $color-lightgray;
+  border-radius: 4px;
+  margin-bottom: 30px;
+
   .feed-header {
     @include display-flex(space-between, unset);
     padding: 16px;

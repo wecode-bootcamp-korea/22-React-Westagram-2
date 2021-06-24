@@ -7,20 +7,6 @@
     height: 742px;
     margin: 14px 0 68px;
 
-    /* MAIN > .mobile-display */
-    .mobile-display {
-      position: relative;
-      display: flex;
-      margin-left: -60px;
-
-      .inner-img {
-        position: absolute;
-        top: 100px;
-        left: 150px;
-        transform: translateX(0.3%);
-      }
-    }
-
     /* MAIN > RIGHT-CONTAINER */
     .right-container {
       margin-left: -10px;
