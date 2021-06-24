@@ -6,8 +6,8 @@
   @include display-flex(center, center);
   padding-left: 15px;
 
-  .rightProfileThum img {
-    height: 50px;
+  #rightProfileThum {
+    font-size: 30px;
   }
 
   .rightProfileText p {

@@ -1,7 +1,6 @@
 .MainRight {
   width: 300px;
   margin-left: 20px;
-  /* background-color: lawngreen; */
 
   .rigthFoot {
     margin-top: 15px;
@@ -17,10 +16,10 @@
   .linkText {
     color: blue;
   }
+}
 
-  @media all and (max-width: 800px) {
-    .mainRight {
-      display: none;
-    }
+@media (max-width: 800px) {
+  .MainRight {
+    display: none;
   }
 }

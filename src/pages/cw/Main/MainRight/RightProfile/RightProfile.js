@@ -8,7 +8,7 @@ class RightProfile extends React.Component {
     return (
       <div className="RightProfile">
         <div className="rightProfileThum">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
         </div>
         <div className="rightProfileText">
           <p>wecode_bootcamp</p>

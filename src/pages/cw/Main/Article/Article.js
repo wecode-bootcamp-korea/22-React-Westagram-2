@@ -2,6 +2,7 @@ import React from 'react';
 import './Article.scss';
 import '../../../../styles/reset.scss';
 import '../../../../styles/common.scss';
+import MainPicture from '../Images/main.jpeg';
 
 class Article extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class Article extends React.Component {
       <article className="Article">
         <div className="contentHead">
           <div className="contentHeadProfileThum">
-            <img src="images/profile.png" alt="작성자 프로필 사진" />
+            <i className="fas fa-user-circle" id="profileThum"></i>
           </div>
           <div className="contentHeadProfile">
             <p>wecode_bootcamp</p>
@@ -20,14 +21,14 @@ class Article extends React.Component {
           </div>
         </div>
         <div className="imgContent">
-          <img src="images/main.jpeg" alt="메인 사진" />
+          <img src={MainPicture} alt="메인 사진" />
         </div>
         <div className="artcl bottom">
           <div className="bottomBts">
-            <img alt="hart" src="images/heart.png" />
-            <img alt="comment" src="images/comment.png" />
-            <img alt="share" src="images/share.png" />
-            <img alt="hart" id="bookMark" src="images/bookmark.png" />
+            <i className="far fa-heart"></i>
+            <i className="far fa-comment"></i>
+            <i className="far fa-share-square"></i>
+            <i className="far fa-bookmark" id="bookMark"></i>
           </div>
           <p id="likeCount">좋아요 1,392개</p>
           <div id="comments">

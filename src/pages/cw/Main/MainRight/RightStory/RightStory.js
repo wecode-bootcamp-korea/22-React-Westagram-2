@@ -12,21 +12,21 @@ class RightStory extends React.Component {
           <span>모두 보기</span>
         </div>
         <div className="rightStoryContent">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
           <div className="rigtStoryConetntID">
             <p>아무개</p>
             <p className="grayText">20분 전</p>
           </div>
         </div>
         <div className="rightStoryContent">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
           <div className="rigtStoryConetntID">
             <p>아무개</p>
             <p className="grayText">20분 전</p>
           </div>
         </div>
         <div className="rightStoryContent">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
           <div className="rigtStoryConetntID">
             <p>아무개</p>
             <p className="grayText">20분 전</p>

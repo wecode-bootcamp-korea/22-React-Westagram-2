@@ -12,7 +12,7 @@ class Suggestion extends React.Component {
           <span>모두 보기</span>
         </div>
         <div className="suggestionContent">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
           <div className="suggestionConetntID">
             <p>아무개</p>
             <p className="grayText">20분 전</p>
@@ -22,7 +22,7 @@ class Suggestion extends React.Component {
           </div>
         </div>
         <div className="suggestionContent">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
           <div className="suggestionConetntID">
             <p>아무개</p>
             <p className="grayText">20분 전</p>
@@ -32,7 +32,7 @@ class Suggestion extends React.Component {
           </div>
         </div>
         <div className="suggestionContent">
-          <img src="images/profile.png" alt="작성자 프로필 사진" />
+          <i className="fas fa-user-circle" id="rightProfileThum"></i>
           <div className="suggestionConetntID">
             <p>아무개</p>
             <p className="grayText">20분 전</p>
