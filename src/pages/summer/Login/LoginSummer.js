@@ -1,41 +1,12 @@
 import React from 'react';
 
 import MobileScreen from './MobileScreen/MobileScreen';
+import LoginInput from './LoginInput/LoginInput';
 
 import '../../../styles/reset.scss';
 import './Login.scss';
 
 class LoginSummer extends React.Component {
-  state = {
-    idInput: '',
-    pwInput: '',
-    idVld: false,
-    pwVld: false,
-  };
-
-  gotoMain = () => {
-    console.log(this);
-    this.props.history.push('/summer/main');
-  };
-
-  handleIdInput = e => {
-    this.setState({ idInput: e.target.value });
-    const checkIdVld = /^(?=.*[@])[a-z0-9_.@]{5,}$/gi;
-    const checkedId = checkIdVld.test(e.target.value);
-    checkedId === true
-      ? this.setState({ idVld: true })
-      : this.setState({ idVld: false });
-  };
-
-  handlePwInput = e => {
-    this.setState({ pwInput: e.target.value });
-    const checkPwVld = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
-    const checkedPW = checkPwVld.test(e.target.value);
-    checkedPW === true
-      ? this.setState({ pwVld: true })
-      : this.setState({ pwVld: false });
-  };
-
   render() {
     return (
       <div className="Login-summer">
@@ -44,37 +15,7 @@ class LoginSummer extends React.Component {
           <div className="right-container">
             <section className="login-container">
               <h1>Westagram</h1>
-              <form action="#" method="POST" name="user-login">
-                <input
-                  onChange={this.handleIdInput}
-                  type="text"
-                  placeholder="사용자 이름 또는 이메일"
-                  id="id-input"
-                />
-                <input
-                  onChange={this.handlePwInput}
-                  type="password"
-                  placeholder="비밀번호"
-                  id="pw-input"
-                />
-                {this.state.idVld && this.state.pwVld ? (
-                  <button
-                    onClick={this.gotoMain}
-                    style={{ background: '#0095F6' }}
-                    type="submit"
-                  >
-                    로그인
-                  </button>
-                ) : (
-                  <button
-                    disabled
-                    style={{ background: '#B2DFFC' }}
-                    type="submit"
-                  >
-                    로그인
-                  </button>
-                )}
-              </form>
+              <LoginInput />
               <section
                 aria-label="페이스북으로 로그인"
                 className="login-facebook"
