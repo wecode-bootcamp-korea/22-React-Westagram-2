@@ -107,6 +107,7 @@
         .likesDesc {
           margin-bottom: 5px;
           padding-left: 10px;
+          font-size: 1rem;
         }
 
         .likes div {
@@ -159,6 +160,7 @@
 
         .igID {
           font-weight: 600;
+          font-size: 1.1rem;
         }
 
         .igID a {
@@ -224,6 +226,7 @@
       }
     }
 
+    // 사이드
     .mainRight {
       position: sticky;
       top: 85px;
@@ -231,7 +234,7 @@
       height: 100%;
       padding: 10px 0 0 30px;
 
-      /* 사이드-프로필 */
+      /* 사이드 내 프로필 */
       .profile {
         display: flex;
         align-items: center;
@@ -252,6 +255,7 @@
 
           .profileID {
             font-weight: 600;
+            font-size: 1.1rem;
           }
 
           .profileName {
@@ -260,16 +264,79 @@
         }
       }
 
-      /* 사이드 */
+      /* 사이드 내 스토리, 추천 박스 공통 디자인 */
+      .smallTitle {
+        color: #ccc;
+        font-weight: 600;
+      }
 
+      .seeAll {
+        font-weight: 600;
+      }
+
+      .sideProfile {
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .storyTime,
+      .connection {
+        color: #bdbdbd;
+        line-height: 130%;
+      }
+
+      .sideDesc {
+        padding-left: 10px;
+
+        span {
+          display: block;
+          padding: 2px;
+          font-size: 0.9rem;
+        }
+
+        .connection {
+          width: 170px;
+          overflow: hidden;
+          word-wrap: normal;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+
+      /* 사이드 내 스토리 박스 */
       .storyBox {
         @include side-box;
+
+        .sideId {
+          font-weight: 600;
+        }
 
         .story {
           display: flex;
           align-items: center;
           position: relative;
           padding: 3px 10px 6px 15px;
+
+          .circle {
+            position: absolute;
+            top: 0px;
+            left: 12px;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            background-image: linear-gradient(#ca1d7e, #e35157, #f2703f);
+            z-index: 0;
+          }
+
+          a {
+            z-index: 1;
+          }
+
+          .storyPic {
+            padding: 2px;
+            background-color: white;
+          }
         }
 
         .storyTop {
@@ -281,11 +348,14 @@
         }
       }
 
+      /* 사이드 내 추천 박스 */
       .recommendationBox {
         @include side-box;
+
         .recommendationTop {
           @include side-box-top;
         }
+
         .recommendations {
           @include side-box-content;
 
@@ -294,9 +364,9 @@
             position: relative;
             padding: 3px 0px;
 
-            button {
+            .followBtn {
               width: 60px;
-              color: $color-facebook;
+              color: $color-active;
               background-color: transparent;
               font-size: 1rem;
               font-weight: 600;
@@ -305,73 +375,7 @@
         }
       }
 
-      .sideProfile {
-        width: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .sideDesc {
-        padding-left: 10px;
-
-        span {
-          display: block;
-          padding: 2px;
-          font-size: 0.9rem;
-        }
-      }
-
-      .sideId {
-        font-weight: 600;
-      }
-
-      .storyTime,
-      .connection {
-        color: #bdbdbd;
-        line-height: 130%;
-      }
-
-      /* 사이드-스토리 */
-      .storyPic {
-        padding: 2px;
-        background-color: white;
-      }
-
-      .story a {
-        z-index: 1;
-      }
-
-      canvas {
-        position: absolute;
-        top: 0px;
-        left: 12px;
-        border-radius: 50%;
-        width: 46px;
-        height: 46px;
-        background-image: linear-gradient(#ca1d7e, #e35157, #f2703f);
-        z-index: 0;
-      }
-
-      .smallTitle {
-        color: #ccc;
-        font-weight: 600;
-      }
-
-      .seeAll {
-        font-weight: 600;
-      }
-
-      /* 사이드-추천 */
-
-      .connection {
-        width: 170px;
-        overflow: hidden;
-        word-wrap: normal;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-
-      /* footer */
+      /* 사이드 내 footer */
       footer {
         padding: 10px;
         color: #ccc;

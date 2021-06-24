@@ -1,8 +1,7 @@
 import React from 'react';
+import Nav from '../../../components/Nav/Nav';
 import '../../../styles/reset.scss';
 import './Main.scss';
-import Nav from '../../../components/Nav/Nav';
-import '../../../components/Nav/Nav.scss';
 
 class MainSomi extends React.Component {
   render() {
@@ -81,7 +80,7 @@ class MainSomi extends React.Component {
                     <span className="commentContent">
                       <span>역시 감성터지는 위코드</span>
                     </span>
-                    <i className="deleteBtn fal fa-trash"></i>
+                    <i className="deleteBtn fas fa-times"></i>
                   </li>
                   <li className="commentBox">
                     <span className="igID">
@@ -90,7 +89,7 @@ class MainSomi extends React.Component {
                     <span className="commentContent">
                       <span>위코드 쩐당</span>
                     </span>
-                    <i className="deleteBtn fal fa-trash"></i>
+                    <i className="deleteBtn fas fa-times"></i>
                   </li>
                 </ul>
                 <span className="commentTime">42분 전</span>
@@ -201,7 +200,7 @@ class MainSomi extends React.Component {
                           wecode_bootcamp님 외 1명이 팔로우 하고 있습니다.
                         </div>
                       </div>
-                      <button clas="followBtn">팔로우</button>
+                      <button className="followBtn">팔로우</button>
                     </li>
                     <li className="recommendation">
                       <a href="#">
@@ -217,7 +216,7 @@ class MainSomi extends React.Component {
                           bongbongcatcat님 외 1명이 팔로우 하고 있습니다.
                         </div>
                       </div>
-                      <button clas="followBtn">팔로우</button>
+                      <button className="followBtn">팔로우</button>
                     </li>
                     <li className="recommendation">
                       <a href="#">
@@ -233,7 +232,7 @@ class MainSomi extends React.Component {
                           kimchi_chips님 외 1명이 팔로우 하고 있습니다.
                         </div>
                       </div>
-                      <button clas="followBtn">팔로우</button>
+                      <button className="followBtn">팔로우</button>
                     </li>
                   </ul>
                 </div>
