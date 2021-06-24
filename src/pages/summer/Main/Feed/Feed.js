@@ -9,13 +9,12 @@ class Feed extends React.Component {
   };
 
   handleComments = e => {
-    e.code === 'Enter'
-      ? this.handleSubmit()
-      : this.setState({ commentInput: e.target.value });
+    this.setState({ commentInput: e.target.value });
   };
 
-  handleSubmit = () => {
+  handleSubmit = e => {
     if (this.state.commentInput === '') return;
+    if (e.charCode !== 13 && e.type !== 'click') return;
 
     this.setState({
       comments: [...this.state.comments, this.state.commentInput],
@@ -131,6 +130,7 @@ class Feed extends React.Component {
             <section className="feed-comments-input">
               <input
                 onChange={this.handleComments}
+                onKeyPress={this.handleSubmit}
                 value={this.state.commentInput}
                 type="text"
                 name="comments-input"
