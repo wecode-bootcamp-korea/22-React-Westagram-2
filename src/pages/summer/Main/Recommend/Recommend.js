@@ -4,12 +4,13 @@ import './Recommend.scss';
 
 class Recommend extends React.Component {
   render() {
-    console.log(this.props);
+    const { recommendLis } = this.props;
+
     return (
       <div className="recommend-container">
         <span className="grey-letter">회원님을 위한 추천</span>
         <ul>
-          {this.props.recommendLis.map((rec, i) => (
+          {recommendLis.map((rec, i) => (
             <li key={i}>
               <div className="img-container">
                 <img alt={rec.userImg} src={rec.userImg} className="user-img" />

@@ -17,7 +17,8 @@ class Footer extends React.Component {
   };
 
   render() {
-    console.log(this);
+    const { langSet } = this.state;
+
     return (
       <footer>
         <ul className="footer-top">
@@ -53,7 +54,7 @@ class Footer extends React.Component {
           </li>
         </ul>
         <div className="footer-bottom">
-          {this.state.langSet ? <LangSet /> : null}
+          {langSet ? <LangSet /> : null}
           <span>© 2021 Instagram from Facebook</span>
         </div>
       </footer>

@@ -3,8 +3,6 @@ import React from 'react';
 import './MobileScreen.scss';
 
 class MobileScreen extends React.Component {
-  // state = {모바일 화면 변경용};
-
   render() {
     return (
       <div className="mobile-display">

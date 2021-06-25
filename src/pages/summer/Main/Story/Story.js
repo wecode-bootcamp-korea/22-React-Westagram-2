@@ -4,10 +4,11 @@ import './Story.scss';
 
 class Story extends React.Component {
   render() {
-    console.log(this.props);
+    const { storyLis } = this.props;
+
     return (
       <ul className="story-container">
-        {this.props.storyLis.map((story, i) => (
+        {storyLis.map((story, i) => (
           <li key={i}>
             <div className="gradient-back img-container">
               <img

@@ -4,18 +4,16 @@ import './MyInfo.scss';
 
 class MyInfo extends React.Component {
   render() {
+    const { myInfo } = this.props;
+
     return (
       <div className="my-container">
         <div className="img-container">
-          <img
-            alt={this.props.myInfo.userImg}
-            src={this.props.myInfo.userImg}
-            className="user-img"
-          />
+          <img alt={myInfo.userImg} src={myInfo.userImg} className="user-img" />
         </div>
         <div className="my-info">
-          <em className="user-name">{this.props.myInfo.userName}</em>
-          <p>{this.props.myInfo.userDesc}</p>
+          <em className="user-name">{myInfo.userName}</em>
+          <p>{myInfo.userDesc}</p>
         </div>
       </div>
     );

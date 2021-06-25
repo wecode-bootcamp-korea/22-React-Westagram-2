@@ -27,13 +27,15 @@ class LoginInput extends React.Component {
 
   handlePwInput = e => {
     this.setState({ pwInput: e.target.value });
-    const checkPwVld = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    const checkPwVld = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
     const checkedPW = checkPwVld.test(e.target.value);
     checkedPW === true
       ? this.setState({ pwVld: true })
       : this.setState({ pwVld: false });
   };
   render() {
+    const { idVld, pwVld } = this.state;
+
     return (
       <form action="#" method="POST" name="user-login">
         <input
@@ -48,7 +50,7 @@ class LoginInput extends React.Component {
           placeholder="비밀번호"
           id="pw-input"
         />
-        {this.state.idVld && this.state.pwVld ? (
+        {idVld && pwVld ? (
           <button
             onClick={this.gotoMain}
             style={{ background: '#0095F6' }}
