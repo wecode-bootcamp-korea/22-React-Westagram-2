@@ -78,7 +78,7 @@
             padding: 10px;
             margin: 10px;
             width: 100%;
-            background-color: #c4e1fb;
+            background-color: $color-active;
             color: white;
             border-radius: 5px;
             cursor: pointer;
@@ -90,8 +90,8 @@
             }
           }
 
-          .activate {
-            background-color: $color-facebook;
+          .button:disabled {
+            background-color: #c4e1fb;
           }
         }
 
