@@ -46,7 +46,13 @@ class Feed extends React.Component {
       return i != index;
     });
 
-    this.setState({ comments: remainComments });
+    const remainLikes = [...this.state.likes];
+    remainLikes.pop();
+
+    this.setState({
+      comments: remainComments,
+      likes: remainLikes,
+    });
   };
 
   render() {
