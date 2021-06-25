@@ -31,7 +31,6 @@ class LoginSomi extends React.Component {
     this.setState({
       idValue: e.target.value,
     });
-    console.log(this.state.idValue);
   };
 
   handlePwInput = e => {

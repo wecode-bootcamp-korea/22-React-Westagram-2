@@ -214,14 +214,13 @@
 
         .commentBtn {
           margin-left: 5px;
-          color: #cfe7fc;
+          color: $color-active;
           background-color: transparent;
           font-size: 1.1rem;
           cursor: pointer;
         }
-
-        .activate {
-          color: #0095f6;
+        .commentBtn:disabled {
+          color: #cfe7fc;
         }
       }
     }

@@ -4,6 +4,40 @@ import '../../../styles/reset.scss';
 import './Main.scss';
 
 class MainSomi extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      disabled: true,
+      commentValue: '',
+      commentList: [],
+      profileID: 'somangoi',
+    };
+  }
+
+  btnHandleChange = () => {
+    return this.state.commentValue.length >= 1
+      ? this.setState({
+          disabled: false,
+        })
+      : this.setState({
+          disabled: true,
+        });
+  };
+
+  handleCommentInput = e => {
+    this.setState({
+      commentValue: e.target.value,
+    });
+  };
+
+  submitComment = e => {
+    e.preventDefault();
+    this.setState({
+      commentList: this.state.commentList.concat(this.state.commentValue),
+      commentValue: '',
+    });
+  };
+
   render() {
     return (
       <div>
@@ -91,15 +125,31 @@ class MainSomi extends React.Component {
                     </span>
                     <i className="deleteBtn fas fa-times"></i>
                   </li>
+                  {this.state.commentList.map(comment => (
+                    <il className="commentBox">
+                      <span className="igID">
+                        <a href="#">{this.state.profileID}</a>
+                      </span>
+                      <span className="commentContent">{comment}</span>
+                      <i className="deleteBtn fas fa-times"></i>
+                    </il>
+                  ))}
                 </ul>
                 <span className="commentTime">42분 전</span>
-                <form className="commentInputBox">
+                <form className="commentInputBox" onSubmit={this.submitComment}>
                   <input
                     className="commentInput"
                     type="text"
                     placeholder="댓글 달기..."
+                    onKeyUp={this.btnHandleChange}
+                    value={this.state.commentValue}
+                    onChange={this.handleCommentInput}
                   />
-                  <button className="commentBtn" type="submit">
+                  <button
+                    className="commentBtn"
+                    type="submit"
+                    disabled={this.state.disabled}
+                  >
                     Post
                   </button>
                 </form>
@@ -112,7 +162,7 @@ class MainSomi extends React.Component {
                     alt="프로필"
                   />
                   <div className="profileDesc">
-                    <span className="profileID">somangoi</span>
+                    <span className="profileID">{this.state.profileID}</span>
                     <span className="profileName">Somi Hwang</span>
                   </div>
                 </div>
