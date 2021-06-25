@@ -106,7 +106,11 @@ class MainSummer extends React.Component {
         <main>
           <article className="contents-container">
             <Story storyLis={this.state.stories} />
-            <Feed feedLis={this.state.feeds} />
+            <section className="feeds-container">
+              {this.state.feeds.map(feed => (
+                <Feed feed={feed} key={feed.postId} />
+              ))}
+            </section>
           </article>
           <div className="right-container">
             <aside>
