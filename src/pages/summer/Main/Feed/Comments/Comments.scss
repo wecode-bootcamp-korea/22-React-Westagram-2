@@ -1,0 +1,24 @@
+@import '../../../../../styles/common.scss';
+
+.detail-comments .comment {
+  @include display-flex(space-between, center);
+
+  & + .comment {
+    margin-top: 3px;
+  }
+  em {
+    margin-right: 7px;
+  }
+  span {
+    width: 100%;
+  }
+  div {
+    @include display-flex(unset, unset);
+  }
+
+  i {
+    margin-left: 8px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+}

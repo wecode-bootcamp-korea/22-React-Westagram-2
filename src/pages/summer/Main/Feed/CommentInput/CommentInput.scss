@@ -1,0 +1,15 @@
+@import '../../../../../styles/common.scss';
+
+.feed-comments-input {
+  @include display-flex(space-between, unset);
+  padding: 16px;
+
+  input {
+    width: 70%;
+  }
+
+  button {
+    @include bold-text($color-active, 14px);
+    cursor: pointer;
+  }
+}

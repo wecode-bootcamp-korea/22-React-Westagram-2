@@ -96,26 +96,27 @@ class MainSummer extends React.Component {
         userDesc: 'katy님 외 3명이 팔로우합니다',
       },
     ],
-    comments: [],
   };
 
   render() {
+    const { myInfo, stories, feeds, recommend } = this.state;
+
     return (
       <div className="Main-summer">
         <Nav />
         <main>
           <article className="contents-container">
-            <Story storyLis={this.state.stories} />
+            <Story storyLis={stories} />
             <section className="feeds-container">
-              {this.state.feeds.map(feed => (
+              {feeds.map(feed => (
                 <Feed feed={feed} key={feed.postId} />
               ))}
             </section>
           </article>
           <div className="right-container">
             <aside>
-              <MyInfo myInfo={this.state.myInfo} />
-              <Recommend recommendLis={this.state.recommend} />
+              <MyInfo myInfo={myInfo} />
+              <Recommend recommendLis={recommend} />
             </aside>
             <Footer />
           </div>
