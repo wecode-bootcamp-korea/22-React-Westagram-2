@@ -8,6 +8,7 @@ class Feed extends React.Component {
   state = {
     commentInput: '',
     comments: [],
+    likes: [],
   };
 
   // CommentInput
@@ -21,14 +22,21 @@ class Feed extends React.Component {
 
     this.setState({
       comments: [...this.state.comments, this.state.commentInput],
+      likes: [...this.state.likes, false],
+      commentInput: '',
     });
-
-    this.setState({ commentInput: '' });
   };
 
   // Comments
   handleClickLike = e => {
-    console.log(e);
+    const index = e.target.getAttribute('index');
+
+    const changedLikes = [...this.state.likes];
+    changedLikes[index] = !changedLikes[index];
+
+    this.setState({
+      likes: [...changedLikes],
+    });
   };
 
   handleClickDel = e => {
@@ -43,7 +51,7 @@ class Feed extends React.Component {
 
   render() {
     const { postImg, postText, postTime, userImg, userName } = this.props.feed;
-    const { commentInput, comments } = this.state;
+    const { commentInput, comments, likes } = this.state;
 
     return (
       <article className="feed">
@@ -104,6 +112,7 @@ class Feed extends React.Component {
               </div>
               <Comments
                 comments={comments}
+                likes={likes}
                 handleClickDel={this.handleClickDel}
                 handleClickLike={this.handleClickLike}
               />
