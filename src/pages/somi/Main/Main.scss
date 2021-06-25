@@ -150,38 +150,35 @@
           display: flex;
           font-size: 1.1rem;
           padding-bottom: 3px;
-        }
 
-        .commentContent {
-          flex: 1;
-          width: 60%;
-          padding-left: 5px;
-        }
+          .commentContent {
+            flex: 1;
+            width: 60%;
+            padding-left: 5px;
+          }
 
-        .igID {
-          font-weight: 600;
-          font-size: 1.1rem;
-        }
+          .igID {
+            font-weight: 600;
+            font-size: 1.1rem;
+          }
 
-        .igID a {
-          color: black;
-        }
+          .igID a {
+            color: black;
+          }
 
-        .moreBtn {
-          color: #8e8e8e;
-          background-color: transparent;
-          font-size: 1.1rem;
-          cursor: pointer;
-        }
-        .far.fa-heart {
-          color: #c8c8c8;
-        }
+          .moreBtn {
+            color: #8e8e8e;
+            background-color: transparent;
+            font-size: 1.1rem;
+            cursor: pointer;
+          }
 
-        .deleteBtn {
-          background-color: white;
-          cursor: pointer;
-          width: 20px;
-          height: 20px;
+          .deleteBtn,
+          .far {
+            cursor: pointer;
+            padding-left: 7px;
+            font-size: 1rem;
+          }
         }
       }
 

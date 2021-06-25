@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../../../components/Nav/Nav';
+import Comment from '../Comment/Comment';
 import '../../../styles/reset.scss';
 import './Main.scss';
 
@@ -107,33 +108,10 @@ class MainSomi extends React.Component {
                   </div>
                 </div>
                 <ul className="commentList">
-                  <li className="commentBox">
-                    <span className="igID">
-                      <a href="#">somangoi</a>
-                    </span>
-                    <span className="commentContent">
-                      <span>역시 감성터지는 위코드</span>
-                    </span>
-                    <i className="deleteBtn fas fa-times"></i>
-                  </li>
-                  <li className="commentBox">
-                    <span className="igID">
-                      <a href="#">bongbongcatcat</a>
-                    </span>
-                    <span className="commentContent">
-                      <span>위코드 쩐당</span>
-                    </span>
-                    <i className="deleteBtn fas fa-times"></i>
-                  </li>
-                  {this.state.commentList.map(comment => (
-                    <il className="commentBox">
-                      <span className="igID">
-                        <a href="#">{this.state.profileID}</a>
-                      </span>
-                      <span className="commentContent">{comment}</span>
-                      <i className="deleteBtn fas fa-times"></i>
-                    </il>
-                  ))}
+                  <Comment
+                    commentList={this.state.commentList}
+                    profileID={this.state.profileID}
+                  />
                 </ul>
                 <span className="commentTime">42분 전</span>
                 <form className="commentInputBox" onSubmit={this.submitComment}>
