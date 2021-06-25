@@ -144,12 +144,14 @@
             .mbWrittenComments {
               display: flex;
               flex-direction: column;
+              justify-content: space-between;
               padding: 10px;
               padding-top: 0px;
   
               .commentSection {
                 @include display-flex(space-between);
                 margin-top: 5px;
+                flex-direction: column;
   
                 .personalAccount {
                   @include display-flex(space-between);
@@ -171,6 +173,9 @@
 
                       &.likesBtn {
                         margin-right: 5px;
+                      }
+                      &.fas{
+                        color: #d61438;
                       }
 
                       &.deleteBtn {

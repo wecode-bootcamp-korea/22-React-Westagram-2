@@ -5,6 +5,51 @@ import './Main.scss';
 import '../../../components/Nav/Nav.scss';
 
 class MainJj extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      list: [],
+      comment: '',
+      heartColor: false,
+      className: [],
+    };
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const newList = {
+      id: new Date().getTime().toString(),
+      comment: this.state.comment,
+      className: false,
+    };
+
+    this.setState({
+      list: [...this.state.list, newList],
+      className: [...this.state.className, newList.className],
+    });
+    // console.log(this.state.className);
+    this.setState({ comment: '' });
+  };
+
+  changeHeartColor = (elId, index) => {
+    let copy = [...this.state.className];
+    this.setState({
+      className: copy.filter((copyEl, i) => {
+        return index !== i;
+      }),
+    });
+    console.log(`this.state.className`, this.state.className);
+  };
+
+  deleteBtn = elId => {
+    this.setState({
+      list: this.state.list.filter(el => {
+        return el.id !== elId;
+      }),
+    });
+  };
+
   render() {
     return (
       <div className="mainJJ">
@@ -27,7 +72,6 @@ class MainJj extends React.Component {
                 <section className="mainImg">
                   <img alt="zz" src="/images/jj/img_main_feed.jpg" />
                 </section>
-
                 <section className="mainBottom">
                   <div className="mbIconWrap">
                     <div className="mbIconLeft">
@@ -39,43 +83,63 @@ class MainJj extends React.Component {
                       <i className="far fa-bookmark"></i>
                     </div>
                   </div>
-
                   <div className="mbLiked">
                     <img alt="profile" src="/images/jj/img_account.jpg" />
                     <p>
-                      {' '}
                       <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
                     </p>
                   </div>
-
                   <div className="mbWrittenComments" id="mbWrittenComments">
                     <ul className="commentSection">
-                      <li className="personalAccount">
-                        <div className="commentWrap">
-                          <span className="userId">아이디</span>
-                          <span className="commnets">sacassw</span>
-                        </div>
-                        <div className="commentIconWrap">
-                          <i className="far fa-heart likesBtn"></i>
-                          <i className="far fa-trash-alt deleteBtn"></i>
-                        </div>
-                      </li>
+                      {this.state.list.map((el, index) => {
+                        return (
+                          <li className="personalAccount" key={el.id}>
+                            <div className="commentWrap">
+                              <span className="userId">아이디</span>
+                              <span className="commnets">{el.comment}</span>
+                            </div>
+                            <div className="commentIconWrap">
+                              <i
+                                onClick={() => this.changeHeartColor(el.id)}
+                                className={
+                                  this.state.targxet === el.id
+                                    ? 'fas fa-heart likesBtn'
+                                    : 'far fa-heart likesBtn'
+                                }
+                              ></i>
+
+                              <i
+                                onClick={() => this.deleteBtn(el.id, index)}
+                                className="far fa-trash-alt deleteBtn"
+                              ></i>
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
-
                   <div className="mbWrittenTime">
                     <p>42분전</p>
                   </div>
-
-                  <form id="form" className="commentInput">
-                    {/* <label for="input"></label> */}
-                    <input name="input" id="input" placeholder="댓글 달기..." />
+                  <form
+                    id="form"
+                    className="commentInput"
+                    onSubmit={e => this.handleSubmit(e)}
+                  >
+                    <input
+                      name="input"
+                      id="input"
+                      placeholder="댓글 달기..."
+                      value={this.state.comment}
+                      onChange={e => {
+                        this.setState({ comment: e.target.value });
+                      }}
+                    />
                     <button type="submit">게시</button>
                   </form>
                 </section>
               </div>
             </main>
-
             <aside id="aside">
               <div className="asMyAccount">
                 <img alt="account" src="/images/jj/img_my_account.jpg" />
