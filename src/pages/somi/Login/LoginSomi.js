@@ -17,22 +17,21 @@ class LoginSomi extends React.Component {
     this.props.history.push('/somi/main');
   };
 
-  handleChange = e => {
-    if (e.target.value.includes('@')) {
-      this.setState({
-        disabled: false,
-      });
-    } else {
-      this.setState({
-        disabled: true,
-      });
-    }
+  handleChange = () => {
+    return this.state.idValue.includes('@') && this.state.pwValue.length >= 5
+      ? this.setState({
+          disabled: false,
+        })
+      : this.setState({
+          disabled: true,
+        });
   };
 
   handleIdInput = e => {
     this.setState({
       idValue: e.target.value,
     });
+    console.log(this.state.idValue);
   };
 
   handlePwInput = e => {
@@ -89,6 +88,7 @@ class LoginSomi extends React.Component {
                   className="idInput input"
                   type="text"
                   onChange={this.handleIdInput}
+                  onKeyUp={this.handleChange}
                   value={this.state.idValue}
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
@@ -96,6 +96,7 @@ class LoginSomi extends React.Component {
                   className="passInput input"
                   type="password"
                   onChange={this.handlePwInput}
+                  onKeyUp={this.handleChange}
                   value={this.state.pwValue}
                   placeholder="비밀번호"
                 />
