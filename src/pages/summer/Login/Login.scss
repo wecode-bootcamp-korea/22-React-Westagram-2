@@ -1,17 +1,14 @@
 @import '../../../styles/common.scss';
 
 .Login-summer {
-  /* MAIN */
   main {
     @include display-flex;
     height: 742px;
     margin: 14px 0 68px;
 
-    /* MAIN > RIGHT-CONTAINER */
     .right-container {
       margin-left: -10px;
 
-      /* RIGHY-CONTAINER > login-container */
       .login-container {
         position: relative;
         padding: 31px 40px 23px 40px;
@@ -74,7 +71,6 @@
         }
       }
 
-      /* join-container */
       .join-container {
         @include display-flex(center, unset);
         padding: 20px 0;
@@ -94,7 +90,6 @@
         }
       }
 
-      /* app-container */
       .app-container {
         padding: 21px 36px 0;
 

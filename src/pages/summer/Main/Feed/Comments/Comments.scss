@@ -1,6 +1,6 @@
 @import '../../../../../styles/common.scss';
 
-.detail-comments .comment {
+.Main-summer .detail-comments .comment {
   @include display-flex(space-between, center);
 
   & + .comment {
