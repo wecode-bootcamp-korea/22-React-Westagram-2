@@ -3,6 +3,7 @@ import './Article.scss';
 import '../../../../styles/reset.scss';
 import '../../../../styles/common.scss';
 import MainPicture from '../Images/main.jpeg';
+import CommentInput from './CommentInput/CommentInput';
 
 class Article extends React.Component {
   render() {
@@ -31,20 +32,7 @@ class Article extends React.Component {
             <i className="far fa-bookmark" id="bookMark"></i>
           </div>
           <p id="likeCount">좋아요 1,392개</p>
-          <div id="comments">
-            <div className="comment-row">
-              <div id="commentWrap">
-                <textarea
-                  id="new-comment"
-                  name="new_comment"
-                  placeholder="댓글 달기..."
-                ></textarea>
-                <button type="submit" onclick="submitComment()">
-                  게시
-                </button>
-              </div>
-            </div>
-          </div>
+          <CommentInput />
         </div>
       </article>
     );

@@ -5,7 +5,6 @@
   width: 100%;
   min-width: 450px;
   max-width: 550px;
-  max-height: 800px;
   margin-top: 40px;
   margin-bottom: 100px;
   padding-top: 15px;
@@ -86,7 +85,7 @@
     background-color: white;
   }
 
-  #comments {
+  #commentBox {
     display: flex;
     flex-direction: column-reverse;
     background-color: white;
@@ -95,7 +94,7 @@
     }
   }
 
-  #commentWrap {
+  #commentArea {
     width: 100%;
     display: flex;
     border-top: 1px solid $color-darkgray;
@@ -111,20 +110,17 @@
     border: none;
   }
 
-  .comment-row {
+  .newCom {
     width: 100%;
     display: flex;
     height: 40px;
     align-items: center;
+    // display: none;
   }
 
-  .comment-row button {
+  .bottom button {
     width: 20%;
     background-color: transparent;
-    color: rgb(197, 225, 252);
-  }
-
-  .comment-content {
-    margin-left: 20px;
+    color: $color-active;
   }
 }

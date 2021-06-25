@@ -12,7 +12,7 @@ class RightProfile extends React.Component {
         </div>
         <div className="rightProfileText">
           <p>wecode_bootcamp</p>
-          <p class="grayText">wecode - 위코드</p>
+          <p className="grayText">wecode - 위코드</p>
         </div>
       </div>
     );
