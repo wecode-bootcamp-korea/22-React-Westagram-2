@@ -53,6 +53,7 @@ class MainSummer extends React.Component {
     ],
     feeds: [
       {
+        postId: 1001,
         userName: 'ginger',
         userImg: '/images/summer/profile6.jpg',
         postImg: '/images/summer/micheile-henderson-6nNJOV8J1B4-unsplash.jpg',
@@ -60,6 +61,7 @@ class MainSummer extends React.Component {
         postTime: '6시간 ',
       },
       {
+        postId: 1002,
         userName: 'doggy',
         userImg: '/images/summer/profile7.jpg',
         postImg: '/images/summer/massimo-negrello-ByYzyR8UlG0-unsplash.jpg',

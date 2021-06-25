@@ -8,6 +8,13 @@ class Feed extends React.Component {
     comments: [],
   };
 
+  // comments: [
+  //   {
+  //     postId: 1001,
+  //     commentText: ''
+  //   }
+  // ]
+
   handleComments = e => {
     this.setState({ commentInput: e.target.value });
   };
@@ -16,11 +23,16 @@ class Feed extends React.Component {
     if (this.state.commentInput === '') return;
     if (e.charCode !== 13 && e.type !== 'click') return;
 
+    const id = e.target.getAttribute('id');
     this.setState({
-      comments: [...this.state.comments, this.state.commentInput],
+      comments: [
+        ...this.state.comments,
+        { postId: id, commentText: this.state.commentInput },
+      ],
     });
 
     this.setState({ commentInput: '' });
+    console.log(id);
   };
 
   handleClickLike = e => {
@@ -40,8 +52,8 @@ class Feed extends React.Component {
   render() {
     return (
       <section className="feeds-container">
-        {this.props.feedLis.map((feed, i) => (
-          <article className="feed" key={i}>
+        {this.props.feedLis.map(feed => (
+          <article key={feed.postId} className="feed">
             <header className="feed-header">
               <div className="feed-user">
                 <div>
@@ -108,7 +120,7 @@ class Feed extends React.Component {
                     {this.state.comments.map((comment, i) => (
                       <li key={i} className="comment">
                         <em className="user-name">im_user</em>
-                        <span>{comment}</span>
+                        <span>{comment.commentText}</span>
                         <div className="comment-icons">
                           <i
                             index={i}
@@ -129,6 +141,7 @@ class Feed extends React.Component {
             </section>
             <section className="feed-comments-input">
               <input
+                id={feed.postId}
                 onChange={this.handleComments}
                 onKeyPress={this.handleSubmit}
                 value={this.state.commentInput}
@@ -136,7 +149,9 @@ class Feed extends React.Component {
                 name="comments-input"
                 placeholder="댓글 달기..."
               />
-              <button onClick={this.handleSubmit}>게시</button>
+              <button onClick={this.handleSubmit} id={feed.postId}>
+                게시
+              </button>
             </section>
           </article>
         ))}
