@@ -1,12 +1,17 @@
 import React from 'react';
+import './CommentsList.scss';
 
 class CommentsList extends React.Component {
   render() {
+    const { user, text } = this.props;
     return (
-      <li className="comments">
-        <span>{this.props.userId}</span>
-        <span>{this.props.text}</span>
-      </li>
+      <div>
+        <li>
+          <span>{user}</span>
+          {text}
+        </li>
+        <button>삭제</button>
+      </div>
     );
   }
 }
