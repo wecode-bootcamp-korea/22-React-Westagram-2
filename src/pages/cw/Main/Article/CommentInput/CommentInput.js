@@ -20,9 +20,8 @@ class CommetInput extends React.Component {
 
   addComment = () => {
     const newComment = this.state.newComment;
-    this.state.comments.push(newComment);
     this.setState({
-      comments: this.state.comments,
+      comments: this.state.comments.concat(newComment),
       newComment: '',
     });
   };
@@ -34,11 +33,6 @@ class CommetInput extends React.Component {
     }
   };
 
-  // delComment = () => {
-  //   const {comments} = tis.state;
-  //   this.setState({comments.filter((e) => e !== 0)});
-  // };
-
   render() {
     const { comments, userId } = this.state;
     return (
@@ -46,8 +40,7 @@ class CommetInput extends React.Component {
         <ul>
           {comments.map((value, index) => {
             return <CommentsList key={index} user={userId} text={value} />;
-          })}{' '}
-          {console.log(this.state)}
+          })}
         </ul>
         <div className="commentBox">
           <textarea

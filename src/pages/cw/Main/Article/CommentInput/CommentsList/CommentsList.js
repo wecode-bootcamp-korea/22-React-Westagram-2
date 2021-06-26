@@ -10,7 +10,6 @@ class CommentsList extends React.Component {
           <span>{user}</span>
           {text}
         </li>
-        <button>삭제</button>
       </div>
     );
   }
