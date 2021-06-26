@@ -12,6 +12,8 @@ class CommetInput extends React.Component {
     };
   }
 
+  id = 0;
+
   findComment = e => {
     this.setState({
       newComment: e.target.value,
@@ -19,11 +21,15 @@ class CommetInput extends React.Component {
   };
 
   addComment = () => {
-    const newComment = this.state.newComment;
+    const { newComment, comments } = this.state;
     this.setState({
-      comments: this.state.comments.concat(newComment),
+      comments: comments.concat({
+        id: this.id,
+        newComment: newComment,
+      }),
       newComment: '',
     });
+    this.id += 1;
   };
 
   enterHandler = e => {
@@ -33,13 +39,29 @@ class CommetInput extends React.Component {
     }
   };
 
+  delComment = id => {
+    const { comments } = this.state;
+    const nextComments = comments.filter(comment => {
+      return comment.id !== id;
+    });
+    this.setState({
+      comments: nextComments,
+    });
+  };
+
   render() {
     const { comments, userId } = this.state;
     return (
-      <>
+      <div className="CommentInput">
         <ul>
-          {comments.map((value, index) => {
-            return <CommentsList key={index} user={userId} text={value} />;
+          {comments.map(e => {
+            return (
+              <li key={e.id}>
+                <span>{userId}</span>
+                {e.newComment}
+                <button onClick={() => this.delComment(e.id)}>삭제</button>
+              </li>
+            );
           })}
         </ul>
         <div className="commentBox">
@@ -55,7 +77,7 @@ class CommetInput extends React.Component {
             게시
           </button>
         </div>
-      </>
+      </div>
     );
   }
 }
