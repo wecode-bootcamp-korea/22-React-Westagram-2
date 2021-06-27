@@ -1,17 +1,16 @@
 @import '../../../styles/common.scss';
 
-@mixin bold-text-main ( $color: $color-black, $size: 14px ) {
+@mixin bold-text-main($color: $color-black, $size: 14px) {
   font-weight: 600;
   color: $color;
   font-size: $size;
 }
 
-*{
+* {
   color: #262626;
 }
 
-.mainJJ{
-
+.mainJJ {
   .container {
     @include display-flex;
     width: 100%;
@@ -21,9 +20,8 @@
       justify-content: space-between;
       width: 100%;
       max-width: 1000px;
-    
 
-      #main {
+      .main {
         @include display-flex;
         flex: 2;
 
@@ -43,11 +41,11 @@
             height: 5%;
             padding: 16px;
 
-            .profile {
+            .mTopProfile {
               @include display-flex;
               font-size: 14px;
 
-              img {
+              .mTopAccount {
                 width: 32px;
                 height: 32px;
                 margin-right: 10px;
@@ -56,12 +54,11 @@
                 object-fit: cover;
               }
 
-              p{
+              p {
                 @include bold-text-main($color-black, 17px);
               }
-
             }
-            .threeDot {
+            .mTopThreeDot {
               @include display-flex;
               @include bold-text-main($color-black, 17px);
               cursor: pointer;
@@ -71,10 +68,9 @@
             width: 100%;
             height: 60%;
 
-            img {
+            .mainFeedImg {
               width: 100%;
             }
-
           }
 
           .mainBottom {
@@ -89,56 +85,49 @@
               align-items: center;
               width: 100%;
               padding: 10px;
-  
-              .mbIconLeft {
 
+              .mbIconLeft {
                 i {
                   margin-right: 5px;
                   font-size: 24px;
                   cursor: pointer;
-                  
-                  &.fa-heart{
+
+                  &.fa-heart {
                     color: red;
                   }
 
                   &.fa-comment,
-                  &.fa-paper-plane{
+                  &.fa-paper-plane {
                     color: #262626;
                   }
-
                 }
-
               }
 
               .mIconRight {
-
                 i {
                   font-size: 24px;
                   cursor: pointer;
                 }
-
               }
-
             }
 
             .mbLiked {
               display: flex;
               width: 100%;
               padding: 10px;
-  
-              img {
+
+              .mbLikedImg {
                 width: 20px;
                 margin-right: 20px;
               }
-  
-              p {
+
+              .mbLikedText {
                 @include display-flex(left);
 
                 span {
                   @include bold-text-main($color-black);
                   cursor: pointer;
                 }
-
               }
             }
             .mbWrittenComments {
@@ -147,12 +136,12 @@
               justify-content: space-between;
               padding: 10px;
               padding-top: 0px;
-  
+
               .commentSection {
                 @include display-flex(space-between);
                 margin-top: 5px;
                 flex-direction: column;
-  
+
                 .personalAccount {
                   @include display-flex(space-between);
                   width: 100%;
@@ -167,21 +156,20 @@
                   }
                   .commentIconWrap {
                     @include display-flex(space-between);
-                    
-                    i{
+
+                    i {
                       cursor: pointer;
 
                       &.likesBtn {
                         margin-right: 5px;
                       }
-                      &.fas{
+                      &.fas {
                         color: #d61438;
                       }
 
                       &.deleteBtn {
                         color: #262626;
                       }
-
                     }
                   }
                 }
@@ -192,17 +180,17 @@
               padding-top: 0;
               font-size: 11px;
               font-weight: 400;
-  
-              p {
+
+              .mbTime {
                 color: #8e8e8e;
               }
             }
-            .commentInput {
+            .commentForm {
               @include display-flex(space-between);
               padding: 10px;
               border-top: 1px solid rgba(219, 219, 219, 1);
-  
-              input {
+
+              .commentInput {
                 flex: 9;
                 resize: none;
                 height: 30px;
@@ -212,7 +200,7 @@
                 border-radius: 5px;
               }
 
-              button {
+              .commentBtn {
                 flex: 1;
                 background-color: transparent;
                 color: #0095f6;
@@ -220,22 +208,19 @@
                 text-align: right;
                 cursor: pointer;
               }
-
             }
           }
         }
       }
 
-      #aside {
-
+      .aside {
         .asMyAccount {
           @include display-flex(start);
           margin-bottom: 20px;
           padding: 0 10px;
           font-size: 13px;
-          
 
-          img {
+          .asMyAccountImg {
             width: 50px;
             height: 50px;
             margin-right: 10px;
@@ -264,7 +249,6 @@
                 &:last-child {
                   padding-left: 10px;
                 }
-
               }
             }
           }
@@ -279,7 +263,7 @@
           border: 1px solid rgba(219, 219, 219, 1);
           border-radius: 5px;
           box-shadow: 10px 10px 10px #eee;
-  
+
           .asStoryTop {
             display: flex;
             justify-content: space-between;
@@ -325,16 +309,14 @@
                 padding-left: 10px;
 
                 p {
-                  &:first-child{
-                    @include bold-text-main(17px)
-
+                  &:first-child {
+                    @include bold-text-main(17px);
                   }
 
                   &:nth-child(2) {
                     color: #c7c7c7;
                     font-size: 13px;
                   }
-
                 }
               }
             }
@@ -366,7 +348,6 @@
               &:nth-child(2) {
                 cursor: pointer;
               }
-
             }
           }
 
@@ -380,7 +361,7 @@
               margin-bottom: 10px;
               font-size: 15px;
               font-weight: 300;
-  
+
               &:first-child {
                 margin-top: 10px;
               }
@@ -397,7 +378,6 @@
                 }
 
                 .asReInfo {
-
                   p {
                     @include bold-text-main($color-black);
 
@@ -405,7 +385,6 @@
                       color: #c7c7c7;
                       font-size: 13px;
                     }
-
                   }
                 }
               }
@@ -415,7 +394,6 @@
                 font-weight: 500;
                 cursor: pointer;
               }
-
             }
           }
         }
@@ -430,7 +408,6 @@
             &:last-child {
               margin-top: 20px;
             }
-
           }
         }
       }

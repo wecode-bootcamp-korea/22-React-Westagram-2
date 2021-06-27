@@ -3,6 +3,7 @@ import Nav from '../../../components/Nav/Nav';
 import '../../../styles/reset.scss';
 import './Main.scss';
 import '../../../components/Nav/Nav.scss';
+import CommentList from './CommentListMap/CommentListMap';
 
 class MainJj extends React.Component {
   constructor() {
@@ -21,20 +22,22 @@ class MainJj extends React.Component {
     const newList = {
       id: new Date().getTime().toString(),
       comment: this.state.comment,
-      className: false,
+      class: false,
     };
-
     this.setState({
       list: [...this.state.list, newList],
-      className: [...this.state.className, newList.className],
+      className: [...this.state.className, newList.class],
     });
+    console.log(`this.state.className`, this.state.className);
+    console.log(`this.state.list`, this.state.list);
     this.setState({ comment: '' });
   };
 
-  changeHeartColor = index => {
+  changeHeartColor = (elId, index) => {
     let copy = [...this.state.className];
     copy[index] = !copy[index];
     this.setState({ className: copy });
+    console.log(`this.state.className`, this.state.className);
   };
 
   deleteBtn = (elId, index) => {
@@ -55,21 +58,25 @@ class MainJj extends React.Component {
         <Nav />
         <div className="container">
           <div className="center">
-            <main id="main">
+            <main id="main" className="main">
               <div className="mainBg">
                 <section className="mainTop">
-                  <div className="profile">
+                  <div className="mTopProfile">
                     <img
                       alt="account"
                       src="/images/jj/img_main_top.jpg"
-                      className="account"
+                      className="mTopAccount"
                     />
                     <p>jacob</p>
                   </div>
-                  <p className="threeDot">…</p>
+                  <p className="mTopThreeDot">…</p>
                 </section>
                 <section className="mainImg">
-                  <img alt="zz" src="/images/jj/img_main_feed.jpg" />
+                  <img
+                    alt="mainfeed"
+                    src="/images/jj/img_main_feed.jpg"
+                    className="mainFeedImg"
+                  />
                 </section>
                 <section className="mainBottom">
                   <div className="mbIconWrap">
@@ -83,65 +90,55 @@ class MainJj extends React.Component {
                     </div>
                   </div>
                   <div className="mbLiked">
-                    <img alt="profile" src="/images/jj/img_account.jpg" />
-                    <p>
+                    <img
+                      alt="profile"
+                      src="/images/jj/img_account.jpg"
+                      className="mbLikedImg"
+                    />
+                    <p className="mbLikedText">
                       <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
                     </p>
                   </div>
                   <div className="mbWrittenComments" id="mbWrittenComments">
-                    <ul className="commentSection">
-                      {this.state.list.map((el, index) => {
-                        return (
-                          <li className="personalAccount" key={el.id}>
-                            <div className="commentWrap">
-                              <span className="userId">아이디</span>
-                              <span className="commnets">{el.comment}</span>
-                            </div>
-                            <div className="commentIconWrap">
-                              <i
-                                onClick={() => this.changeHeartColor(index)}
-                                className={
-                                  this.state.className[index]
-                                    ? 'fas fa-heart likesBtn'
-                                    : 'far fa-heart likesBtn'
-                                }
-                              ></i>
-
-                              <i
-                                onClick={() => this.deleteBtn(el.id, index)}
-                                className="far fa-trash-alt deleteBtn"
-                              ></i>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    <CommentList
+                      deleteBtn={this.deleteBtn}
+                      changeHeartColor={this.changeHeartColor}
+                      list={this.state.list}
+                      className={this.state.className}
+                    />
                   </div>
                   <div className="mbWrittenTime">
-                    <p>42분전</p>
+                    <p className="mbTime">42분전</p>
                   </div>
                   <form
                     id="form"
-                    className="commentInput"
+                    className="commentForm"
                     onSubmit={e => this.handleSubmit(e)}
                   >
                     <input
                       name="input"
                       id="input"
+                      className="commentInput"
                       placeholder="댓글 달기..."
                       value={this.state.comment}
                       onChange={e => {
                         this.setState({ comment: e.target.value });
                       }}
                     />
-                    <button type="submit">게시</button>
+                    <button type="submit" className="commentBtn">
+                      게시
+                    </button>
                   </form>
                 </section>
               </div>
             </main>
-            <aside id="aside">
+            <aside id="aside" className="aside">
               <div className="asMyAccount">
-                <img alt="account" src="/images/jj/img_my_account.jpg" />
+                <img
+                  alt="account"
+                  src="/images/jj/img_my_account.jpg"
+                  className="asMyAccountImg"
+                />
                 <div className="asMyProfile">
                   <p>wecode_bootcamp</p>
                   <div className="asMyProfile_bottom">
@@ -150,7 +147,6 @@ class MainJj extends React.Component {
                   </div>
                 </div>
               </div>
-
               <div className="asStory">
                 <div className="asStoryTop">
                   <p>스토리</p>
@@ -187,7 +183,6 @@ class MainJj extends React.Component {
                   </div>
                 </div>
               </div>
-
               <div className="asRecommandation">
                 <div className="asReTop">
                   <p>회원님을 위한 추천</p>
@@ -236,7 +231,6 @@ class MainJj extends React.Component {
                   </div>
                 </div>
               </div>
-
               <div className="asInfoWrap">
                 <p>Instagram 정보 ﹒ 지원 ﹒ 홍보센터 ﹒ API ﹒</p>
                 <p>채용정보 ﹒ 개인정보처리방침 ﹒ 약관 ﹒</p>
