@@ -28,26 +28,29 @@ class MainJj extends React.Component {
       list: [...this.state.list, newList],
       className: [...this.state.className, newList.className],
     });
-    // console.log(this.state.className);
+    console.log(this.state.className);
     this.setState({ comment: '' });
   };
 
-  changeHeartColor = (elId, index) => {
+  changeHeartColor = index => {
     let copy = [...this.state.className];
-    this.setState({
-      className: copy.filter((copyEl, i) => {
-        return index !== i;
-      }),
-    });
-    console.log(`this.state.className`, this.state.className);
+    copy[index] = !copy[index];
+    this.setState({ className: copy });
+    console.log(`index`, index);
   };
 
-  deleteBtn = elId => {
+  deleteBtn = (elId, index) => {
+    let copy = [...this.state.className];
+    copy.pop();
+    // console.log(`copy`, copy);
+
     this.setState({
       list: this.state.list.filter(el => {
         return el.id !== elId;
       }),
+      className: copy,
     });
+    console.log(`this.state.className`, this.state.className);
   };
 
   render() {
@@ -100,9 +103,9 @@ class MainJj extends React.Component {
                             </div>
                             <div className="commentIconWrap">
                               <i
-                                onClick={() => this.changeHeartColor(el.id)}
+                                onClick={() => this.changeHeartColor(index)}
                                 className={
-                                  this.state.targxet === el.id
+                                  this.state.className[index]
                                     ? 'fas fa-heart likesBtn'
                                     : 'far fa-heart likesBtn'
                                 }
