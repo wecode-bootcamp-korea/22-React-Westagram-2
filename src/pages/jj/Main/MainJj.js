@@ -28,7 +28,6 @@ class MainJj extends React.Component {
       list: [...this.state.list, newList],
       className: [...this.state.className, newList.className],
     });
-    console.log(this.state.className);
     this.setState({ comment: '' });
   };
 
@@ -36,13 +35,11 @@ class MainJj extends React.Component {
     let copy = [...this.state.className];
     copy[index] = !copy[index];
     this.setState({ className: copy });
-    console.log(`index`, index);
   };
 
   deleteBtn = (elId, index) => {
     let copy = [...this.state.className];
     copy.pop();
-    // console.log(`copy`, copy);
 
     this.setState({
       list: this.state.list.filter(el => {
@@ -50,7 +47,6 @@ class MainJj extends React.Component {
       }),
       className: copy,
     });
-    console.log(`this.state.className`, this.state.className);
   };
 
   render() {
