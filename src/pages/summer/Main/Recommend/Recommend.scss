@@ -4,6 +4,10 @@
   position: relative;
   padding-bottom: 18px;
 
+  button {
+    cursor: pointer;
+  }
+
   & > span {
     display: block;
     margin-bottom: 8px;

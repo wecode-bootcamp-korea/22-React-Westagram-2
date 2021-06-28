@@ -57,11 +57,13 @@
         @include display-flex(space-between, unset);
         margin: 0px 0px 8px;
 
-        button i {
+        button {
+          padding: 0;
+          cursor: pointer;
           font-size: 23px;
         }
         .feed-btns-left button {
-          margin-right: 8px;
+          margin-right: 10px;
         }
       }
 
