@@ -81,9 +81,3 @@ class MainSummer extends React.Component {
 }
 
 export default MainSummer;
-
-{
-  /* {feeds.map(feed => (
-                <Feed feed={feed} key={feed.postId} />
-              ))} */
-}

@@ -18,6 +18,15 @@
         "postText": "오늘은 여자친구랑 산책을 다녀왔다",
         "postTime": "8시간",
         "comments": ["우와아아앙"]
+      },
+      {
+        "postId": 1003,
+        "userName": "test_user",
+        "userImg": "/images/summer/profile5.jpg",
+        "postImg": "/images/summer/madmax-chef-I90KYtZDi54-unsplash.jpg",
+        "postText": "냠냠",
+        "postTime": "9시간",
+        "comments": ["뀽"]
       }
     ]
   }
