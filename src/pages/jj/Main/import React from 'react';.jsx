@@ -4,10 +4,6 @@ import '../../../styles/reset.scss';
 import './Main.scss';
 import '../../../components/Nav/Nav.scss';
 import CommentList from './CommentListMap/CommentListMap';
-import uuid from 'react-uuid';
-// import Data from './Data/jj/Data';
-
-const APIKEY = 'http://localhost:3000/data/jj/Data.json';
 
 class MainJj extends React.Component {
   constructor() {
@@ -21,21 +17,10 @@ class MainJj extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch(APIKEY, {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ list: data });
-      });
-  }
-
   handleSubmit = e => {
     e.preventDefault();
     const newList = {
-      // id: new Date().getTime().toString(),
-      id: uuid(),
+      id: new Date().getTime().toString(),
       comment: this.state.comment,
       class: false,
     };
@@ -43,7 +28,7 @@ class MainJj extends React.Component {
       list: [...this.state.list, newList],
       className: [...this.state.className, newList.class],
     });
-    console.log(`this.state.list`, this.state.list);
+
     this.setState({ comment: '' });
   };
 
@@ -71,159 +56,81 @@ class MainJj extends React.Component {
         <div className="container">
           <div className="center">
             <main id="main" className="main">
-              <div className="mainContainer">
-                <div className="mainBg">
-                  <section className="mainTop">
-                    <div className="mTopProfile">
-                      <img
-                        alt="account"
-                        src="/images/jj/img_main_top.jpg"
-                        className="mTopAccount"
-                      />
-                      <p>jacob</p>
-                    </div>
-                    <p className="mTopThreeDot">…</p>
-                  </section>
-                  <section className="mainImg">
+              <div className="mainBg">
+                <section className="mainTop">
+                  <div className="mTopProfile">
                     <img
-                      alt="mainfeed"
-                      src="/images/jj/img_main_feed.jpg"
-                      className="mainFeedImg"
+                      alt="account"
+                      src="/images/jj/img_main_top.jpg"
+                      className="mTopAccount"
                     />
-                  </section>
-                  <section className="mainBottom">
-                    <div className="mbIconWrap">
-                      <div className="mbIconLeft">
-                        <i className="fas fa-heart"></i>
-                        <i className="far fa-comment"></i>
-                        <i class="far fa-paper-plane"></i>
-                      </div>
-                      <div className="mIconRight">
-                        <i className="far fa-bookmark"></i>
-                      </div>
+                    <p>jacob</p>
+                  </div>
+                  <p className="mTopThreeDot">…</p>
+                </section>
+                <section className="mainImg">
+                  <img
+                    alt="mainfeed"
+                    src="/images/jj/img_main_feed.jpg"
+                    className="mainFeedImg"
+                  />
+                </section>
+                <section className="mainBottom">
+                  <div className="mbIconWrap">
+                    <div className="mbIconLeft">
+                      <i className="fas fa-heart"></i>
+                      <i className="far fa-comment"></i>
+                      <i class="far fa-paper-plane"></i>
                     </div>
-                    <div className="mbLiked">
-                      <img
-                        alt="profile"
-                        src="/images/jj/img_account.jpg"
-                        className="mbLikedImg"
-                      />
-                      <p className="mbLikedText">
-                        <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
-                      </p>
+                    <div className="mIconRight">
+                      <i className="far fa-bookmark"></i>
                     </div>
-                    <div className="mbWrittenComments" id="mbWrittenComments">
-                      <ul className="commentSection">
-                        <CommentList
-                          deleteBtn={this.deleteBtn}
-                          changeHeartColor={this.changeHeartColor}
-                          list={this.state.list}
-                          className={this.state.className}
-                        />
-                      </ul>
-                    </div>
-                    <div className="mbWrittenTime">
-                      <p className="mbTime">42분전</p>
-                    </div>
-                    <form
-                      id="form"
-                      className="commentForm"
-                      onSubmit={e => this.handleSubmit(e)}
-                    >
-                      <input
-                        name="input"
-                        id="input"
-                        className="commentInput"
-                        placeholder="댓글 달기..."
-                        value={this.state.comment}
-                        onChange={e => {
-                          this.setState({ comment: e.target.value });
-                        }}
-                      />
-                      <button type="submit" className="commentBtn">
-                        게시
-                      </button>
-                    </form>
-                  </section>
-                </div>
-
-                <div className="mainBg">
-                  <section className="mainTop">
-                    <div className="mTopProfile">
-                      <img
-                        alt="account"
-                        src="/images/jj/img_main_top.jpg"
-                        className="mTopAccount"
-                      />
-                      <p>jacob</p>
-                    </div>
-                    <p className="mTopThreeDot">…</p>
-                  </section>
-                  <section className="mainImg">
+                  </div>
+                  <div className="mbLiked">
                     <img
-                      alt="mainfeed"
-                      src="/images/jj/img_main_feed.jpg"
-                      className="mainFeedImg"
+                      alt="profile"
+                      src="/images/jj/img_account.jpg"
+                      className="mbLikedImg"
                     />
-                  </section>
-                  <section className="mainBottom">
-                    <div className="mbIconWrap">
-                      <div className="mbIconLeft">
-                        <i className="fas fa-heart"></i>
-                        <i className="far fa-comment"></i>
-                        <i class="far fa-paper-plane"></i>
-                      </div>
-                      <div className="mIconRight">
-                        <i className="far fa-bookmark"></i>
-                      </div>
-                    </div>
-                    <div className="mbLiked">
-                      <img
-                        alt="profile"
-                        src="/images/jj/img_account.jpg"
-                        className="mbLikedImg"
+                    <p className="mbLikedText">
+                      <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
+                    </p>
+                  </div>
+                  <div className="mbWrittenComments" id="mbWrittenComments">
+                    <ul className="commentSection">
+                      <CommentList
+                        deleteBtn={this.deleteBtn}
+                        changeHeartColor={this.changeHeartColor}
+                        list={this.state.list}
+                        className={this.state.className}
                       />
-                      <p className="mbLikedText">
-                        <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
-                      </p>
-                    </div>
-                    <div className="mbWrittenComments" id="mbWrittenComments">
-                      <ul className="commentSection">
-                        <CommentList
-                          deleteBtn={this.deleteBtn}
-                          changeHeartColor={this.changeHeartColor}
-                          list={this.state.list}
-                          className={this.state.className}
-                        />
-                      </ul>
-                    </div>
-                    <div className="mbWrittenTime">
-                      <p className="mbTime">42분전</p>
-                    </div>
-                    <form
-                      id="form"
-                      className="commentForm"
-                      onSubmit={e => this.handleSubmit(e)}
-                    >
-                      <input
-                        name="input"
-                        id="input"
-                        className="commentInput"
-                        placeholder="댓글 달기..."
-                        value={this.state.comment}
-                        onChange={e => {
-                          this.setState({ comment: e.target.value });
-                        }}
-                      />
-                      <button type="submit" className="commentBtn">
-                        게시
-                      </button>
-                    </form>
-                  </section>
-                </div>
+                    </ul>
+                  </div>
+                  <div className="mbWrittenTime">
+                    <p className="mbTime">42분전</p>
+                  </div>
+                  <form
+                    id="form"
+                    className="commentForm"
+                    onSubmit={e => this.handleSubmit(e)}
+                  >
+                    <input
+                      name="input"
+                      id="input"
+                      className="commentInput"
+                      placeholder="댓글 달기..."
+                      value={this.state.comment}
+                      onChange={e => {
+                        this.setState({ comment: e.target.value });
+                      }}
+                    />
+                    <button type="submit" className="commentBtn">
+                      게시
+                    </button>
+                  </form>
+                </section>
               </div>
             </main>
-
             <aside id="aside" className="aside">
               <div className="asideBg">
                 <div className="asMyAccount">

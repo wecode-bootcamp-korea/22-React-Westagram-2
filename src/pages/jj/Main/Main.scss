@@ -18,195 +18,202 @@
     .center {
       display: flex;
       justify-content: space-between;
+      position: relative;
       width: 100%;
       max-width: 1000px;
 
       .main {
         @include display-flex;
         flex: 2;
-
-        .mainBg {
+        .mainContainer {
           display: flex;
-          align-items: center;
           flex-direction: column;
-          width: 90%;
-          border: 1px solid rgba(219, 219, 219, 1);
-          border-radius: 5px;
-          box-shadow: 10px 10px 10px #eee;
 
-          .mainTop {
+          .mainBg {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 5%;
-            padding: 16px;
+            align-items: center;
+            flex-direction: column;
+            width: 400px;
+            border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px #eee;
+            margin-bottom: 50px;
 
-            .mTopProfile {
-              @include display-flex;
-              font-size: 14px;
+            .mainTop {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              height: 5%;
+              padding: 16px;
 
-              .mTopAccount {
-                width: 32px;
-                height: 32px;
-                margin-right: 10px;
-                border: none;
-                border-radius: 50%;
+              .mTopProfile {
+                @include display-flex;
+                font-size: 14px;
+
+                .mTopAccount {
+                  width: 32px;
+                  height: 32px;
+                  margin-right: 10px;
+                  border: none;
+                  border-radius: 50%;
+                  object-fit: cover;
+                }
+
+                p {
+                  @include bold-text-main($color-black, 17px);
+                }
+              }
+              .mTopThreeDot {
+                @include display-flex;
+                @include bold-text-main($color-black, 17px);
+                cursor: pointer;
+              }
+            }
+            .mainImg {
+              width: 100%;
+              height: 60%;
+
+              .mainFeedImg {
+                width: 100%;
+                height: 500px;
                 object-fit: cover;
               }
-
-              p {
-                @include bold-text-main($color-black, 17px);
-              }
-            }
-            .mTopThreeDot {
-              @include display-flex;
-              @include bold-text-main($color-black, 17px);
-              cursor: pointer;
-            }
-          }
-          .mainImg {
-            width: 100%;
-            height: 60%;
-
-            .mainFeedImg {
-              width: 100%;
-            }
-          }
-
-          .mainBottom {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 35%;
-
-            .mbIconWrap {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              width: 100%;
-              padding: 10px;
-
-              .mbIconLeft {
-                i {
-                  margin-right: 5px;
-                  font-size: 24px;
-                  cursor: pointer;
-
-                  &.fa-heart {
-                    color: red;
-                  }
-
-                  &.fa-comment,
-                  &.fa-paper-plane {
-                    color: #262626;
-                  }
-                }
-              }
-
-              .mIconRight {
-                i {
-                  font-size: 24px;
-                  cursor: pointer;
-                }
-              }
             }
 
-            .mbLiked {
-              display: flex;
-              width: 100%;
-              padding: 10px;
-
-              .mbLikedImg {
-                width: 20px;
-                margin-right: 20px;
-              }
-
-              .mbLikedText {
-                @include display-flex(left);
-
-                span {
-                  @include bold-text-main($color-black);
-                  cursor: pointer;
-                }
-              }
-            }
-            .mbWrittenComments {
+            .mainBottom {
               display: flex;
               flex-direction: column;
-              justify-content: space-between;
-              padding: 10px;
-              padding-top: 0px;
+              width: 100%;
 
-              .commentSection {
-                @include display-flex(space-between);
-                margin-top: 5px;
-                flex-direction: column;
+              .mbIconWrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 10px;
 
-                .personalAccount {
-                  @include display-flex(space-between);
-                  width: 100%;
+                .mbIconLeft {
+                  i {
+                    margin-right: 5px;
+                    font-size: 24px;
+                    cursor: pointer;
 
-                  .commentWrap {
-                    @include display-flex(space-between);
+                    &.fa-heart {
+                      color: red;
+                    }
 
-                    .userId {
-                      margin-right: 5px;
-                      @include bold-text-main($color-black);
+                    &.fa-comment,
+                    &.fa-paper-plane {
+                      color: #262626;
                     }
                   }
-                  .commentIconWrap {
+                }
+
+                .mIconRight {
+                  i {
+                    font-size: 24px;
+                    cursor: pointer;
+                  }
+                }
+              }
+
+              .mbLiked {
+                display: flex;
+                width: 100%;
+                padding: 10px;
+
+                .mbLikedImg {
+                  width: 20px;
+                  margin-right: 20px;
+                }
+
+                .mbLikedText {
+                  @include display-flex(left);
+
+                  span {
+                    @include bold-text-main($color-black);
+                    cursor: pointer;
+                  }
+                }
+              }
+              .mbWrittenComments {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px;
+                padding-top: 0px;
+
+                .commentSection {
+                  @include display-flex(space-between);
+                  margin-top: 5px;
+                  flex-direction: column;
+
+                  .personalAccount {
                     @include display-flex(space-between);
+                    width: 100%;
 
-                    i {
-                      cursor: pointer;
+                    .commentWrap {
+                      @include display-flex(space-between);
 
-                      &.likesBtn {
+                      .userId {
                         margin-right: 5px;
+                        @include bold-text-main($color-black);
                       }
-                      &.fas {
-                        color: #d61438;
-                      }
+                    }
+                    .commentIconWrap {
+                      @include display-flex(space-between);
 
-                      &.deleteBtn {
-                        color: #262626;
+                      i {
+                        cursor: pointer;
+
+                        &.likesBtn {
+                          margin-right: 5px;
+                        }
+                        &.fas {
+                          color: #d61438;
+                        }
+
+                        &.deleteBtn {
+                          color: #262626;
+                        }
                       }
                     }
                   }
                 }
               }
-            }
-            .mbWrittenTime {
-              padding: 10px;
-              padding-top: 0;
-              font-size: 11px;
-              font-weight: 400;
+              .mbWrittenTime {
+                padding: 10px;
+                padding-top: 0;
+                font-size: 11px;
+                font-weight: 400;
 
-              .mbTime {
-                color: #8e8e8e;
+                .mbTime {
+                  color: #8e8e8e;
+                }
               }
-            }
-            .commentForm {
-              @include display-flex(space-between);
-              padding: 10px;
-              border-top: 1px solid rgba(219, 219, 219, 1);
+              .commentForm {
+                @include display-flex(space-between);
+                padding: 10px;
+                border-top: 1px solid rgba(219, 219, 219, 1);
 
-              .commentInput {
-                flex: 9;
-                resize: none;
-                height: 30px;
-                padding-left: 10px;
-                color: #8e8e8e;
-                border: none;
-                border-radius: 5px;
-              }
+                .commentInput {
+                  flex: 9;
+                  resize: none;
+                  height: 30px;
+                  padding-left: 10px;
+                  color: #8e8e8e;
+                  border: none;
+                  border-radius: 5px;
+                }
 
-              .commentBtn {
-                flex: 1;
-                background-color: transparent;
-                color: #0095f6;
-                border: none;
-                text-align: right;
-                cursor: pointer;
+                .commentBtn {
+                  flex: 1;
+                  background-color: transparent;
+                  color: #0095f6;
+                  border: none;
+                  text-align: right;
+                  cursor: pointer;
+                }
               }
             }
           }
@@ -215,6 +222,7 @@
 
       .aside {
         flex: 1;
+
         .asideBg {
           display: flex;
           flex-direction: column;
