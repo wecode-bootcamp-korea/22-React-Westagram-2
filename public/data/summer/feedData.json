@@ -1,0 +1,24 @@
+[
+  {
+    "feeds": [
+      {
+        "postId": 1001,
+        "userName": "ginger",
+        "userImg": "/images/summer/profile6.jpg",
+        "postImg": "/images/summer/micheile-henderson-6nNJOV8J1B4-unsplash.jpg",
+        "postText": "무화과 어쩌구 팬케이크 먹음",
+        "postTime": "6시간 ",
+        "comments": ["테스트용 코멘트", "테스트 댓글"]
+      },
+      {
+        "postId": 1002,
+        "userName": "doggy",
+        "userImg": "/images/summer/profile7.jpg",
+        "postImg": "/images/summer/massimo-negrello-ByYzyR8UlG0-unsplash.jpg",
+        "postText": "오늘은 여자친구랑 산책을 다녀왔다",
+        "postTime": "8시간",
+        "comments": ["우와아아앙"]
+      }
+    ]
+  }
+]

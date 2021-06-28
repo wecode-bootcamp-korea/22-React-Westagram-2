@@ -11,91 +11,44 @@ import '../../../styles/reset.scss';
 import './Main.scss';
 
 class MainSummer extends React.Component {
-  state = {
-    myInfo: {
-      userName: 'summer_always',
-      userImg: '/images/summer/myprofile.jpg',
-      userDesc: 'Hi! Have a nice day:)',
-    },
-    stories: [
-      {
-        userName: 'doggy',
-        userImg: '/images/summer/profile7.jpg',
-      },
-      {
-        userName: 'katy',
-        userImg: '/images/summer/profile2.jpg',
-      },
-      {
-        userName: 'mew',
-        userImg: '/images/summer/profile3.jpg',
-      },
-      {
-        userName: 'hello',
-        userImg: '/images/summer/profile4.jpg',
-      },
-      {
-        userName: 'yellow_blue',
-        userImg: '/images/summer/profile5.jpg',
-      },
-      {
-        userName: 'ginger',
-        userImg: '/images/summer/profile6.jpg',
-      },
-      {
-        userName: 'test_user',
-        userImg: '/images/summer/profile1.jpg',
-      },
-      {
-        userName: 'imUser',
-        userImg: '/images/summer/profile8.jpg',
-      },
-    ],
-    feeds: [
-      {
-        postId: 1001,
-        userName: 'ginger',
-        userImg: '/images/summer/profile6.jpg',
-        postImg: '/images/summer/micheile-henderson-6nNJOV8J1B4-unsplash.jpg',
-        postText: '무화과 어쩌구 팬케이크 먹음',
-        postTime: '6시간 ',
-      },
-      {
-        postId: 1002,
-        userName: 'doggy',
-        userImg: '/images/summer/profile7.jpg',
-        postImg: '/images/summer/massimo-negrello-ByYzyR8UlG0-unsplash.jpg',
-        postText: '오늘은 여자친구랑 산책을 다녀왔다',
-        postTime: '8시간',
-      },
-    ],
-    recommend: [
-      {
-        userName: 'miao_cat',
-        userImg: '/images/summer/profile3.jpg',
-        userDesc: '회원님을 팔로우합니다',
-      },
-      {
-        userName: 'doggyDog',
-        userImg: '/images/summer/profile7.jpg',
-        userDesc: 'mewmew님 외 1명이 팔로우합니다',
-      },
-      {
-        userName: 'test_user',
-        userImg: '/images/summer/profile1.jpg',
-        userDesc: '회원님을 팔로우합니다',
-      },
-      {
-        userName: 'qwertasd',
-        userImg: '/images/summer/profile6.jpg',
-        userDesc: '회원님을 팔로우합니다',
-      },
-      {
-        userName: 'asdfzx_d54',
-        userImg: '/images/summer/profile4.jpg',
-        userDesc: 'katy님 외 3명이 팔로우합니다',
-      },
-    ],
+  state = {};
+
+  componentDidMount = () => {
+    fetch('http://localhost:3000/data/summer/feedData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feeds: data[0].feeds,
+        });
+      })
+      .catch(err => console.log('feeds', err));
+
+    fetch('http://localhost:3000/data/summer/storiesData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          stories: data[0].stories,
+        });
+      })
+      .catch(err => console.log('stories', err));
+
+    fetch('http://localhost:3000/data/summer/recommendData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          recommend: data[0].recommend,
+        });
+      })
+      .catch(err => console.log('rec', err));
+
+    fetch('http://localhost:3000/data/summer/myInfoData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          myInfo: data[0].myInfo,
+        });
+      })
+      .catch(err => console.log('my', err));
   };
 
   render() {
@@ -106,17 +59,18 @@ class MainSummer extends React.Component {
         <Nav />
         <main>
           <article className="contents-container">
-            <Story storyLis={stories} />
+            {stories !== undefined && <Story storyLis={stories} />}
             <section className="feeds-container">
-              {feeds.map(feed => (
-                <Feed feed={feed} key={feed.postId} />
-              ))}
+              {feeds !== undefined &&
+                feeds.map(feed => <Feed feed={feed} key={feed.postId} />)}
             </section>
           </article>
           <div className="right-container">
             <aside>
-              <MyInfo myInfo={myInfo} />
-              <Recommend recommendLis={recommend} />
+              {myInfo !== undefined && <MyInfo myInfo={myInfo} />}
+              {recommend !== undefined && (
+                <Recommend recommendLis={recommend} />
+              )}
             </aside>
             <Footer />
           </div>
@@ -127,3 +81,9 @@ class MainSummer extends React.Component {
 }
 
 export default MainSummer;
+
+{
+  /* {feeds.map(feed => (
+                <Feed feed={feed} key={feed.postId} />
+              ))} */
+}

@@ -9,6 +9,19 @@ class Feed extends React.Component {
     commentInput: '',
     comments: [],
     likes: [],
+    feedLike: false,
+  };
+
+  // 기존 댓글 받아오기
+  componentDidMount = () => {
+    this.setState({
+      comments: this.props.feed.comments,
+    });
+  };
+
+  // FeedLike
+  changeFeedLike = () => {
+    this.setState({ feedLike: !this.state.feedLike });
   };
 
   // CommentInput
@@ -58,7 +71,7 @@ class Feed extends React.Component {
 
   render() {
     const { postImg, postText, postTime, userImg, userName } = this.props.feed;
-    const { commentInput, comments, likes } = this.state;
+    const { commentInput, comments, likes, feedLike } = this.state;
 
     return (
       <article className="feed">
@@ -84,8 +97,8 @@ class Feed extends React.Component {
           <section className="post-desc-container">
             <div className="feed-btns">
               <div className="feed-btns-left">
-                <button aria-label="좋아요">
-                  <i className="far fa-heart"></i>
+                <button aria-label="좋아요" onClick={this.changeFeedLike}>
+                  <i className={feedLike ? 'fas fa-heart' : 'far fa-heart'}></i>
                 </button>
                 <button aria-label="댓글">
                   <i className="far fa-comment"></i>
