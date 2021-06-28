@@ -173,8 +173,21 @@
             cursor: pointer;
           }
 
+          .liked {
+            color: tomato;
+          }
+
+          .likeClicked {
+            display: inline-block;
+          }
+
+          .likeBtnClicked {
+            display: none;
+          }
+
           .deleteBtn,
-          .far {
+          .far,
+          .fas {
             cursor: pointer;
             padding-left: 7px;
             font-size: 1rem;

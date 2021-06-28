@@ -7,7 +7,7 @@ class LoginSomi extends React.Component {
   constructor() {
     super();
     this.state = {
-      disabled: 'ture',
+      disabled: true,
       idValue: '',
       pwValue: '',
     };

@@ -11,8 +11,19 @@ class MainSomi extends React.Component {
       disabled: true,
       commentValue: '',
       commentList: [],
-      profileID: 'somangoi',
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/somi/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
   }
 
   btnHandleChange = () => {
@@ -34,8 +45,17 @@ class MainSomi extends React.Component {
   submitComment = e => {
     e.preventDefault();
     this.setState({
-      commentList: this.state.commentList.concat(this.state.commentValue),
+      commentList: [
+        ...this.state.commentList,
+        {
+          id: this.state.commentList.length + 1,
+          userName: 'wecode',
+          content: this.state.commentValue,
+          isLiked: false,
+        },
+      ],
       commentValue: '',
+      disabled: true,
     });
   };
 
@@ -108,10 +128,15 @@ class MainSomi extends React.Component {
                   </div>
                 </div>
                 <ul className="commentList">
-                  <Comment
-                    commentList={this.state.commentList}
-                    profileID={this.state.profileID}
-                  />
+                  {this.state.commentList.map(comment => {
+                    return (
+                      <Comment
+                        key={comment.id}
+                        name={comment.userName}
+                        comment={comment.content}
+                      />
+                    );
+                  })}
                 </ul>
                 <span className="commentTime">42분 전</span>
                 <form className="commentInputBox" onSubmit={this.submitComment}>
@@ -140,7 +165,7 @@ class MainSomi extends React.Component {
                     alt="프로필"
                   />
                   <div className="profileDesc">
-                    <span className="profileID">{this.state.profileID}</span>
+                    <span className="profileID">somangoi</span>
                     <span className="profileName">Somi Hwang</span>
                   </div>
                 </div>
