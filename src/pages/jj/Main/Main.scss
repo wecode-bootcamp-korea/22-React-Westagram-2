@@ -214,172 +214,110 @@
       }
 
       .aside {
-        .asMyAccount {
-          @include display-flex(start);
-          margin-bottom: 20px;
-          padding: 0 10px;
-          font-size: 13px;
+        flex: 1;
+        .asideBg {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 85px;
+          .asMyAccount {
+            @include display-flex(start);
+            margin-bottom: 20px;
+            padding: 0 10px;
+            font-size: 13px;
 
-          .asMyAccountImg {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            border: none;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-
-          .asMyProfile {
-            > p {
-              @include bold-text-main($color-black, 17px);
+            .asMyAccountImg {
+              width: 50px;
+              height: 50px;
+              margin-right: 10px;
+              border: none;
+              border-radius: 50%;
+              object-fit: cover;
             }
 
-            .asMyProfile_bottom {
+            .asMyProfile {
+              > p {
+                @include bold-text-main($color-black, 17px);
+              }
+
+              .asMyProfile_bottom {
+                display: flex;
+
+                p {
+                  color: rgba(219, 219, 219, 1);
+                  font-size: 14px;
+
+                  &:first-child {
+                    padding-right: 10px;
+                    border-right: 1px solid rgba(219, 219, 219, 1);
+                  }
+
+                  &:last-child {
+                    padding-left: 10px;
+                  }
+                }
+              }
+            }
+          }
+
+          .asStory {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px #eee;
+
+            .asStoryTop {
               display: flex;
+              justify-content: space-between;
+              padding: 10px;
+              border-bottom: 1px solid rgba(219, 219, 219, 1);
 
               p {
-                color: rgba(219, 219, 219, 1);
                 font-size: 14px;
 
                 &:first-child {
-                  padding-right: 10px;
-                  border-right: 1px solid rgba(219, 219, 219, 1);
+                  color: #c7c7c7;
                 }
 
-                &:last-child {
-                  padding-left: 10px;
-                }
-              }
-            }
-          }
-        }
-
-        .asStory {
-          display: flex;
-          flex-direction: column;
-          width: 90%;
-          height: 200px;
-          margin-bottom: 20px;
-          border: 1px solid rgba(219, 219, 219, 1);
-          border-radius: 5px;
-          box-shadow: 10px 10px 10px #eee;
-
-          .asStoryTop {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-bottom: 1px solid rgba(219, 219, 219, 1);
-
-            p {
-              font-size: 14px;
-
-              &:first-child {
-                color: #c7c7c7;
-              }
-
-              &:nth-child(2) {
-                cursor: pointer;
-              }
-            }
-          }
-
-          .asStoryListWrap {
-            width: 100%;
-            padding: 0 10px;
-            overflow: hidden;
-
-            .asStoryList {
-              @include display-flex(left);
-              margin-bottom: 10px;
-              font-size: 13px;
-
-              &:first-child {
-                margin-top: 10px;
-              }
-
-              img {
-                width: 30px;
-                height: 30px;
-                border: none;
-                border-radius: 50%;
-                object-fit: cover;
-              }
-
-              .asStoryInfo {
-                padding-left: 10px;
-
-                p {
-                  &:first-child {
-                    @include bold-text-main(17px);
-                  }
-
-                  &:nth-child(2) {
-                    color: #c7c7c7;
-                    font-size: 13px;
-                  }
+                &:nth-child(2) {
+                  cursor: pointer;
                 }
               }
             }
-          }
-        }
 
-        .asRecommandation {
-          display: flex;
-          flex-direction: column;
-          width: 90%;
-          height: 200px;
-          margin-bottom: 20px;
-          border: 1px solid rgba(219, 219, 219, 1);
-          border-radius: 5px;
-          box-shadow: 10px 10px 10px #eee;
+            .asStoryListWrap {
+              width: 100%;
+              padding: 0 10px;
+              overflow: hidden;
 
-          .asReTop {
-            @include display-flex(space-between);
-            padding: 10px;
-            border-bottom: 1px solid rgba(219, 219, 219, 1);
-
-            p {
-              font-size: 14px;
-
-              &:first-child {
-                color: #c7c7c7;
-              }
-
-              &:nth-child(2) {
-                cursor: pointer;
-              }
-            }
-          }
-
-          .asReListWrap {
-            width: 100%;
-            padding: 0 10px;
-            overflow: hidden;
-
-            .asReList {
-              @include display-flex(space-between);
-              margin-bottom: 10px;
-              font-size: 15px;
-              font-weight: 300;
-
-              &:first-child {
-                margin-top: 10px;
-              }
-              .asReListLeft {
+              .asStoryList {
                 @include display-flex(left);
+                margin-bottom: 10px;
+                font-size: 13px;
+
+                &:first-child {
+                  margin-top: 10px;
+                }
 
                 img {
                   width: 30px;
                   height: 30px;
-                  margin-right: 10px;
                   border: none;
                   border-radius: 50%;
                   object-fit: cover;
                 }
 
-                .asReInfo {
+                .asStoryInfo {
+                  padding-left: 10px;
+
                   p {
-                    @include bold-text-main($color-black);
+                    &:first-child {
+                      @include bold-text-main(17px);
+                    }
 
                     &:nth-child(2) {
                       color: #c7c7c7;
@@ -388,25 +326,94 @@
                   }
                 }
               }
+            }
+          }
 
-              .asReListfollowBox {
-                color: #0095f6;
-                font-weight: 500;
-                cursor: pointer;
+          .asRecommandation {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px #eee;
+
+            .asReTop {
+              @include display-flex(space-between);
+              padding: 10px;
+              border-bottom: 1px solid rgba(219, 219, 219, 1);
+
+              p {
+                font-size: 14px;
+
+                &:first-child {
+                  color: #c7c7c7;
+                }
+
+                &:nth-child(2) {
+                  cursor: pointer;
+                }
+              }
+            }
+
+            .asReListWrap {
+              width: 100%;
+              padding: 0 10px;
+              overflow: hidden;
+
+              .asReList {
+                @include display-flex(space-between);
+                margin-bottom: 10px;
+                font-size: 15px;
+                font-weight: 300;
+
+                &:first-child {
+                  margin-top: 10px;
+                }
+                .asReListLeft {
+                  @include display-flex(left);
+
+                  img {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                    border: none;
+                    border-radius: 50%;
+                    object-fit: cover;
+                  }
+
+                  .asReInfo {
+                    p {
+                      @include bold-text-main($color-black);
+
+                      &:nth-child(2) {
+                        color: #c7c7c7;
+                        font-size: 13px;
+                      }
+                    }
+                  }
+                }
+
+                .asReListfollowBox {
+                  color: #0095f6;
+                  font-weight: 500;
+                  cursor: pointer;
+                }
               }
             }
           }
-        }
 
-        .asInfoWrap {
-          padding: 0 10px;
-          font-size: 15px;
+          .asInfoWrap {
+            padding: 0 10px;
+            font-size: 15px;
 
-          p {
-            color: #c7c7c7;
+            p {
+              color: #c7c7c7;
 
-            &:last-child {
-              margin-top: 20px;
+              &:last-child {
+                margin-top: 20px;
+              }
             }
           }
         }
