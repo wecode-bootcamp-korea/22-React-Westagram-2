@@ -1,9 +1,12 @@
 import React from 'react';
+
+// #COMPONENTS#
 import Nav from '../../../components/Nav/Nav';
-import '../../../styles/reset.scss';
+import MainComponent from './MainComponentMap/MainComponent';
+
+// #STYLES#
 import './Main.scss';
 import '../../../components/Nav/Nav.scss';
-import MainComponent from './MainComponentMap/MainComponent';
 
 const APIKEY = 'http://localhost:3000/data/jj/Data.json';
 
