@@ -1,0 +1,22 @@
+@import '../../../styles/common.scss';
+
+/* 사이드 내 footer */
+.footer {
+  padding: 10px;
+  line-height: 130%;
+  color: $color-darkgray;
+
+  li {
+    display: inline;
+    padding-right: 10px;
+    list-style: none;
+
+    a {
+      color: $color-darkgray;
+    }
+  }
+
+  .copyright {
+    padding-top: 10px;
+  }
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../../styles/reset.scss';
 import './Login.scss';
 import { withRouter } from 'react-router-dom';
 
@@ -14,11 +13,13 @@ class LoginSomi extends React.Component {
   }
 
   goToMain = () => {
-    this.props.history.push('/somi/main');
+    const { history } = this.props;
+    history.push('/somi/main');
   };
 
   handleChange = () => {
-    return this.state.idValue.includes('@') && this.state.pwValue.length >= 5
+    const { idValue, pwValue } = this.state;
+    return idValue.includes('@') && pwValue.length >= 5
       ? this.setState({
           disabled: false,
         })
@@ -40,6 +41,7 @@ class LoginSomi extends React.Component {
   };
 
   render() {
+    const { idValue, pwValue, disabled } = this.state;
     return (
       <div class="loginBodySomi">
         <main className="loginMain">
@@ -88,7 +90,7 @@ class LoginSomi extends React.Component {
                   type="text"
                   onChange={this.handleIdInput}
                   onKeyUp={this.handleChange}
-                  value={this.state.idValue}
+                  value={idValue}
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
                 <input
@@ -96,12 +98,12 @@ class LoginSomi extends React.Component {
                   type="password"
                   onChange={this.handlePwInput}
                   onKeyUp={this.handleChange}
-                  value={this.state.pwValue}
+                  value={pwValue}
                   placeholder="비밀번호"
                 />
                 <button
                   className="button"
-                  disabled={this.state.disabled}
+                  disabled={disabled}
                   onClick={this.goToMain}
                 >
                   log in

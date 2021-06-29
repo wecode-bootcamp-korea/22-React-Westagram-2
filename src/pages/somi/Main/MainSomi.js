@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from '../../../components/Nav/Nav';
 import Feeds from '../Feeds/Feeds';
-import '../../../styles/reset.scss';
+import Footer from '../Footer/Footer';
+import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 
 class MainSomi extends React.Component {
@@ -25,6 +25,7 @@ class MainSomi extends React.Component {
   }
 
   render() {
+    const { feedList } = this.state;
     return (
       <div>
         <Nav />
@@ -32,7 +33,7 @@ class MainSomi extends React.Component {
           <div className="container">
             <main className="mainMain">
               <div class="feedContainer">
-                {this.state.feedList.map(feed => {
+                {feedList.map(feed => {
                   return (
                     <Feeds
                       key={feed.id}
@@ -179,15 +180,7 @@ class MainSomi extends React.Component {
                     </li>
                   </ul>
                 </div>
-                <footer>
-                  <p>
-                    Instagram 정보 &middot; 지원 &middot; 홍보 센터 &middot; API
-                    &middot; 채용 정보 &middot; 개인정보처리방침 &middot; 약관
-                    &middot; 디렉터리 &middot; 프로필 &middot; 해시태그 &middot;
-                    언어
-                  </p>
-                  <p className="copyright">&copy; 2021 INSTAGRAM</p>
-                </footer>
+                <Footer />
               </aside>
             </main>
           </div>

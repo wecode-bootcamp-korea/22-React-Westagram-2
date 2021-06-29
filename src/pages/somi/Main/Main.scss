@@ -28,11 +28,14 @@
 }
 
 .mainBodySomi {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   @include display-flex(center, flex-start);
   position: relative;
+  padding-top: 90px;
   font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+
   ::-webkit-scrollbar {
     display: none;
   }
@@ -51,7 +54,7 @@
     // 사이드
     .mainRight {
       position: sticky;
-      top: 85px;
+      top: 120px;
       width: 350px;
       height: 100%;
       padding: 10px 0 0 30px;
@@ -104,7 +107,7 @@
 
       .storyTime,
       .connection {
-        color: #bdbdbd;
+        color: $color-darkgray;
         line-height: 130%;
       }
 
@@ -194,17 +197,6 @@
               font-weight: 600;
             }
           }
-        }
-      }
-
-      /* 사이드 내 footer */
-      footer {
-        padding: 10px;
-        color: #ccc;
-        line-height: 130%;
-
-        .copyright {
-          padding-top: 10px;
         }
       }
     }

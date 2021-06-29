@@ -25,7 +25,8 @@ class Feeds extends React.Component {
   }
 
   btnHandleChange = () => {
-    return this.state.commentValue.length >= 1
+    const { commentValue } = this.state;
+    return commentValue.length >= 1
       ? this.setState({
           disabled: false,
         })
@@ -41,14 +42,15 @@ class Feeds extends React.Component {
   };
 
   submitComment = e => {
+    const { commentList, commentValue } = this.state;
     e.preventDefault();
     this.setState({
       commentList: [
         ...this.state.commentList,
         {
-          id: this.state.commentList.length + 1,
+          id: commentList.length + 1,
           userName: 'somangoi',
-          content: this.state.commentValue,
+          content: commentValue,
           isLiked: false,
         },
       ],

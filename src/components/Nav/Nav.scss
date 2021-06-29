@@ -4,6 +4,7 @@
 .top-header {
   @include display-flex(center, unset);
   border-bottom: 1px solid $color-lightgray;
+  background: white;
 
   .top-header-contents {
     @include display-flex(space-between, center);
