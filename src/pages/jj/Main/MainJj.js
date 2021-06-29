@@ -30,6 +30,7 @@ class MainJj extends React.Component {
   }
 
   render() {
+    const { feedList } = this.state;
     return (
       <div className="mainJJ">
         <Nav />
@@ -37,7 +38,7 @@ class MainJj extends React.Component {
           <div className="center">
             <main id="main" className="main">
               <div className="mainContainer">
-                {this.state.feedList.map(el => {
+                {feedList.map(el => {
                   return <MainComponent key={el.feedId} feedList={el} />;
                 })}
               </div>

@@ -19,23 +19,25 @@ class MainComponent extends Component {
   }
 
   handleSubmit = e => {
+    const { list, className, comment } = this.state;
     e.preventDefault();
-    console.log(`this.state.list.src`, this.state.list);
+
     if (this.state.comment) {
       const newList = {
         id: uuid(),
-        comment: this.state.comment,
+        comment: comment,
         class: false,
       };
       this.setState({
-        list: [...this.state.list, newList],
-        className: [...this.state.className, newList.class],
+        list: [...list, newList],
+        className: [...className, newList.class],
       });
       this.setState({ comment: '' });
     }
   };
   changeHeartColor = (elId, index) => {
-    let copy = [...this.state.className];
+    const { className } = this.state;
+    let copy = [...className];
     copy[index] = !copy[index];
     this.setState({ className: copy });
   };
@@ -43,17 +45,20 @@ class MainComponent extends Component {
     this.setState({ comment: e.target.value });
   };
   deleteBtn = (elId, index) => {
+    const { list, className } = this.state;
     this.setState({
-      list: this.state.list.filter(el => {
+      list: list.filter(el => {
         return el.id !== elId;
       }),
-      className: this.state.className.filter((el, i) => {
+      className: className.filter((el, i) => {
         return i !== index;
       }),
     });
   };
 
   render() {
+    const { feedList } = this.props;
+    const { list, comment, className } = this.state;
     return (
       <>
         <div className="mainBg">
@@ -64,21 +69,16 @@ class MainComponent extends Component {
                 src="/images/jj/img_main_top.jpg"
                 className="mTopAccount"
               />
-              <p>{this.props.feedList.userName}</p>
+              <p>{feedList.userName}</p>
             </div>
             <p className="mTopThreeDot">…</p>
           </section>
           <section className="mainImg">
-            {/* <img
-              alt="mainfeed"
-              src="/images/jj/img_main_feed.jpg"
-              className="mainFeedImg"
-            /> */}
             <video
               muted
               loop
               autoPlay
-              src={this.props.feedList.src}
+              src={feedList.src}
               className="mainFeedImg"
             ></video>
           </section>
@@ -108,9 +108,9 @@ class MainComponent extends Component {
                 <CommentList
                   deleteBtn={this.deleteBtn}
                   changeHeartColor={this.changeHeartColor}
-                  feedList={this.props.feedList}
-                  list={this.state.list}
-                  className={this.state.className}
+                  feedList={feedList}
+                  list={list}
+                  className={className}
                 />
               </ul>
             </div>
@@ -122,7 +122,7 @@ class MainComponent extends Component {
                 name="input"
                 className="commentInput"
                 placeholder="댓글 달기..."
-                value={this.state.comment}
+                value={comment}
                 onChange={e => {
                   this.inputOnChange(e);
                 }}

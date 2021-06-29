@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 class CommentListMap extends Component {
   render() {
+    const { list, className, changeHeartColor, deleteBtn } = this.props;
     return (
       <>
-        {this.props.list.map((el, index) => {
+        {list.map((el, index) => {
           return (
             <li className="personalAccount" key={index}>
               <div className="commentWrap">
@@ -13,15 +14,15 @@ class CommentListMap extends Component {
               </div>
               <div className="commentIconWrap">
                 <i
-                  onClick={e => this.props.changeHeartColor(el.id, index)}
+                  onClick={e => changeHeartColor(el.id, index)}
                   className={
-                    this.props.className[index]
+                    className[index]
                       ? 'fas fa-heart likesBtn'
                       : 'far fa-heart likesBtn'
                   }
                 ></i>
                 <i
-                  onClick={e => this.props.deleteBtn(el.id, index)}
+                  onClick={e => deleteBtn(el.id, index)}
                   className="far fa-trash-alt deleteBtn"
                 ></i>
               </div>

@@ -9,51 +9,33 @@ class LoginJj extends React.Component {
     super();
 
     this.state = {
-      id: null,
-      pw: [],
-      btnColor: 'false',
+      id: '',
+      pw: '',
+      btnColor: false,
     };
   }
-
-  handleInput = e => {
-    this.setState({ id: e.target.value });
-
-    let inputId = this.state.id;
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let check = re.test(String(inputId).toLowerCase());
-
-    {
-      check
-        ? this.setState({ btnColor: 'true' })
-        : this.setState({ btnColor: 'false' });
-    }
-  };
-
-  pwInput = e => {
-    this.setState({ pw: e.target.value });
-    let inputPw = this.state.pw;
-    let inputPwLength = inputPw.length;
-
-    {
-      inputPwLength > 5
-        ? this.setState({ btnColor: 'true' })
-        : this.setState({ btnColor: 'false' });
-    }
-  };
-
-  validation = e => {
+  handleSubmit = e => {
     e.preventDefault();
-
     {
-      this.state.btnColor === 'true'
+      this.state.btnColor
         ? this.props.history.push('./jj/main')
         : alert('Plese check your Email and Password');
     }
-    this.setState({ id: '', pw: '' });
+  };
+
+  activeBtn = () => {
+    const isValid = this.state.id.includes('@') && this.state.pw.length >= 5;
+    console.log(`isValid`, isValid);
+
+    if (isValid) {
+      this.setState({ btnColor: true });
+    } else {
+      this.setState({ btnColor: false });
+    }
   };
 
   render() {
+    console.log(`this.state.id`, this.state.id);
     return (
       <div className="loginJJ">
         <div className="container">
@@ -63,28 +45,33 @@ class LoginJj extends React.Component {
               <form
                 id="form"
                 className="form"
-                onSubmit={e => this.validation(e)}
+                onSubmit={e => this.handleSubmit(e)}
               >
                 <input
                   id="inputId"
                   className="inputId"
                   type="text"
                   placeholder="전화번호, 사용자 이름 또는 메일"
-                  onChange={e => this.handleInput(e)}
+                  name="email"
+                  onChange={e => this.setState({ id: e.target.value })}
+                  onKeyUp={this.activeBtn}
                 />
                 <input
                   id="inputPassword"
                   className="inputPassword"
                   type="password"
                   placeholder="비밀번호 (8자리 이상)"
-                  onChange={e => this.pwInput(e)}
+                  name="password"
+                  onChange={e => this.setState({ pw: e.target.value })}
+                  onKeyUp={this.activeBtn}
                 />
                 <button
                   id="loginBtn"
                   className="loginBtn"
                   style={{
-                    backgroundColor:
-                      this.state.btnColor === 'true' ? '#0095f6' : '#c0dffd',
+                    backgroundColor: this.state.btnColor
+                      ? '#0095f6'
+                      : '#c0dffd',
                   }}
                 >
                   로그인
