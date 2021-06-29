@@ -1,0 +1,92 @@
+@import '../../../styles/common.scss';
+
+.commentList {
+  padding: 0 10px;
+
+  .commentBox {
+    display: flex;
+    font-size: 1.1rem;
+    padding-bottom: 3px;
+
+    .commentContent {
+      flex: 1;
+      width: 60%;
+      padding-left: 5px;
+    }
+
+    .igID {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .igID a {
+      color: black;
+    }
+
+    .moreBtn {
+      color: #8e8e8e;
+      background-color: transparent;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .liked {
+      color: tomato;
+    }
+
+    .likeClicked {
+      display: inline-block;
+    }
+
+    .likeBtnClicked {
+      display: none;
+    }
+
+    .deleteBtn,
+    .far,
+    .fas {
+      cursor: pointer;
+      padding-left: 7px;
+      font-size: 1rem;
+    }
+  }
+}
+
+.commentTime {
+  display: inline-block;
+  color: #c8c8c8;
+  padding: 5px 0 10px 10px;
+  font-size: 0.9rem;
+}
+
+/* 댓글달기 */
+.commentInputBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  border-top: 1px solid rgb(237, 237, 237);
+
+  .commentInput {
+    flex-grow: 1;
+    font-size: 1.1rem;
+  }
+
+  .commentInput:focus {
+    outline: none;
+  }
+
+  .commentInput:focus::placeholder {
+    color: transparent;
+  }
+
+  .commentBtn {
+    margin-left: 5px;
+    color: $color-active;
+    background-color: transparent;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  .commentBtn:disabled {
+    color: #cfe7fc;
+  }
+}

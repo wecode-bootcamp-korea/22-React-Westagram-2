@@ -1,4 +1,5 @@
 @import '../../../styles/common.scss';
+
 @mixin side-box {
   position: relative;
   width: 100%;
@@ -8,6 +9,7 @@
   margin-top: 10px;
   background-color: white;
 }
+
 @mixin side-box-top {
   display: flex;
   justify-content: space-between;
@@ -18,6 +20,7 @@
   height: 40px;
   padding: 15px;
 }
+
 @mixin side-box-content {
   margin-top: 40px;
   height: 158px;
@@ -44,204 +47,6 @@
     align-items: flex-start;
     width: 934px;
     padding-top: 30px;
-
-    .feedContainer {
-      display: flex;
-      flex-direction: column;
-      width: 550px;
-      height: 100%;
-    }
-
-    .feeds {
-      flex-direction: column;
-      width: 550px;
-      border: 1px solid $color-lightgray;
-      border-radius: 5px;
-      background-color: white;
-      margin-bottom: 30px;
-
-      /* 피드 상단 */
-      .feedTop {
-        @include display-flex;
-        padding: 10px;
-        height: 60px;
-        width: 100%;
-
-        .feedProfile {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-
-        .feedTopRight {
-          display: flex;
-          align-items: stretch;
-          justify-content: space-between;
-          width: 100%;
-          padding: 0 10px;
-
-          .userID {
-            color: black;
-            font-weight: bolder;
-          }
-        }
-      }
-
-      /* 피드 사진*/
-      .feedPicBox {
-        width: 548px;
-        height: 548px;
-        .feedPic {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-      /* 피드 하단 */
-      /* like */
-      .likes {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-
-        .likesPic {
-          width: 30px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-
-        .likesDesc {
-          margin-bottom: 5px;
-          padding-left: 10px;
-          font-size: 1rem;
-        }
-
-        .likes div {
-          padding-left: 10px;
-        }
-
-        .bolder {
-          font-weight: 600;
-          color: black;
-        }
-      }
-
-      /* 피드 하단 아이콘 */
-      .contentIcons {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 10px 0px 10px;
-
-        .contentBtn {
-          height: 25px;
-          padding-right: 5px;
-          background-color: white;
-          cursor: pointer;
-        }
-
-        .contentBtn:last-child {
-          padding-right: 0;
-        }
-
-        .contentBtn img {
-          height: 100%;
-        }
-      }
-
-      /* 피드하단 코멘트 */
-      .commentList {
-        padding: 0 10px;
-
-        .commentBox {
-          display: flex;
-          font-size: 1.1rem;
-          padding-bottom: 3px;
-
-          .commentContent {
-            flex: 1;
-            width: 60%;
-            padding-left: 5px;
-          }
-
-          .igID {
-            font-weight: 600;
-            font-size: 1.1rem;
-          }
-
-          .igID a {
-            color: black;
-          }
-
-          .moreBtn {
-            color: #8e8e8e;
-            background-color: transparent;
-            font-size: 1.1rem;
-            cursor: pointer;
-          }
-
-          .liked {
-            color: tomato;
-          }
-
-          .likeClicked {
-            display: inline-block;
-          }
-
-          .likeBtnClicked {
-            display: none;
-          }
-
-          .deleteBtn,
-          .far,
-          .fas {
-            cursor: pointer;
-            padding-left: 7px;
-            font-size: 1rem;
-          }
-        }
-      }
-
-      .commentTime {
-        display: inline-block;
-        color: #c8c8c8;
-        padding: 5px 0 10px 10px;
-        font-size: 0.9rem;
-      }
-
-      /* 댓글달기 */
-      .commentInputBox {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 10px;
-        border-top: 1px solid rgb(237, 237, 237);
-
-        .commentInput {
-          flex-grow: 1;
-          font-size: 1.1rem;
-        }
-
-        .commentInput:focus {
-          outline: none;
-        }
-
-        .commentInput:focus::placeholder {
-          color: transparent;
-        }
-
-        .commentBtn {
-          margin-left: 5px;
-          color: $color-active;
-          background-color: transparent;
-          font-size: 1.1rem;
-          cursor: pointer;
-        }
-        .commentBtn:disabled {
-          color: #cfe7fc;
-        }
-      }
-    }
 
     // 사이드
     .mainRight {

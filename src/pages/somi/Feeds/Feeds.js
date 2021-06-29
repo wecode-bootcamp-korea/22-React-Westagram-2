@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from '../Comment/Comment';
+import '../Feeds/Feeds.scss';
 
 class Feeds extends React.Component {
   constructor() {
@@ -66,33 +67,36 @@ class Feeds extends React.Component {
   };
 
   render() {
+    const {
+      profileImage,
+      name,
+      feedImage,
+      alt,
+      commentKey,
+      commentName,
+      comment,
+    } = this.props;
+
+    const { commentValue, disabled } = this.state;
     return (
       <article className="feeds">
         <div className="feedTop">
-          <img
-            className="feedProfile"
-            src={this.props.profileImage}
-            alt="프로필"
-          />
+          <img className="feedProfile" src={profileImage} alt="프로필" />
           <div className="feedTopRight">
             <a href="#" className="userID">
-              {this.props.name}
+              {name}
             </a>
             <i className="fas fa-ellipsis-h"></i>
           </div>
         </div>
         <div className="feedPhotoContainer">
           <div className="feedPicBox">
-            <img
-              className="feedPic"
-              src={this.props.feedImage}
-              alt={this.props.alt}
-            />
+            <img className="feedPic" src={feedImage} alt={alt} />
           </div>
         </div>
         <div className="contentIcons">
           <div className="iconContainerLeft">
-            <button className="contentBtn">
+            <button className="contentBtn" onClick>
               <img src="/images/somi/heart.png" alt="heart_icon" />
             </button>
             <button className="contentBtn">
@@ -127,9 +131,9 @@ class Feeds extends React.Component {
         </div>
         <ul className="commentList">
           <Comment
-            commentKey={this.props.commentKey}
-            commentName={this.props.commentName}
-            comment={this.props.comment}
+            commentKey={commentKey}
+            commentName={commentName}
+            comment={comment}
             deleteComment={this.deleteComment}
           />
           {this.state.commentList.map(comment => {
@@ -150,14 +154,10 @@ class Feeds extends React.Component {
             type="text"
             placeholder="댓글 달기..."
             onKeyUp={this.btnHandleChange}
-            value={this.state.commentValue}
+            value={commentValue}
             onChange={this.handleCommentInput}
           />
-          <button
-            className="commentBtn"
-            type="submit"
-            disabled={this.state.disabled}
-          >
+          <button className="commentBtn" type="submit" disabled={disabled}>
             Post
           </button>
         </form>

@@ -1,0 +1,109 @@
+@import '../../../styles/common.scss';
+
+.feedContainer {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 100%;
+}
+
+.feeds {
+  flex-direction: column;
+  width: 550px;
+  border: 1px solid $color-lightgray;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 30px;
+
+  /* 피드 상단 */
+  .feedTop {
+    @include display-flex;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+
+    .feedProfile {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .feedTopRight {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 10px;
+
+      .userID {
+        color: black;
+        font-weight: bolder;
+      }
+    }
+  }
+
+  /* 피드 사진*/
+  .feedPicBox {
+    width: 548px;
+    height: 548px;
+    .feedPic {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* 피드 하단 */
+  /* like */
+  .likes {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    .likesPic {
+      width: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .likesDesc {
+      margin-bottom: 5px;
+      padding-left: 10px;
+      font-size: 1rem;
+    }
+
+    .likes div {
+      padding-left: 10px;
+    }
+
+    .bolder {
+      font-weight: 600;
+      color: black;
+    }
+  }
+
+  /* 피드 하단 아이콘 */
+  .contentIcons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 0px 10px;
+
+    .contentBtn {
+      height: 25px;
+      padding-right: 5px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .contentBtn:last-child {
+      padding-right: 0;
+    }
+
+    .contentBtn img {
+      height: 100%;
+    }
+  }
+
+  /* 피드하단 코멘트 */
+}
