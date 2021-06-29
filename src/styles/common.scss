@@ -10,7 +10,7 @@ $color-facebook: #385185;
   align-items: $align;
 }
 
-@mixin bold-text( $color: $color-black, $size: 14px) {
+@mixin bold-text($size: 14px, $color: $color-black) {
   font-weight: 600;
   font-size: $size;
   color: $color;
@@ -24,4 +24,45 @@ $color-facebook: #385185;
 
 h1 {
   font-family: 'Lobster', cursive;
+}
+
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* MEDIA QUERY */
+
+/* 1129px이하*/
+@media screen and (max-width: 1129px) {
+  .top-header .top-header-contents {
+    width: 900px;
+  }
+}
+
+/* 974px 이하 */
+@media screen and (max-width: 974px) {
+  .top-header .top-header-contents {
+    width: 90%;
+  }
+}
+
+/* 699px 이하 */
+@media screen and (max-width: 699px) {
+  .top-header {
+    margin-bottom: 10px;
+  }
+  .search-container {
+    display: none;
+  }
+}
+
+/* 634px 이하 */
+@media screen and (max-width: 634px) {
+  .top-header {
+    margin-bottom: 2px;
+  }
 }
