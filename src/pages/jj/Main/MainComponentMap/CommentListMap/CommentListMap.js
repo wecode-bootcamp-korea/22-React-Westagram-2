@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 
 class CommentListMap extends Component {
   render() {
-    console.log(`this.props.feedList`, this.props.feedList);
     return (
       <>
-        {this.props.feedList.map((el, index) => {
-          // console.log(`el`, el[index][index]);
+        {this.props.list.map((el, index) => {
           return (
             <li className="personalAccount" key={index}>
               <div className="commentWrap">
                 <span className="userId">아이디</span>
-                <span className="commnets">{el[index][index].comment}</span>
+                <span className="commnets">{el.comment}</span>
               </div>
               <div className="commentIconWrap">
                 <i

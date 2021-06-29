@@ -3,11 +3,7 @@ import Nav from '../../../components/Nav/Nav';
 import '../../../styles/reset.scss';
 import './Main.scss';
 import '../../../components/Nav/Nav.scss';
-
 import MainComponent from './MainComponentMap/MainComponent';
-
-import uuid from 'react-uuid';
-// import Data from './Data/jj/Data';
 
 const APIKEY = 'http://localhost:3000/data/jj/Data.json';
 
@@ -16,10 +12,6 @@ class MainJj extends React.Component {
     super();
 
     this.state = {
-      list: [],
-      comment: '',
-      heartColor: false,
-      className: [],
       feedList: [],
     };
   }
@@ -34,44 +26,6 @@ class MainJj extends React.Component {
       });
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    if (this.state.comment) {
-      const newList = {
-        // id: new Date().getTime().toString(),
-        id: uuid(),
-        comment: this.state.comment,
-        class: false,
-      };
-      this.setState({
-        list: [...this.state.list, newList],
-        className: [...this.state.className, newList.class],
-      });
-      this.setState({ comment: '' });
-    }
-  };
-
-  changeHeartColor = (elId, index) => {
-    let copy = [...this.state.className];
-    copy[index] = !copy[index];
-    this.setState({ className: copy });
-  };
-
-  deleteBtn = (elId, index) => {
-    this.setState({
-      list: this.state.list.filter(el => {
-        return el.id !== elId;
-      }),
-      className: this.state.className.filter((el, i) => {
-        return i !== index;
-      }),
-    });
-  };
-
-  inputOnChange = e => {
-    this.setState({ comment: e.target.value });
-  };
-
   render() {
     return (
       <div className="mainJJ">
@@ -80,20 +34,8 @@ class MainJj extends React.Component {
           <div className="center">
             <main id="main" className="main">
               <div className="mainContainer">
-                {this.state.feedList.map((eachFeed, i) => {
-                  return (
-                    <MainComponent
-                      key={i}
-                      handleSubmit={this.handleSubmit}
-                      deleteBtn={this.deleteBtn}
-                      changeHeartColor={this.changeHeartColor}
-                      feedList={this.state.feedList}
-                      list={this.state.list}
-                      className={this.state.className}
-                      comment={this.state.comment}
-                      inputOnChange={this.inputOnChange}
-                    />
-                  );
+                {this.state.feedList.map(el => {
+                  return <MainComponent key={el.feedId} feedList={el} />;
                 })}
               </div>
             </main>
@@ -226,153 +168,3 @@ class MainJj extends React.Component {
 }
 
 export default MainJj;
-
-// <div className="mainBg">
-//                   <section className="mainTop">
-//                     <div className="mTopProfile">
-//                       <img
-//                         alt="account"
-//                         src="/images/jj/img_main_top.jpg"
-//                         className="mTopAccount"
-//                       />
-//                       <p>jacob</p>
-//                     </div>
-//                     <p className="mTopThreeDot">…</p>
-//                   </section>
-//                   <section className="mainImg">
-//                     <img
-//                       alt="mainfeed"
-//                       src="/images/jj/img_main_feed.jpg"
-//                       className="mainFeedImg"
-//                     />
-//                   </section>
-//                   <section className="mainBottom">
-//                     <div className="mbIconWrap">
-//                       <div className="mbIconLeft">
-//                         <i className="fas fa-heart"></i>
-//                         <i className="far fa-comment"></i>
-//                         <i class="far fa-paper-plane"></i>
-//                       </div>
-//                       <div className="mIconRight">
-//                         <i className="far fa-bookmark"></i>
-//                       </div>
-//                     </div>
-//                     <div className="mbLiked">
-//                       <img
-//                         alt="profile"
-//                         src="/images/jj/img_account.jpg"
-//                         className="mbLikedImg"
-//                       />
-//                       <p className="mbLikedText">
-//                         <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
-//                       </p>
-//                     </div>
-//                     <div className="mbWrittenComments" id="mbWrittenComments">
-//                       <ul className="commentSection">
-//                         <CommentList
-//                           deleteBtn={this.deleteBtn}
-//                           changeHeartColor={this.changeHeartColor}
-//                           list={this.state.list}
-//                           className={this.state.className}
-//                         />
-//                       </ul>
-//                     </div>
-//                     <div className="mbWrittenTime">
-//                       <p className="mbTime">42분전</p>
-//                     </div>
-//                     <form
-//                       id="form"
-//                       className="commentForm"
-//                       onSubmit={e => this.handleSubmit(e)}
-//                     >
-//                       <input
-//                         name="input"
-//                         id="input"
-//                         className="commentInput"
-//                         placeholder="댓글 달기..."
-//                         value={this.state.comment}
-//                         onChange={e => {
-//                           this.setState({ comment: e.target.value });
-//                         }}
-//                       />
-//                       <button type="submit" className="commentBtn">
-//                         게시
-//                       </button>
-//                     </form>
-//                   </section>
-//                 </div>
-
-//                 <div className="mainBg">
-//                   <section className="mainTop">
-//                     <div className="mTopProfile">
-//                       <img
-//                         alt="account"
-//                         src="/images/jj/img_main_top.jpg"
-//                         className="mTopAccount"
-//                       />
-//                       <p>jacob</p>
-//                     </div>
-//                     <p className="mTopThreeDot">…</p>
-//                   </section>
-//                   <section className="mainImg">
-//                     <img
-//                       alt="mainfeed"
-//                       src="/images/jj/img_main_feed.jpg"
-//                       className="mainFeedImg"
-//                     />
-//                   </section>
-//                   <section className="mainBottom">
-//                     <div className="mbIconWrap">
-//                       <div className="mbIconLeft">
-//                         <i className="fas fa-heart"></i>
-//                         <i className="far fa-comment"></i>
-//                         <i class="far fa-paper-plane"></i>
-//                       </div>
-//                       <div className="mIconRight">
-//                         <i className="far fa-bookmark"></i>
-//                       </div>
-//                     </div>
-//                     <div className="mbLiked">
-//                       <img
-//                         alt="profile"
-//                         src="/images/jj/img_account.jpg"
-//                         className="mbLikedImg"
-//                       />
-//                       <p className="mbLikedText">
-//                         <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
-//                       </p>
-//                     </div>
-//                     <div className="mbWrittenComments" id="mbWrittenComments">
-//                       <ul className="commentSection">
-//                         <CommentList
-//                           deleteBtn={this.deleteBtn}
-//                           changeHeartColor={this.changeHeartColor}
-//                           list={this.state.list}
-//                           className={this.state.className}
-//                         />
-//                       </ul>
-//                     </div>
-//                     <div className="mbWrittenTime">
-//                       <p className="mbTime">42분전</p>
-//                     </div>
-//                     <form
-//                       id="form"
-//                       className="commentForm"
-//                       onSubmit={e => this.handleSubmit(e)}
-//                     >
-//                       <input
-//                         name="input"
-//                         id="input"
-//                         className="commentInput"
-//                         placeholder="댓글 달기..."
-//                         value={this.state.comment}
-//                         onChange={e => {
-//                           this.setState({ comment: e.target.value });
-//                         }}
-//                       />
-//                       <button type="submit" className="commentBtn">
-//                         게시
-//                       </button>
-//                     </form>
-//                   </section>
-//                 </div>

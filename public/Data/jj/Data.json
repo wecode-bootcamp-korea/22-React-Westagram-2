@@ -1,11 +1,14 @@
 [
   {
-    "0": [
+    "feedId": 1,
+    "src": "/images/jj/img_main_feed2.mp4",
+    "userName": "jacob",
+    "comment": [
       {
         "id": 1,
         "userName": "wecode",
         "comment": "Welcome to world best coding bootcamp!",
-        "class": true
+        "class": false
       },
       {
         "id": 2,
@@ -21,23 +24,25 @@
       }
     ]
   },
-
   {
-    "1": [
+    "feedId": 2,
+    "src": "/images/jj/img_main_feed3.mp4",
+    "userName": "malon",
+    "comment": [
       {
-        "id": 4,
-        "userName": "wecode",
-        "comment": "Welcome to world best coding bootcamp!",
-        "class": true
+        "id": 1,
+        "userName": "sxcdscsdc",
+        "comment": "gfnfhjfhjfj",
+        "class": false
       },
       {
-        "id": 5,
+        "id": 2,
         "userName": "joonsikyang",
         "comment": "Hi there.",
         "class": false
       },
       {
-        "id": 6,
+        "id": 3,
         "userName": "jayPark",
         "comment": "Hey.",
         "class": false
@@ -45,21 +50,24 @@
     ]
   },
   {
-    "2": [
+    "feedId": 3,
+    "src": "/images/jj/img_main_feed4.mp4",
+    "userName": "pavid",
+    "comment": [
       {
-        "id": 7,
+        "id": 1,
         "userName": "wecode",
         "comment": "Welcome to world best coding bootcamp!",
-        "class": true
+        "class": false
       },
       {
-        "id": 8,
+        "id": 2,
         "userName": "joonsikyang",
         "comment": "Hi there.",
         "class": false
       },
       {
-        "id": 9,
+        "id": 3,
         "userName": "jayPark",
         "comment": "Hey.",
         "class": false
