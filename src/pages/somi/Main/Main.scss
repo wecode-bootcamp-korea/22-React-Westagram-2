@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 200px;
-  border: 1px solid rgb(237, 237, 237);
+  border: 1px solid $color-lightgray;
   border-radius: 5px;
   margin-top: 10px;
   background-color: white;
@@ -45,12 +45,20 @@
     width: 934px;
     padding-top: 30px;
 
+    .feedContainer {
+      display: flex;
+      flex-direction: column;
+      width: 550px;
+      height: 100%;
+    }
+
     .feeds {
       flex-direction: column;
       width: 550px;
       border: 1px solid $color-lightgray;
       border-radius: 5px;
       background-color: white;
+      margin-bottom: 30px;
 
       /* 피드 상단 */
       .feedTop {

@@ -1,23 +1,6 @@
 import React from 'react';
 
 class Comment extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      commentList: [],
-      commentValue: '',
-    };
-  }
-
-  deleteComment = e => {
-    const item = e.target;
-    const parentItem = item.parentElement;
-
-    if (item.className.split(' ')[0] === 'deleteBtn') {
-      parentItem.remove();
-    }
-  };
-
   render() {
     return (
       <li className="commentBox">
@@ -26,7 +9,10 @@ class Comment extends React.Component {
         </span>
         <span className="commentContent">{this.props.comment}</span>
         <i className="likeBtn far fa-heart" onClick={this.likeComment}></i>
-        <i className="deleteBtn fas fa-times" onClick={this.deleteComment}></i>
+        <i
+          className="deleteBtn fas fa-times"
+          onClick={this.props.deleteComment}
+        ></i>
       </li>
     );
   }

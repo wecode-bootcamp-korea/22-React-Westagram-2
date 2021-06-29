@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "userName": "somangoi",
+    "profilePic": "/images/somi/feedProfile.jpeg",
+    "feedPic": "https://images.unsplash.com/photo-1624689146002-0a5d2dcbf2fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2104&q=80",
+    "alt": "이미지1",
+    "commentId": 1,
+    "commentUserName": "wecode",
+    "content": "Welcome to world best coding bootcamp!",
+    "isLiked": true
+  },
+  {
+    "id": 2,
+    "userName": "joonsikyang",
+    "profilePic": "https://images.unsplash.com/photo-1624826808846-42f7cf01c8b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+    "feedPic": "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80",
+    "alt": "이미지2",
+    "commentId": 1,
+    "commentUserName": "joonsikyang",
+    "content": "Hi there.",
+    "isLiked": false
+  },
+  {
+    "id": 3,
+    "userName": "jayPark",
+    "profilePic": "https://images.unsplash.com/photo-1624832144104-0957b1ace598?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2034&q=80",
+    "feedPic": "https://images.unsplash.com/photo-1624832573517-92edabf02763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    "alt": "이미지3",
+    "commentId": 1,
+    "commentUserName": "jayPark",
+    "content": "Hey.",
+    "isLiked": false
+  }
+]
