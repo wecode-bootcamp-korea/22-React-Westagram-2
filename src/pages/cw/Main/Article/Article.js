@@ -44,16 +44,16 @@ class Article extends React.Component {
     }
   };
 
-  // delComment = x => {
-  //   const { comments } = this.state;
-  //   const nextComments = comments.filter(el => {
-  //     console.log(el.number);
-  //     return el.number !== x;
-  //   });
-  //   this.setState({
-  //     comments: nextComments,
-  //   });
-  // };
+  delComment = x => {
+    const { comments } = this.state;
+    const nextComments = comments.filter(el => {
+      return el.number !== x;
+    });
+    console.log(nextComments);
+    this.setState({
+      comments: nextComments,
+    });
+  };
 
   render() {
     const { userId, nickname, profileImg, content, writer, newComment, like } =
@@ -91,7 +91,7 @@ class Article extends React.Component {
                   number={el.number}
                   userId={el.userId}
                   newComment={el.newComment}
-                  // delComment={this.delComment}
+                  delComment={this.delComment}
                 />
               );
             })}
