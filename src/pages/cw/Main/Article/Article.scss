@@ -1,8 +1,8 @@
 @import '../../../../styles/common.scss';
 
 .Article {
-  height: auto;
   width: 100%;
+  height: fit-content;
   min-width: 450px;
   max-width: 550px;
   margin-top: 40px;
@@ -83,5 +83,31 @@
     font-weight: bold;
     padding: 5px 0px 5px 15px;
     background-color: white;
+  }
+
+  .commentBox {
+    display: flex;
+    background-color: white;
+    border-top: 1px solid $color-darkgray;
+
+    #new-comment {
+      width: 100%;
+      height: 100%;
+      padding-top: 15px;
+      padding-left: 15px;
+      resize: none;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    #submitBt {
+      background-color: transparent;
+      color: $color-active;
+      width: 20%;
+    }
   }
 }

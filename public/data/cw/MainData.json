@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "userId": "test",
+    "nickname": "test id",
+    "profileImg": "fas fa-user-circle",
+    "content": "http://localhost:3000/images/cw/main.jpeg",
+    "writer": "최우하",
+    "newComment": "hi",
+    "like": false
+  },
+  {
+    "id": 2,
+    "userId": "test2",
+    "nickname": "test id2",
+    "profileImg": "fas fa-user-circle",
+    "content": "http://localhost:3000/images/cw/main.jpeg",
+    "writer": "최우하22",
+    "newComment": "hi하이222",
+    "like": false
+  }
+]

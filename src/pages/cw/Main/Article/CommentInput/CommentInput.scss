@@ -1,44 +1,17 @@
 @import '../../../../../styles/common.scss';
 
 .CommentInput {
-  ul {
-    i {
-      margin: 15px;
+  li {
+    margin: 15px;
 
-      span {
-        margin-right: 20px;
-        font-weight: bold;
-      }
-    }
-    button {
-      float: right;
-      margin-right: 15px;
+    span {
+      margin-right: 20px;
+      font-weight: bold;
     }
   }
 
-  .commentBox {
-    display: flex;
-    background-color: white;
-    border-top: 1px solid $color-darkgray;
-
-    #new-comment {
-      width: 100%;
-      height: 100%;
-      padding-top: 12px;
-      padding-left: 15px;
-      resize: none;
-      background-color: transparent;
-      border: none;
-      padding-bottom: 20px;
-      &:focus {
-        outline: none;
-      }
-    }
-
-    #submitBt {
-      background-color: transparent;
-      color: $color-active;
-      width: 20%;
-    }
+  #del {
+    float: right;
+    margin-right: 15px;
   }
 }
