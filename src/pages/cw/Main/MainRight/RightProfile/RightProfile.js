@@ -1,7 +1,6 @@
 import React from 'react';
+
 import './RightProfile.scss';
-import '../../../../../styles/reset.scss';
-import '../../../../../styles/common.scss';
 
 class RightProfile extends React.Component {
   render() {

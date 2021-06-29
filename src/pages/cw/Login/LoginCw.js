@@ -1,8 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 import './Login.scss';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
 
 class LoginCw extends React.Component {
   constructor() {
@@ -19,14 +18,12 @@ class LoginCw extends React.Component {
   };
 
   handleIdInput = event => {
-    // console.log(event.target.value);
     this.setState({
       idInputData: event.target.value,
     });
   };
 
   handlePwInput = event => {
-    // console.log(event.target.value);
     this.setState({
       pwInputData: event.target.value,
     });

@@ -1,7 +1,7 @@
 import React from 'react';
+
 import './MainRight.scss';
-import '../../../../styles/reset.scss';
-import '../../../../styles/common.scss';
+
 import RightProfile from './RightProfile/RightProfile';
 import RightStory from './RightStory/RightStory';
 import Suggestion from './Suggestion/Suggestion';

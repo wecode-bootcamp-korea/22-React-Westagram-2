@@ -9,9 +9,9 @@ class CommetInput extends React.Component {
         <li>
           <span>{userId}</span>
           {newComment}
-          <button id="del" onClick={this.props.delComment(number)}>
+          {/* <button id="del" onClick={this.props.delComment(number)}>
             삭제
-          </button>
+          </button> */}
         </li>
       </div>
     );

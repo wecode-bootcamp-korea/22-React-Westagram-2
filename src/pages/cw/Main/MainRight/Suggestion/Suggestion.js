@@ -1,7 +1,6 @@
 import React from 'react';
+
 import './Suggestion.scss';
-import '../../../../../styles/reset.scss';
-import '../../../../../styles/common.scss';
 
 class Suggestion extends React.Component {
   render() {

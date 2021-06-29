@@ -1,7 +1,7 @@
 import React from 'react';
+
 import './Article.scss';
-import '../../../../styles/reset.scss';
-import '../../../../styles/common.scss';
+
 import CommentInput from './CommentInput/CommentInput';
 
 class Article extends React.Component {
@@ -44,16 +44,14 @@ class Article extends React.Component {
     }
   };
 
-  delComment = x => {
-    const { comments } = this.state;
-    const nextComments = comments.filter(el => {
-      return el.number !== x;
-    });
-    console.log(nextComments);
-    this.setState({
-      comments: nextComments,
-    });
-  };
+  // delComment = x => {
+  //   const { comments } = this.state;
+  //   this.setState({
+  //     comments: comments.filter(el => {
+  //       return el.number !== x;
+  //     }),
+  //   });
+  // };
 
   render() {
     const { userId, nickname, profileImg, content, writer, newComment, like } =
@@ -91,7 +89,7 @@ class Article extends React.Component {
                   number={el.number}
                   userId={el.userId}
                   newComment={el.newComment}
-                  delComment={this.delComment}
+                  // delComment={this.delComment}
                 />
               );
             })}

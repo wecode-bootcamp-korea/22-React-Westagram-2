@@ -1,7 +1,6 @@
 import React from 'react';
+
 import './RightStory.scss';
-import '../../../../../styles/reset.scss';
-import '../../../../../styles/common.scss';
 
 class RightStory extends React.Component {
   render() {

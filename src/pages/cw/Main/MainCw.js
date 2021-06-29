@@ -1,7 +1,7 @@
 import React from 'react';
+
 import './Main.scss';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
+
 import Nav from '../../../components/Nav/Nav';
 import Article from './Article/Article';
 import MainRight from './MainRight/MainRight';
