@@ -126,11 +126,17 @@ class Feeds extends React.Component {
           </div>
         </div>
         <ul className="commentList">
+          <Comment
+            commentKey={this.props.commentKey}
+            commentName={this.props.commentName}
+            comment={this.props.comment}
+            deleteComment={this.deleteComment}
+          />
           {this.state.commentList.map(comment => {
             return (
               <Comment
-                key={comment.commentId}
-                name={comment.userName}
+                commentKey={comment.commentId}
+                commentName={comment.userName}
                 comment={comment.content}
                 deleteComment={this.deleteComment}
               />

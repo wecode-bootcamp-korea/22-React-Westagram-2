@@ -5,7 +5,7 @@ class Comment extends React.Component {
     return (
       <li className="commentBox">
         <span className="igID">
-          <a href="#">{this.props.name}</a>
+          <a href="#">{this.props.commentName}</a>
         </span>
         <span className="commentContent">{this.props.comment}</span>
         <i className="likeBtn far fa-heart" onClick={this.likeComment}></i>
