@@ -11,13 +11,13 @@
   & > span {
     display: block;
     margin-bottom: 8px;
-    @include bold-text($color-darkgray, inherit);
+    @include bold-text(inherit, $color-darkgray);
   }
   & > button {
     position: absolute;
     top: 0;
     right: 0;
-    @include bold-text($color-black, 12px);
+    @include bold-text(12px, $color-black);
   }
   ul li {
     @include display-flex(space-between, unset);
@@ -45,7 +45,7 @@
     }
 
     button {
-      @include bold-text($color-active, 12px);
+      @include bold-text(12px, $color-active);
     }
   }
 }

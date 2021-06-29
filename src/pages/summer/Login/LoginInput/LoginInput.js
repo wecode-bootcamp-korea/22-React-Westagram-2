@@ -62,19 +62,13 @@ class LoginInput extends React.Component {
           id="pw-input"
           name="pwInput"
         />
-        {idVld && pwVld ? (
-          <button
-            onClick={gotoMain}
-            style={{ background: '#0095F6' }}
-            type="submit"
-          >
-            로그인
-          </button>
-        ) : (
-          <button disabled style={{ background: '#B2DFFC' }} type="submit">
-            로그인
-          </button>
-        )}
+        <button
+          onClick={gotoMain}
+          type="submit"
+          disabled={idVld && pwVld ? false : true}
+        >
+          로그인
+        </button>
       </form>
     );
   }

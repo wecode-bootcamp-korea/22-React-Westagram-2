@@ -9,7 +9,7 @@
   }
 
   button {
-    @include bold-text($color-active, 14px);
+    @include bold-text(14px, $color-active);
     cursor: pointer;
   }
 }

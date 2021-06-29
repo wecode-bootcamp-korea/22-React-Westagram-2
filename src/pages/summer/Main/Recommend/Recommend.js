@@ -10,8 +10,8 @@ class Recommend extends React.Component {
       <div className="recommend-container">
         <span className="grey-letter">회원님을 위한 추천</span>
         <ul>
-          {recommendLis.map((rec, i) => (
-            <li key={i}>
+          {recommendLis.map(rec => (
+            <li key={rec.id}>
               <div className="img-container">
                 <img alt={rec.userImg} src={rec.userImg} className="user-img" />
               </div>

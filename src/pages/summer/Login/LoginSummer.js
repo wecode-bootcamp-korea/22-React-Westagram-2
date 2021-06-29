@@ -4,7 +4,6 @@ import MobileScreen from './MobileScreen/MobileScreen';
 import LoginInput from './LoginInput/LoginInput';
 import Footer from '../components/Footer/Footer';
 
-import '../../../styles/reset.scss';
 import './Login.scss';
 
 class LoginSummer extends React.Component {

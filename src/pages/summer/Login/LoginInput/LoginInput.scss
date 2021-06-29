@@ -22,6 +22,13 @@
     margin: 5px 0 60px;
     padding: 5px 0;
     border-radius: 4px;
-    @include bold-text(white, 14px);
+    @include bold-text(14px, white);
+    cursor: pointer;
+  }
+  button:disabled {
+    background: #b2dffc;
+  }
+  button:enabled {
+    background: $color-active;
   }
 }

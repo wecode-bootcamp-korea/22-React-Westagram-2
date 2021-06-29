@@ -1,32 +1,32 @@
 [
   {
-    "myInfo": {
-      "userName": "summer_always",
-      "userImg": "/images/summer/myprofile.jpg",
-      "userDesc": "Hi! Have a nice day:)"
-    },
     "recommend": [
       {
+        "id": "rec_1",
         "userName": "miao_cat",
         "userImg": "/images/summer/profile3.jpg",
         "userDesc": "회원님을 팔로우합니다"
       },
       {
+        "id": "rec_2",
         "userName": "doggyDog",
         "userImg": "/images/summer/profile7.jpg",
         "userDesc": "mewmew님 외 1명이 팔로우합니다"
       },
       {
+        "id": "rec_3",
         "userName": "test_user",
         "userImg": "/images/summer/profile1.jpg",
         "userDesc": "회원님을 팔로우합니다"
       },
       {
+        "id": "rec_4",
         "userName": "qwertasd",
         "userImg": "/images/summer/profile6.jpg",
         "userDesc": "회원님을 팔로우합니다"
       },
       {
+        "id": "rec_5",
         "userName": "asdfzx_d54",
         "userImg": "/images/summer/profile4.jpg",
         "userDesc": "katy님 외 3명이 팔로우합니다"

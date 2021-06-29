@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './LangSet.scss';
+
 class LangSet extends React.Component {
   render() {
     return (

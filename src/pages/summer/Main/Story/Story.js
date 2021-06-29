@@ -8,8 +8,8 @@ class Story extends React.Component {
 
     return (
       <ul className="story-container">
-        {storyLis.map((story, i) => (
-          <li key={i}>
+        {storyLis.map(story => (
+          <li key={story.id}>
             <div className="gradient-back img-container">
               <img
                 className="user-img"

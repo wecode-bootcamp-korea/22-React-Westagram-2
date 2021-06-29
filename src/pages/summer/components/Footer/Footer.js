@@ -1,9 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import LangSet from './LangSet';
-
-import './Footer.scss';
+import FooterTop from './FooterTop/FooterTop';
+import LangSet from './LangSet/LangSet';
 
 class Footer extends React.Component {
   state = {
@@ -14,45 +13,23 @@ class Footer extends React.Component {
     this.props.location.pathname === '/summer/main'
       ? this.setState({ langSet: false })
       : this.setState({ langSet: true });
+
+    fetch('http://localhost:3000/data/summer/footerData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          footerLis: data[0].footer,
+        });
+      })
+      .catch(err => console.log('footerLis', err));
   };
 
   render() {
-    const { langSet } = this.state;
+    const { langSet, footerLis } = this.state;
 
     return (
       <footer>
-        <ul className="footer-top">
-          <li>
-            <a href="#">소개</a>
-          </li>
-          <li>
-            <a href="#">블로그</a>
-          </li>
-          <li>
-            <a href="#">채용 정보</a>
-          </li>
-          <li>
-            <a href="#">도움말</a>
-          </li>
-          <li>
-            <a href="#">API</a>
-          </li>
-          <li>
-            <a href="#">개인정보처리방침</a>
-          </li>
-          <li>
-            <a href="#">약관</a>
-          </li>
-          <li>
-            <a href="#">인기계정</a>
-          </li>
-          <li>
-            <a href="#">해시태그</a>
-          </li>
-          <li>
-            <a href="#">위치</a>
-          </li>
-        </ul>
+        <FooterTop footerLis={footerLis} />
         <div className="footer-bottom">
           {langSet ? <LangSet /> : null}
           <span>© 2021 Instagram from Facebook</span>

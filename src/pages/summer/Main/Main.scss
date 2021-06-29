@@ -1,6 +1,8 @@
 @import '../../../styles/common.scss';
 
 .Main-summer {
+  margin-top: 80px;
+
   /* COMMON */
   .user-img {
     @include radius-img;
@@ -31,18 +33,8 @@
 
   /* MEDIA QUERY */
 
-  /* 1129px이하*/
-  @media screen and (max-width: 1129px) {
-    .top-header .top-header-contents {
-      width: 900px;
-    }
-  }
-
   /* 974px 이하 */
   @media screen and (max-width: 974px) {
-    .top-header .top-header-contents {
-      width: 90%;
-    }
     main {
       .contents-container {
         margin: 0;
@@ -53,21 +45,8 @@
     }
   }
 
-  /* 699px 이하 */
-  @media screen and (max-width: 699px) {
-    .top-header {
-      margin-bottom: 10px;
-    }
-    .search-container {
-      display: none;
-    }
-  }
-
   /* 634px 이하 */
   @media screen and (max-width: 634px) {
-    .top-header {
-      margin-bottom: 2px;
-    }
     .contents-container {
       width: 100%;
 

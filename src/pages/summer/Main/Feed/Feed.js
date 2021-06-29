@@ -30,12 +30,14 @@ class Feed extends React.Component {
   };
 
   handleSubmit = e => {
-    if (this.state.commentInput === '') return;
+    const { commentInput, comments, likes } = this.state;
+
+    if (commentInput === '') return;
     if (e.charCode !== 13 && e.type !== 'click') return;
 
     this.setState({
-      comments: [...this.state.comments, this.state.commentInput],
-      likes: [...this.state.likes, false],
+      comments: [...comments, commentInput],
+      likes: [...likes, false],
       commentInput: '',
     });
   };
@@ -53,13 +55,15 @@ class Feed extends React.Component {
   };
 
   handleClickDel = e => {
+    const { comments, likes } = this.state;
+
     const index = e.target.getAttribute('index');
 
-    const remainComments = this.state.comments.filter((cmt, i) => {
+    const remainComments = comments.filter((cmt, i) => {
       return i != index;
     });
 
-    const remainLikes = this.state.likes.filter((like, i) => {
+    const remainLikes = likes.filter((like, i) => {
       return i != index;
     });
 

@@ -7,7 +7,6 @@ import Recommend from './Recommend/Recommend';
 import MyInfo from './MyInfo/MyInfo';
 import Footer from '../components/Footer/Footer';
 
-import '../../../styles/reset.scss';
 import './Main.scss';
 
 class MainSummer extends React.Component {
