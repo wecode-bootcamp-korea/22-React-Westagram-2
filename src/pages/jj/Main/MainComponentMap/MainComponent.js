@@ -78,7 +78,7 @@ class MainComponent extends Component {
                 src="/images/jj/img_main_top.jpg"
                 className="mTopAccount"
               />
-              <p>{feedList.userName}</p>
+              <p className="mTopUserName">{feedList.userName}</p>
             </div>
             <p className="mTopThreeDot">…</p>
           </section>
@@ -94,12 +94,12 @@ class MainComponent extends Component {
           <section className="mainBottom">
             <div className="mbIconWrap">
               <div className="mbIconLeft">
-                <i className="fas fa-heart" />
-                <i className="far fa-comment" />
-                <i className="far fa-paper-plane" />
+                <i className="fas fa-heart mbLIcons" />
+                <i className="far fa-comment mbLIcons" />
+                <i className="far fa-paper-plane mbLIcons" />
               </div>
               <div className="mIconRight">
-                <i className="far fa-bookmark" />
+                <i className="far fa-bookmark mbRIcon" />
               </div>
             </div>
             <div className="mbLiked">
@@ -108,8 +108,9 @@ class MainComponent extends Component {
                 src="/images/jj/img_account.jpg"
                 className="mbLikedImg"
               />
-              <p className="mbLikedText">
-                <span>snjndf</span>님 <span>외 10명</span> 이 좋아합니다
+              <p className="mbLikedTextBox">
+                <span className="mbLikedText">snjndf</span>님
+                <span className="mbLikedText">외 10명</span> 이 좋아합니다
               </p>
             </div>
             <div className="mbWrittenComments">
@@ -132,9 +133,7 @@ class MainComponent extends Component {
                 className="commentInput"
                 placeholder="댓글 달기..."
                 value={comment}
-                onChange={e => {
-                  this.inputOnChange(e);
-                }}
+                onChange={e => this.inputOnChange(e)}
               />
               <button type="submit" className="commentBtn">
                 게시

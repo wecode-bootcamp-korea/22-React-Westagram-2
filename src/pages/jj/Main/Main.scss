@@ -70,16 +70,18 @@
                   object-fit: cover;
                 }
 
-                p {
+                .mTopUserName {
                   @include bold-text-main($color-black, 17px);
                 }
               }
+
               .mTopThreeDot {
                 @include display-flex;
                 @include bold-text-main($color-black, 17px);
                 cursor: pointer;
               }
             }
+
             .mainImg {
               width: 100%;
               height: 60%;
@@ -104,7 +106,7 @@
                 padding: 10px;
 
                 .mbIconLeft {
-                  i {
+                  .mbLIcons {
                     margin-right: 5px;
                     font-size: 24px;
                     cursor: pointer;
@@ -121,7 +123,7 @@
                 }
 
                 .mIconRight {
-                  i {
+                  .mbRIcon {
                     font-size: 24px;
                     cursor: pointer;
                   }
@@ -138,15 +140,16 @@
                   margin-right: 20px;
                 }
 
-                .mbLikedText {
+                .mbLikedTextBox {
                   @include display-flex(left);
 
-                  span {
+                  .mbLikedText {
                     @include bold-text-main($color-black);
                     cursor: pointer;
                   }
                 }
               }
+
               .mbWrittenComments {
                 display: flex;
                 flex-direction: column;
@@ -171,27 +174,28 @@
                         @include bold-text-main($color-black);
                       }
                     }
+
                     .commentIconWrap {
                       @include display-flex(space-between);
 
-                      i {
+                      .likesBtn {
                         cursor: pointer;
+                        margin-right: 5px;
 
-                        &.likesBtn {
-                          margin-right: 5px;
-                        }
                         &.fas {
                           color: #d61438;
                         }
+                      }
 
-                        &.deleteBtn {
-                          color: #262626;
-                        }
+                      .deleteBtn {
+                        cursor: pointer;
+                        color: #262626;
                       }
                     }
                   }
                 }
               }
+
               .mbWrittenTime {
                 padding: 10px;
                 padding-top: 0;
@@ -202,6 +206,7 @@
                   color: #8e8e8e;
                 }
               }
+
               .commentForm {
                 @include display-flex(space-between);
                 padding: 10px;
@@ -245,6 +250,7 @@
           position: fixed;
           top: 85px;
           width: 350px;
+
           .asMyAccount {
             @include display-flex(start);
             margin-bottom: 20px;
@@ -261,25 +267,24 @@
             }
 
             .asMyProfile {
-              > p {
+              .asMyProfileTitle {
                 @include bold-text-main($color-black, 17px);
               }
 
               .asMyProfile_bottom {
                 display: flex;
 
-                p {
+                .asMyProfile_bottom_EngTitle {
+                  padding-right: 10px;
+                  border-right: 1px solid rgba(219, 219, 219, 1);
                   color: rgba(219, 219, 219, 1);
                   font-size: 14px;
+                }
 
-                  &:first-child {
-                    padding-right: 10px;
-                    border-right: 1px solid rgba(219, 219, 219, 1);
-                  }
-
-                  &:last-child {
-                    padding-left: 10px;
-                  }
+                .asMyProfile_bottom_korTitle {
+                  padding-left: 10px;
+                  color: rgba(219, 219, 219, 1);
+                  font-size: 14px;
                 }
               }
             }
@@ -300,17 +305,14 @@
               justify-content: space-between;
               padding: 10px;
               border-bottom: 1px solid rgba(219, 219, 219, 1);
+              font-size: 14px;
 
-              p {
-                font-size: 14px;
+              .asStoryTopTitle {
+                color: #c7c7c7;
+              }
 
-                &:first-child {
-                  color: #c7c7c7;
-                }
-
-                &:nth-child(2) {
-                  cursor: pointer;
-                }
+              .asStoryTopSeeAll {
+                cursor: pointer;
               }
             }
 
@@ -328,7 +330,7 @@
                   margin-top: 10px;
                 }
 
-                img {
+                .asStoryImg {
                   width: 30px;
                   height: 30px;
                   border: none;
@@ -339,15 +341,13 @@
                 .asStoryInfo {
                   padding-left: 10px;
 
-                  p {
-                    &:first-child {
-                      @include bold-text-main(17px);
-                    }
+                  .asStoryInfoUserName {
+                    @include bold-text-main(17px);
+                  }
 
-                    &:nth-child(2) {
-                      color: #c7c7c7;
-                      font-size: 13px;
-                    }
+                  .asStoryInfoTime {
+                    color: #c7c7c7;
+                    font-size: 13px;
                   }
                 }
               }
@@ -368,17 +368,14 @@
               @include display-flex(space-between);
               padding: 10px;
               border-bottom: 1px solid rgba(219, 219, 219, 1);
+              font-size: 14px;
 
-              p {
-                font-size: 14px;
+              .asReTopTitle {
+                color: #c7c7c7;
+              }
 
-                &:first-child {
-                  color: #c7c7c7;
-                }
-
-                &:nth-child(2) {
-                  cursor: pointer;
-                }
+              .asReTopSeeAll {
+                cursor: pointer;
               }
             }
 
@@ -396,10 +393,11 @@
                 &:first-child {
                   margin-top: 10px;
                 }
+
                 .asReListLeft {
                   @include display-flex(left);
 
-                  img {
+                  .asReListLeftImg {
                     width: 30px;
                     height: 30px;
                     margin-right: 10px;
@@ -409,13 +407,11 @@
                   }
 
                   .asReInfo {
-                    p {
-                      @include bold-text-main($color-black);
+                    @include bold-text-main($color-black);
 
-                      &:nth-child(2) {
-                        color: #c7c7c7;
-                        font-size: 13px;
-                      }
+                    .asReInfoLikes {
+                      color: #c7c7c7;
+                      font-size: 13px;
                     }
                   }
                 }
@@ -433,12 +429,12 @@
             padding: 0 10px;
             font-size: 15px;
 
-            p {
-              color: #c7c7c7;
+            .copyrightP {
+              margin-top: 20px;
+            }
 
-              &:last-child {
-                margin-top: 20px;
-              }
+            span {
+              color: #c7c7c7;
             }
           }
         }

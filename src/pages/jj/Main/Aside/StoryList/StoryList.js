@@ -11,10 +11,10 @@ class StoryList extends Component {
           console.log(el);
           return (
             <div className="asStoryList" key={el.id}>
-              <img alt="account" src={el.src} />
+              <img alt="account" src={el.src} className="asStoryImg" />
               <div className="asStoryInfo">
-                <p>{el.userName}</p>
-                <p>{el.time}</p>
+                <p className="asStoryInfoUserName">{el.userName}</p>
+                <p className="asStoryInfoTime">{el.time}</p>
               </div>
             </div>
           );

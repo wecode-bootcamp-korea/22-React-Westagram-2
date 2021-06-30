@@ -11,10 +11,10 @@ class RecommendList extends Component {
           return (
             <div className="asReList">
               <div className="asReListLeft">
-                <img alt="account" src={el.src} />
+                <img alt="account" src={el.src} className="asReListLeftImg" />
                 <div className="asReInfo">
-                  <p>{el.userName}</p>
-                  <p>who likes u</p>
+                  <p className="asReInfoTitle">{el.userName}</p>
+                  <p className="asReInfoLikes">who likes u</p>
                 </div>
               </div>
               <p className="asReListfollowBox">팔로우</p>

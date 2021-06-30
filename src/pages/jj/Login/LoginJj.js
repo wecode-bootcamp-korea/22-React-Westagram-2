@@ -65,18 +65,13 @@ class LoginJj extends React.Component {
     const { btnColor, id, pw } = this.state;
     return (
       <div className="loginJJ">
-        <div className="container">
-          <div className="containerBg">
-            <h1>Westagram</h1>
+        <div className="loginContainer">
+          <div className="LoginContainerBg">
+            <h1 className="LoginCompanyLogo">Westagram</h1>
             <div className="loginBox">
-              <form
-                id="form"
-                className="form"
-                onSubmit={e => this.handleSubmit(e)}
-              >
+              <form className="loginForm" onSubmit={e => this.handleSubmit(e)}>
                 <input
-                  id="inputId"
-                  className="inputId"
+                  className="loginInputId"
                   type="text"
                   placeholder="전화번호, 사용자 이름 또는 메일"
                   name="email"
@@ -85,7 +80,6 @@ class LoginJj extends React.Component {
                   onKeyUp={this.activeBtn}
                 />
                 <input
-                  id="inputPassword"
                   className="inputPassword"
                   type="password"
                   placeholder="비밀번호 (8자리 이상)"
@@ -105,7 +99,7 @@ class LoginJj extends React.Component {
                 </button>
               </form>
               <div className="forgotPassword">
-                <p>비밀번호를 잊으셨나요?</p>
+                <p className="forgotPasswordText">비밀번호를 잊으셨나요?</p>
               </div>
             </div>
           </div>

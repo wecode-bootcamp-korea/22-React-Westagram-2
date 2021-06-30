@@ -5,12 +5,12 @@
 }
 
 .loginJJ {
-  .container {
+  .loginContainer {
     @include display-flex;
     width: 100%;
     height: 100vh;
 
-    .containerBg {
+    .LoginContainerBg {
       @include display-flex;
       flex-direction: column;
       width: 100%;
@@ -18,7 +18,7 @@
       border: 1px solid rgba(219, 219, 219, 1);
       border-radius: 5px;
 
-      h1 {
+      .LoginCompanyLogo {
         display: flex;
         margin: 50px auto;
         font-family: 'Lobster', cursive;
@@ -28,13 +28,13 @@
       .loginBox {
         width: 100%;
 
-        .form {
+        .loginForm {
           display: flex;
           flex-direction: column;
           width: 100%;
           margin-bottom: 50px;
 
-          input {
+          .loginInputId {
             width: 50%;
             height: 50px;
             margin: 0 auto;
@@ -62,7 +62,7 @@
           margin-bottom: 50px;
           text-align: center;
 
-          p {
+          .forgotPasswordText {
             color: #00367b;
             cursor: pointer;
           }
