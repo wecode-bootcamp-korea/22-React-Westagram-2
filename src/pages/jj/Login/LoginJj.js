@@ -1,8 +1,11 @@
 import React from 'react';
 
-// style
+// #STYLES#
 import '../../../styles/reset.scss';
 import './Login.scss';
+
+// #APIKEY#
+const APIKEY = 'http://10.58.6.109:8000/users/signin';
 
 class LoginJj extends React.Component {
   constructor() {
@@ -14,18 +17,42 @@ class LoginJj extends React.Component {
       btnColor: false,
     };
   }
+
+  // #FORM -> SUBMIT#
   handleSubmit = e => {
+    const { id, pw } = this.state;
     e.preventDefault();
-    {
-      this.state.btnColor
-        ? this.props.history.push('./jj/main')
-        : alert('Plese check your Email and Password');
-    }
+    fetch(APIKEY, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+
+        // #아래 정보는  회원가입할때 필요한 정보#
+        // phone_number: '010-2120-1010',
+        // name: 'idjfso',
+        // nickname: 'dsnidss',
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          this.props.history.push('/jj/main');
+
+          // localStorge에 저장/삭제
+          // localStorage.removeItem('TOKEN');
+          localStorage.setItem('TOKEN', result.TOKEN);
+        } else {
+          alert('message : failed login');
+        }
+      });
+
+    this.setState({ id: '', pw: '' });
   };
 
   activeBtn = () => {
-    const isValid = this.state.id.includes('@') && this.state.pw.length >= 5;
-    console.log(`isValid`, isValid);
+    const { id, pw } = this.state;
+    const isValid = id.includes('@') && pw.length >= 5;
 
     if (isValid) {
       this.setState({ btnColor: true });
@@ -35,7 +62,7 @@ class LoginJj extends React.Component {
   };
 
   render() {
-    console.log(`this.state.id`, this.state.id);
+    const { btnColor, id, pw } = this.state;
     return (
       <div className="loginJJ">
         <div className="container">
@@ -53,6 +80,7 @@ class LoginJj extends React.Component {
                   type="text"
                   placeholder="전화번호, 사용자 이름 또는 메일"
                   name="email"
+                  value={id}
                   onChange={e => this.setState({ id: e.target.value })}
                   onKeyUp={this.activeBtn}
                 />
@@ -62,6 +90,7 @@ class LoginJj extends React.Component {
                   type="password"
                   placeholder="비밀번호 (8자리 이상)"
                   name="password"
+                  value={pw}
                   onChange={e => this.setState({ pw: e.target.value })}
                   onKeyUp={this.activeBtn}
                 />
@@ -69,9 +98,7 @@ class LoginJj extends React.Component {
                   id="loginBtn"
                   className="loginBtn"
                   style={{
-                    backgroundColor: this.state.btnColor
-                      ? '#0095f6'
-                      : '#c0dffd',
+                    backgroundColor: btnColor ? '#0095f6' : '#c0dffd',
                   }}
                 >
                   로그인

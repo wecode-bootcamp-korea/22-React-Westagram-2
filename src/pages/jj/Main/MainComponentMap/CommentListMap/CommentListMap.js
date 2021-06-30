@@ -20,11 +20,11 @@ class CommentListMap extends Component {
                       ? 'fas fa-heart likesBtn'
                       : 'far fa-heart likesBtn'
                   }
-                ></i>
+                />
                 <i
                   onClick={e => deleteBtn(el.id, index)}
                   className="far fa-trash-alt deleteBtn"
-                ></i>
+                />
               </div>
             </li>
           );

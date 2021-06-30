@@ -14,10 +14,13 @@ class MainComponent extends Component {
       className: [],
     };
   }
+
+  // #부모요소에서 받아온 APIKEY값의 comment값
   componentDidMount() {
     this.setState({ list: this.props.feedList.comment });
   }
 
+  // form submit시 함수 실행(댓글 생성)
   handleSubmit = e => {
     const { list, className, comment } = this.state;
     e.preventDefault();
@@ -35,15 +38,21 @@ class MainComponent extends Component {
       this.setState({ comment: '' });
     }
   };
+
+  // 각 댓글에 좋아요 버튼 활성화 함수
   changeHeartColor = (elId, index) => {
     const { className } = this.state;
     let copy = [...className];
     copy[index] = !copy[index];
     this.setState({ className: copy });
   };
+
+  // #인풋 요소를 comment 값으로 넣어주는 함수
   inputOnChange = e => {
     this.setState({ comment: e.target.value });
   };
+
+  // #삭제함수
   deleteBtn = (elId, index) => {
     const { list, className } = this.state;
     this.setState({
@@ -85,12 +94,12 @@ class MainComponent extends Component {
           <section className="mainBottom">
             <div className="mbIconWrap">
               <div className="mbIconLeft">
-                <i className="fas fa-heart"></i>
-                <i className="far fa-comment"></i>
-                <i className="far fa-paper-plane"></i>
+                <i className="fas fa-heart" />
+                <i className="far fa-comment" />
+                <i className="far fa-paper-plane" />
               </div>
               <div className="mIconRight">
-                <i className="far fa-bookmark"></i>
+                <i className="far fa-bookmark" />
               </div>
             </div>
             <div className="mbLiked">
@@ -108,7 +117,7 @@ class MainComponent extends Component {
                 <CommentList
                   deleteBtn={this.deleteBtn}
                   changeHeartColor={this.changeHeartColor}
-                  feedList={feedList}
+                  feedList
                   list={list}
                   className={className}
                 />

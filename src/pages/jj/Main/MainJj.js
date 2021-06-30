@@ -1,12 +1,14 @@
 import React from 'react';
 
-// #COMPONENTS#
-import Nav from '../../../components/Nav/Nav';
-import MainComponent from './MainComponentMap/MainComponent';
-
 // #STYLES#
 import './Main.scss';
 import '../../../components/Nav/Nav.scss';
+
+// #COMPONENTS#
+import Nav from '../../../components/Nav/Nav';
+import MainComponent from './MainComponentMap/MainComponent';
+import StoryList from './Aside/StoryList/StoryList';
+import RecommendList from './Aside/RecommendList/RecommendList';
 
 const APIKEY = 'http://localhost:3000/data/jj/Data.json';
 
@@ -24,9 +26,7 @@ class MainJj extends React.Component {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
-        this.setState({ feedList: data });
-      });
+      .then(data => this.setState({ feedList: data }));
   }
 
   render() {
@@ -39,6 +39,7 @@ class MainJj extends React.Component {
             <main id="main" className="main">
               <div className="mainContainer">
                 {feedList.map(el => {
+                  console.log(`el.feedId`, el.feedId);
                   return <MainComponent key={el.feedId} feedList={el} />;
                 })}
               </div>
@@ -66,34 +67,7 @@ class MainJj extends React.Component {
                     <p>모두보기</p>
                   </div>
                   <div className="asStoryListWrap">
-                    <div className="asStoryList">
-                      <img alt="account" src="/images/jj/img_story1.jpg" />
-                      <div className="asStoryInfo">
-                        <p>this_is_id</p>
-                        <p>3분전</p>
-                      </div>
-                    </div>
-                    <div className="asStoryList">
-                      <img alt="account" src="/images/jj/img_story2.jpg" />
-                      <div className="asStoryInfo">
-                        <p>this_is_id</p>
-                        <p>3분전</p>
-                      </div>
-                    </div>
-                    <div className="asStoryList">
-                      <img alt="account" src="/images/jj/img_story3.jpg" />
-                      <div className="asStoryInfo">
-                        <p>this_is_id</p>
-                        <p>3분전</p>
-                      </div>
-                    </div>
-                    <div className="asStoryList">
-                      <img alt="account" src="/images/jj/img_story4.jpg" />
-                      <div className="asStoryInfo">
-                        <p>this_is_id</p>
-                        <p>3분전</p>
-                      </div>
-                    </div>
+                    <StoryList />
                   </div>
                 </div>
                 <div className="asRecommandation">
@@ -102,58 +76,7 @@ class MainJj extends React.Component {
                     <p>모두보기</p>
                   </div>
                   <div className="asReListWrap">
-                    <div className="asReList">
-                      <div className="asReListLeft">
-                        <img
-                          alt="account"
-                          src="/images/jj/img_recommend1.jpg"
-                        />
-                        <div className="asReInfo">
-                          <p>this_is_recommanded</p>
-                          <p>who likes u</p>
-                        </div>
-                      </div>
-                      <p className="asReListfollowBox">팔로우</p>
-                    </div>
-                    <div className="asReList">
-                      <div className="asReListLeft">
-                        <img
-                          alt="account"
-                          src="/images/jj/img_recommend2.jpg"
-                        />
-                        <div className="asReInfo">
-                          <p>this_is_recommanded</p>
-                          <p>who likes u</p>
-                        </div>
-                      </div>
-                      <p className="asReListfollowBox">팔로우</p>
-                    </div>
-                    <div className="asReList">
-                      <div className="asReListLeft">
-                        <img
-                          alt="account"
-                          src="/images/jj/img_recommend3.jpg"
-                        />
-                        <div className="asReInfo">
-                          <p>this_is_recommanded</p>
-                          <p>who likes u</p>
-                        </div>
-                      </div>
-                      <p className="asReListfollowBox">팔로우</p>
-                    </div>
-                    <div className="asReList">
-                      <div className="asReListLeft">
-                        <img
-                          alt="account"
-                          src="/images/jj/img_recommend4.jpg"
-                        />
-                        <div className="asReInfo">
-                          <p>this_is_recommanded</p>
-                          <p>who likes u</p>
-                        </div>
-                      </div>
-                      <p className="asReListfollowBox">팔로우</p>
-                    </div>
+                    <RecommendList />
                   </div>
                 </div>
                 <div className="asInfoWrap">
