@@ -9,8 +9,8 @@
       {
         "writer": "최우하",
         "newComment": "hi",
-        "like": false,
-        "number": 100
+        "like": true,
+        "number": 1
       }
     ]
   },
@@ -24,8 +24,8 @@
       {
         "writer": "최우나",
         "newComment": "hi하이222",
-        "like": false,
-        "number": 101
+        "like": true,
+        "number": 1
       }
     ]
   }

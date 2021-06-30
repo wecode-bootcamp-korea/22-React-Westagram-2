@@ -14,8 +14,6 @@ class Article extends React.Component {
     };
   }
 
-  id = 0;
-
   componentDidMount() {
     this.setState({
       comments: this.props.data,
@@ -33,13 +31,13 @@ class Article extends React.Component {
     this.setState({
       comments: comments.concat({
         writer: writer,
-        number: this.id,
+        number: comments.length + 1,
         newComment: newComment,
-        like: false,
+        like: true,
       }),
       newComment: '',
     });
-    this.id += 1;
+    console.log(`this.state`, this.state);
   };
 
   enterHandler = e => {
@@ -55,6 +53,15 @@ class Article extends React.Component {
       comments: comments.filter(el => {
         return el.number !== x;
       }),
+    });
+  };
+
+  isLike = number => {
+    const i = number - 1;
+    const newComments = [...this.state.comments];
+    newComments[i].like = !newComments[i].like;
+    return this.setState({
+      comments: newComments,
     });
   };
 
@@ -93,7 +100,9 @@ class Article extends React.Component {
                   number={el.number}
                   writer={el.writer}
                   newComment={el.newComment}
+                  like={el.like}
                   delComment={this.delComment}
+                  isLike={this.isLike}
                 />
               );
             })}

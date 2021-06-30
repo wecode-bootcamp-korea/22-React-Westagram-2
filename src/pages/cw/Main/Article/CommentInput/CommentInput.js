@@ -3,7 +3,7 @@ import './CommentInput.scss';
 
 class CommetInput extends React.Component {
   render() {
-    const { number, writer, newComment } = this.props;
+    const { number, writer, newComment, like } = this.props;
     return (
       <div className="CommentInput">
         <li>
@@ -16,6 +16,14 @@ class CommetInput extends React.Component {
             }}
           >
             삭제
+          </button>
+          <button
+            id="hart"
+            onClick={() => {
+              this.props.isLike(number);
+            }}
+          >
+            <i className={(like ? 'far ' : 'fas ') + 'fa-heart'}></i>
           </button>
         </li>
       </div>
