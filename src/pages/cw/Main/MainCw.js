@@ -28,7 +28,7 @@ class MainCw extends React.Component {
   render() {
     return (
       <section className="MainCw">
-        <Nav></Nav>
+        <Nav />
         <main>
           <div className="feeds">
             <ul>
@@ -40,9 +40,11 @@ class MainCw extends React.Component {
                     nickname={el.nickname}
                     profileImg={el.profileImg}
                     content={el.content}
-                    wirter={el.wirter}
+                    wirter={el.writer}
                     newComment={el.newComment}
                     like={el.like}
+                    number={el.number}
+                    data={el.comment}
                   ></Article>
                 );
               })}

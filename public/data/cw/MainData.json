@@ -5,9 +5,14 @@
     "nickname": "test id",
     "profileImg": "fas fa-user-circle",
     "content": "http://localhost:3000/images/cw/main.jpeg",
-    "writer": "최우하",
-    "newComment": "hi",
-    "like": false
+    "comment": [
+      {
+        "writer": "최우하",
+        "newComment": "hi",
+        "like": false,
+        "number": 100
+      }
+    ]
   },
   {
     "id": 2,
@@ -15,8 +20,13 @@
     "nickname": "test id2",
     "profileImg": "fas fa-user-circle",
     "content": "http://localhost:3000/images/cw/main.jpeg",
-    "writer": "최우하22",
-    "newComment": "hi하이222",
-    "like": false
+    "comment": [
+      {
+        "writer": "최우나",
+        "newComment": "hi하이222",
+        "like": false,
+        "number": 101
+      }
+    ]
   }
 ]

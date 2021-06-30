@@ -1,7 +1,8 @@
 @import '../../../styles/common.scss';
+
 .LoginCw {
-  height: 100vh;
   @include display-flex(center, center);
+  height: 100vh;
 
   .loginBackGroundColor {
     @include display-flex(center, center);
@@ -46,7 +47,7 @@
     border-color: $color-darkgray;
   }
 
-  .loginbtA {
+  .loginbtFalse {
     width: 100%;
     height: 25px;
     margin-top: 5px;
@@ -70,7 +71,7 @@
     padding-left: 6px;
   }
 
-  .loginbtB {
+  .loginbtTure {
     background-color: $color-active;
     width: 100%;
     height: 25px;

@@ -1,9 +1,9 @@
 @import '../../../../../styles/common.scss';
 
 .RightProfile {
-  margin-top: 40px;
-  width: 100%;
   @include display-flex(center, center);
+  width: 100%;
+  margin-top: 40px;
   padding-left: 15px;
 
   #rightProfileThum {

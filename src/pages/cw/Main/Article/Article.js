@@ -10,12 +10,17 @@ class Article extends React.Component {
     this.state = {
       newComment: '',
       comments: [],
-      userId: '최유하나',
-      like: false,
+      writer: '최유하나',
     };
   }
 
   id = 0;
+
+  componentDidMount() {
+    this.setState({
+      comments: this.props.data,
+    });
+  }
 
   findComment = e => {
     this.setState({
@@ -24,10 +29,10 @@ class Article extends React.Component {
   };
 
   addComment = () => {
-    const { newComment, comments, userId } = this.state;
+    const { newComment, comments, writer } = this.state;
     this.setState({
       comments: comments.concat({
-        userId: userId,
+        writer: writer,
         number: this.id,
         newComment: newComment,
         like: false,
@@ -44,18 +49,17 @@ class Article extends React.Component {
     }
   };
 
-  // delComment = x => {
-  //   const { comments } = this.state;
-  //   this.setState({
-  //     comments: comments.filter(el => {
-  //       return el.number !== x;
-  //     }),
-  //   });
-  // };
+  delComment = x => {
+    const { comments } = this.state;
+    this.setState({
+      comments: comments.filter(el => {
+        return el.number !== x;
+      }),
+    });
+  };
 
   render() {
-    const { userId, nickname, profileImg, content, writer, newComment, like } =
-      this.props;
+    const { userId, nickname, profileImg, content } = this.props;
     return (
       <li className="Article">
         <div className="contentHead">
@@ -87,9 +91,9 @@ class Article extends React.Component {
                 <CommentInput
                   key={el.number}
                   number={el.number}
-                  userId={el.userId}
+                  writer={el.writer}
                   newComment={el.newComment}
-                  // delComment={this.delComment}
+                  delComment={this.delComment}
                 />
               );
             })}
