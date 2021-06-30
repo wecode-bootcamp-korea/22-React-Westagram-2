@@ -32,8 +32,8 @@ class Feed extends React.Component {
   handleSubmit = e => {
     const { commentInput, comments, likes } = this.state;
 
+    e.preventDefault();
     if (commentInput === '') return;
-    if (e.charCode !== 13 && e.type !== 'click') return;
 
     this.setState({
       comments: [...comments, commentInput],
@@ -74,7 +74,8 @@ class Feed extends React.Component {
   };
 
   render() {
-    const { postImg, postText, postTime, userImg, userName } = this.props.feed;
+    const { postId, postImg, postText, postTime, userImg, userName } =
+      this.props.feed;
     const { commentInput, comments, likes, feedLike } = this.state;
 
     return (
@@ -135,6 +136,7 @@ class Feed extends React.Component {
                 </span>
               </div>
               <Comments
+                postId={postId}
                 comments={comments}
                 likes={likes}
                 handleClickDel={this.handleClickDel}

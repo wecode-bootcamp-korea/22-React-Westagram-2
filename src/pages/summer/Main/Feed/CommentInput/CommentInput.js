@@ -7,17 +7,16 @@ class CommentInput extends React.Component {
     const { setCommentInput, handleSubmit, commentInput } = this.props;
 
     return (
-      <section className="feed-comments-input">
+      <form action="#" method="POST" className="feed-comments-input">
         <input
           onChange={setCommentInput}
-          onKeyPress={handleSubmit}
           value={commentInput}
           type="text"
           name="comments-input"
           placeholder="댓글 달기..."
         />
         <button onClick={handleSubmit}>게시</button>
-      </section>
+      </form>
     );
   }
 }

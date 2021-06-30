@@ -12,6 +12,7 @@
       position: relative;
       padding: 31px 40px 23px 40px;
       border: 1px solid $color-lightgray;
+
       h1 {
         @include display-flex;
         font-size: 43px;
@@ -28,6 +29,7 @@
           width: 100%;
           border-top: 1px solid $color-lightgray;
         }
+
         span:first-of-type {
           position: absolute;
           top: -40px;
@@ -37,6 +39,7 @@
           background: white;
           @include bold-text(13px, $color-darkgray);
         }
+
         span:last-of-type {
           @include display-flex(center, unset);
 
