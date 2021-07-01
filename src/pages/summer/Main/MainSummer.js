@@ -14,17 +14,6 @@ class MainSummer extends React.Component {
     IP_ADDRESS: '10.58.2.204',
   };
 
-  fetchData = () => {
-    fetch(`http://${this.state.IP_ADDRESS}:8000/postings/post`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          feeds: data.results[0].feeds,
-        });
-      })
-      .catch(err => console.log('feeds', err));
-  };
-
   componentDidMount = () => {
     this.fetchData();
 
@@ -56,6 +45,19 @@ class MainSummer extends React.Component {
       .catch(err => console.log('my', err));
   };
 
+  // fetching feed data
+  fetchData = () => {
+    const { IP_ADDRESS } = this.state;
+    fetch(`http://${IP_ADDRESS}:8000/postings/post`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feeds: data.results[0].feeds,
+        });
+      })
+      .catch(err => console.log('feeds', err));
+  };
+
   // 작성된 댓글 서버 전송
   sendingComment = (postId, commentInput) => {
     const { IP_ADDRESS } = this.state;
@@ -71,10 +73,6 @@ class MainSummer extends React.Component {
       }),
     });
 
-    this.handleSubmit();
-  };
-
-  handleSubmit = () => {
     this.fetchData();
   };
 
@@ -94,8 +92,6 @@ class MainSummer extends React.Component {
                   <Feed
                     feed={feed}
                     commentInput={commentInput}
-                    // setCommentInput={setCommentInput}
-                    handleSubmit={handleSubmit}
                     sendingComment={sendingComment}
                     key={feed.postId}
                   />
@@ -118,13 +114,3 @@ class MainSummer extends React.Component {
 }
 
 export default MainSummer;
-
-// for json Data
-// fetch('http://localhost:3000/data/summer/feedData.json')
-//   .then(res => res.json())
-//   .then(data => {
-//     this.setState({
-//       feeds: data[0].feeds,
-//     });
-//   })
-//   .catch(err => console.log('feeds', err));

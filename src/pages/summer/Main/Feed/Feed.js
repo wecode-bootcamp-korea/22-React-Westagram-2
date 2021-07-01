@@ -25,7 +25,7 @@ class Feed extends React.Component {
     this.setState({ feedLike: !this.state.feedLike });
   };
 
-  // Comments
+  // Comment Like & Del 서버 연동 중
   handleClickLike = e => {
     const index = e.target.getAttribute('index');
 
@@ -54,8 +54,6 @@ class Feed extends React.Component {
     this.setState({
       likes: remainLikes,
     });
-
-    return remainComments;
   };
 
   render() {

@@ -12,10 +12,10 @@ class LoginInput extends React.Component {
   };
 
   gotoMain = e => {
+    const { IP_ADDRESS } = this.props;
     e.preventDefault();
-    // this.props.history.push('/summer/main');
 
-    fetch('http://10.58.2.204:8000/users/signin', {
+    fetch(`http://${IP_ADDRESS}:8000/users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.idInput,
