@@ -12,6 +12,7 @@ class MainComponent extends Component {
       comment: '',
       heartColor: false,
       className: [],
+      bigHeart: false,
     };
   }
 
@@ -65,9 +66,17 @@ class MainComponent extends Component {
     });
   };
 
+  clickBigHeart = () => {
+    const { bigHeart } = this.state;
+
+    setTimeout(() => {
+      this.setState({ bigHeart: !bigHeart });
+    }, 1000);
+  };
+
   render() {
     const { feedList } = this.props;
-    const { list, comment, className } = this.state;
+    const { list, comment, className, bigHeart } = this.state;
     return (
       <>
         <div className="mainBg">
@@ -75,7 +84,7 @@ class MainComponent extends Component {
             <div className="mTopProfile">
               <img
                 alt="account"
-                src="/images/jj/img_main_top.jpg"
+                src={feedList.userImg}
                 className="mTopAccount"
               />
               <p className="mTopUserName">{feedList.userName}</p>
@@ -83,6 +92,7 @@ class MainComponent extends Component {
             <p className="mTopThreeDot">…</p>
           </section>
           <section className="mainImg">
+            {bigHeart ? <i className="fas fa-heart bigHeart" /> : null}
             <video
               muted
               loop
@@ -94,7 +104,10 @@ class MainComponent extends Component {
           <section className="mainBottom">
             <div className="mbIconWrap">
               <div className="mbIconLeft">
-                <i className="fas fa-heart mbLIcons" />
+                <i
+                  className="fas fa-heart mbLIcons"
+                  onClick={this.clickBigHeart}
+                />
                 <i className="far fa-comment mbLIcons" />
                 <i className="far fa-paper-plane mbLIcons" />
               </div>

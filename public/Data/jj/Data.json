@@ -1,76 +1,135 @@
 [
   {
-    "feedId": 1,
-    "src": "/images/jj/img_main_feed2.mp4",
-    "userName": "jacob",
-    "comment": [
+    "feeds": [
       {
-        "id": 1,
-        "userName": "wecode",
-        "comment": "Welcome to world best coding bootcamp!",
-        "class": false
+        "feedId": 1,
+        "src": "/images/jj/img_main_feed2.mp4",
+        "userName": "jacob",
+        "userImg": "/images/jj/img_recommend1.jpg",
+        "comment": [
+          {
+            "id": 1,
+            "userName": "wecode",
+            "comment": "Welcome to world best coding bootcamp!",
+            "class": false
+          },
+          {
+            "id": 2,
+            "userName": "joonsikyang",
+            "comment": "Hi there.",
+            "class": false
+          },
+          {
+            "id": 3,
+            "userName": "jayPark",
+            "comment": "Hey.",
+            "class": false
+          }
+        ]
       },
       {
-        "id": 2,
-        "userName": "joonsikyang",
-        "comment": "Hi there.",
-        "class": false
+        "feedId": 2,
+        "src": "/images/jj/img_main_feed3.mp4",
+        "userName": "malon",
+        "userImg": "/images/jj/img_recommend2.jpg",
+        "comment": [
+          {
+            "id": 1,
+            "userName": "sxcdscsdc",
+            "comment": "gfnfhjfhjfj",
+            "class": false
+          },
+          {
+            "id": 2,
+            "userName": "joonsikyang",
+            "comment": "Hi there.",
+            "class": false
+          },
+          {
+            "id": 3,
+            "userName": "jayPark",
+            "comment": "Hey.",
+            "class": false
+          }
+        ]
       },
       {
-        "id": 3,
-        "userName": "jayPark",
-        "comment": "Hey.",
-        "class": false
+        "feedId": 3,
+        "src": "/images/jj/img_main_feed4.mp4",
+        "userName": "pavid",
+        "userImg": "/images/jj/img_recommend3.jpg",
+        "comment": [
+          {
+            "id": 1,
+            "userName": "wecode",
+            "comment": "Welcome to world best coding bootcamp!",
+            "class": false
+          },
+          {
+            "id": 2,
+            "userName": "joonsikyang",
+            "comment": "Hi there.",
+            "class": false
+          },
+          {
+            "id": 3,
+            "userName": "jayPark",
+            "comment": "Hey.",
+            "class": false
+          }
+        ]
       }
     ]
   },
   {
-    "feedId": 2,
-    "src": "/images/jj/img_main_feed3.mp4",
-    "userName": "malon",
-    "comment": [
+    "story": [
       {
         "id": 1,
-        "userName": "sxcdscsdc",
-        "comment": "gfnfhjfhjfj",
-        "class": false
+        "userName": "jacob__",
+        "src": "/images/jj/img_story1.jpg",
+        "time": "3분전"
       },
       {
         "id": 2,
-        "userName": "joonsikyang",
-        "comment": "Hi there.",
-        "class": false
+        "userName": "malon__",
+        "src": "/images/jj/img_story2.jpg",
+        "time": "17분전"
       },
       {
         "id": 3,
-        "userName": "jayPark",
-        "comment": "Hey.",
-        "class": false
+        "userName": "pavid__",
+        "src": "/images/jj/img_story3.jpg",
+        "time": "19분전"
+      },
+      {
+        "id": 4,
+        "userName": "soo__",
+        "src": "/images/jj/img_story4.jpg",
+        "time": "1시간전"
       }
     ]
   },
   {
-    "feedId": 3,
-    "src": "/images/jj/img_main_feed4.mp4",
-    "userName": "pavid",
-    "comment": [
+    "recommend": [
       {
         "id": 1,
-        "userName": "wecode",
-        "comment": "Welcome to world best coding bootcamp!",
-        "class": false
+        "userName": "jacob__",
+        "src": "/images/jj/img_recommend1.jpg"
       },
       {
         "id": 2,
-        "userName": "joonsikyang",
-        "comment": "Hi there.",
-        "class": false
+        "userName": "malon__",
+        "src": "/images/jj/img_recommend2.jpg"
       },
       {
         "id": 3,
-        "userName": "jayPark",
-        "comment": "Hey.",
-        "class": false
+        "userName": "pavid__",
+        "src": "/images/jj/img_recommend3.jpg"
+      },
+      {
+        "id": 4,
+        "userName": "soo__",
+        "src": "/images/jj/img_recommend4.jpg"
       }
     ]
   }
