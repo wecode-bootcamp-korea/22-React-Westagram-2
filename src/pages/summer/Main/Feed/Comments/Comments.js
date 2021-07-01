@@ -15,14 +15,14 @@ class Comments extends React.Component {
             <div className="comment-icons">
               <i
                 index={i}
-                onClick={handleClickLike}
+                onClick={() => handleClickLike(cmt.commentId)}
                 className={
                   likes[i] ? 'fas fa-heart cmt-like' : 'far fa-heart cmt-like'
                 }
               ></i>
               <i
                 index={i}
-                onClick={handleClickDel}
+                onClick={() => handleClickDel(cmt.commentId)}
                 className="fas fa-times cmt-del"
               ></i>
             </div>

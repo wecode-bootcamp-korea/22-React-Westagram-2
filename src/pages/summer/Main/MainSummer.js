@@ -48,6 +48,7 @@ class MainSummer extends React.Component {
   // fetching feed data
   fetchData = () => {
     const { IP_ADDRESS } = this.state;
+
     fetch(`http://${IP_ADDRESS}:8000/postings/post`)
       .then(res => res.json())
       .then(data => {
@@ -77,8 +78,9 @@ class MainSummer extends React.Component {
   };
 
   render() {
-    const { myInfo, stories, feeds, recommend, commentInput } = this.state;
-    const { sendingComment, handleSubmit } = this;
+    const { myInfo, stories, feeds, recommend, commentInput, IP_ADDRESS } =
+      this.state;
+    const { sendingComment, fetchData } = this;
 
     return (
       <div className="Main-summer">
@@ -94,6 +96,8 @@ class MainSummer extends React.Component {
                     commentInput={commentInput}
                     sendingComment={sendingComment}
                     key={feed.postId}
+                    IP_ADDRESS={IP_ADDRESS}
+                    fetchData={fetchData}
                   />
                 ))}
             </section>

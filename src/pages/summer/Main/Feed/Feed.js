@@ -26,34 +26,31 @@ class Feed extends React.Component {
   };
 
   // Comment Like & Del 서버 연동 중
-  handleClickLike = e => {
-    const index = e.target.getAttribute('index');
-
-    const changedLikes = [...this.state.likes];
-    changedLikes[index] = !changedLikes[index];
-
-    this.setState({
-      likes: [...changedLikes],
+  handleClickLike = commentId => {
+    const { IP_ADDRESS } = this.props;
+    // const index = e.target.getAttribute('index');
+    // const changedLikes = [...this.state.likes];
+    // changedLikes[index] = !changedLikes[index];
+    // this.setState({
+    //   likes: [...changedLikes],
+    // });
+    fetch(`http://${IP_ADDRESS}:8000/postings/comment/`, {
+      method: 'POST',
+      body: JSON.stringify({
+        id: commentId,
+        liked: !this.state.feedLike,
+      }),
     });
+    this.props.fetchData();
   };
 
-  handleClickDel = e => {
-    const { likes } = this.state;
-    const { comments } = this.props.feed;
+  handleClickDel = commentId => {
+    const { IP_ADDRESS } = this.props;
 
-    const index = e.target.getAttribute('index');
-
-    const remainComments = comments.filter((cmt, i) => {
-      return i != index;
+    fetch(`http://${IP_ADDRESS}:8000/postings/comment/${commentId}`, {
+      method: 'DELETE',
     });
-
-    const remainLikes = likes.filter((like, i) => {
-      return i != index;
-    });
-
-    this.setState({
-      likes: remainLikes,
-    });
+    this.props.fetchData();
   };
 
   render() {

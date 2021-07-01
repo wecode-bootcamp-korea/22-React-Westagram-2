@@ -13,22 +13,21 @@ class CommentInput extends React.Component {
     } = this.props;
 
     return (
-      <form className="feed-comments-input">
+      <form
+        className="feed-comments-input"
+        onSubmit={e => {
+          e.preventDefault();
+          sendingComment(postId, commentInput);
+          resetCommentInput();
+        }}
+      >
         <input
           onChange={setCommentInput}
           value={commentInput}
           type="text"
           placeholder="댓글 달기..."
         />
-        <button
-          onClick={e => {
-            e.preventDefault();
-            sendingComment(postId, commentInput);
-            resetCommentInput();
-          }}
-        >
-          게시
-        </button>
+        <button>게시</button>
       </form>
     );
   }
