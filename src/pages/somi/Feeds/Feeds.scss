@@ -28,8 +28,7 @@
       }
 
       .feedTopRight {
-        display: flex;
-        align-items: stretch;
+        @include display-flex(center, stretch);
         justify-content: space-between;
         width: 100%;
         padding: 0 10px;
@@ -71,7 +70,7 @@
         font-size: 1rem;
       }
 
-      .likes div {
+      div {
         padding-left: 10px;
       }
 
@@ -92,17 +91,15 @@
         padding-right: 5px;
         background-color: white;
         cursor: pointer;
+
+        img {
+          height: 100%;
+        }
       }
 
       .contentBtn:last-child {
         padding-right: 0;
       }
-
-      .contentBtn img {
-        height: 100%;
-      }
     }
-
-    /* 피드하단 코멘트 */
   }
 }

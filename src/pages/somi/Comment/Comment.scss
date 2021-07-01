@@ -14,12 +14,10 @@
       padding-left: 5px;
     }
 
-    .igID {
+    .commentName {
       font-weight: 600;
       font-size: 1.1rem;
-    }
-
-    .igID a {
+      text-decoration: none;
       color: black;
     }
 
@@ -61,8 +59,7 @@
 
 /* 댓글달기 */
 .commentInputBox {
-  display: flex;
-  justify-content: space-between;
+  @include display-flex(space-between, default);
   padding: 20px 10px;
   border-top: 1px solid rgb(237, 237, 237);
 
@@ -86,6 +83,7 @@
     font-size: 1.1rem;
     cursor: pointer;
   }
+
   .commentBtn:disabled {
     color: #cfe7fc;
   }

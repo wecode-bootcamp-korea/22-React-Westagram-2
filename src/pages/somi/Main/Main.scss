@@ -46,8 +46,7 @@
 
   /* 메인 레이아웃*/
   .mainMain {
-    @include display-flex(space-between);
-    align-items: flex-start;
+    @include display-flex(space-between, flex-start);
     width: 934px;
     padding-top: 30px;
 

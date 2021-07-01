@@ -5,7 +5,7 @@ import './Footer.scss';
 class Footer extends React.Component {
   render() {
     return (
-      <p className="footer">
+      <div className="footer">
         {INFO.map(el => {
           return (
             <li key={el.id}>
@@ -14,7 +14,7 @@ class Footer extends React.Component {
           );
         })}
         <p className="copyright">&copy; 2021 INSTAGRAM</p>
-      </p>
+      </div>
     );
   }
 }

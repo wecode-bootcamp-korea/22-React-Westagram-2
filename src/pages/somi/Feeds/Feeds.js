@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Comment from '../Comment/Comment';
 import '../Feeds/Feeds.scss';
 
@@ -13,15 +14,9 @@ class Feeds extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/somi/Data.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentList: data,
-        });
-      });
+    this.setState({
+      commentList: this.props.feedList.comment,
+    });
   }
 
   btnHandleChange = () => {
@@ -46,10 +41,10 @@ class Feeds extends React.Component {
     e.preventDefault();
     this.setState({
       commentList: [
-        ...this.state.commentList,
+        ...commentList,
         {
-          id: commentList.length + 1,
-          userName: 'somangoi',
+          commentId: commentList.length + 1,
+          commentUserName: 'somangoi',
           content: commentValue,
           isLiked: false,
         },
@@ -60,89 +55,89 @@ class Feeds extends React.Component {
   };
 
   deleteComment = e => {
-    const item = e.target;
-    const parentItem = item.parentElement;
+    let item = e.target;
 
-    if (item.className.split(' ')[0] === 'deleteBtn') {
-      parentItem.remove();
-    }
+    this.setState({
+      commentList: this.state.commentList.filter(el => {
+        return el.commentId !== Number(item.id);
+      }),
+    });
+  };
+
+  likeComment = e => {
+    let item = e.target;
+
+    this.setState({
+      commentList: this.state.commentList.
+    })
   };
 
   render() {
-    const {
-      profileImage,
-      name,
-      feedImage,
-      alt,
-      commentKey,
-      commentName,
-      comment,
-    } = this.props;
-
-    const { commentValue, disabled } = this.state;
     return (
       <article className="feeds">
         <div className="feedTop">
-          <img className="feedProfile" src={profileImage} alt="프로필" />
+          <img
+            alt="프로필"
+            className="feedProfile"
+            src={this.props.feedList.profilePic}
+          />
           <div className="feedTopRight">
-            <a href="#" className="userID">
-              {name}
-            </a>
+            <Link to="#" className="userID">
+              {this.props.feedList.userName}
+            </Link>
             <i className="fas fa-ellipsis-h"></i>
           </div>
         </div>
         <div className="feedPhotoContainer">
           <div className="feedPicBox">
-            <img className="feedPic" src={feedImage} alt={alt} />
+            <img
+              alt={this.props.alt}
+              className="feedPic"
+              src={this.props.feedList.feedPic}
+            />
           </div>
         </div>
         <div className="contentIcons">
           <div className="iconContainerLeft">
             <button className="contentBtn" onClick>
-              <img src="/images/somi/heart.png" alt="heart_icon" />
+              <img alt="heart_icon" src="/images/somi/heart.png" />
             </button>
             <button className="contentBtn">
-              <img src="/images/somi/comment.png" alt="comment_icon" />
+              <img alt="comment_icon" src="/images/somi/comment.png" />
             </button>
             <button className="contentBtn">
-              <img src="/images/somi/share.png" alt="share_icon" />
+              <img alt="share_icon" src="/images/somi/share.png" />
             </button>
           </div>
           <div className="iconContainerRight">
             <button className="contentBtn">
-              <img src="/images/somi/bookmark.png" alt="bookmark_icon" />
+              <img alt="bookmark_icon" src="/images/somi/bookmark.png" />
             </button>
           </div>
         </div>
         <div className="likes">
           <img
+            alt="프로필"
             className="likesPic"
             src="../images/somi/likeProfile.jpeg"
-            alt="프로필"
           />
           <div className="likesDesc">
-            <a href="#" className="bolder">
+            <Link to="#" className="bolder">
               gleitflug
-            </a>
+            </Link>
             님{' '}
-            <a href="#" className="bolder">
+            <Link to="#" className="bolder">
               외 10명
-            </a>
+            </Link>
             이 좋아합니다.
           </div>
         </div>
         <ul className="commentList">
-          <Comment
-            commentKey={commentKey}
-            commentName={commentName}
-            comment={comment}
-            deleteComment={this.deleteComment}
-          />
           {this.state.commentList.map(comment => {
             return (
               <Comment
                 commentKey={comment.commentId}
-                commentName={comment.userName}
+                commentName={comment.commentUserName}
                 comment={comment.content}
                 deleteComment={this.deleteComment}
               />
@@ -156,10 +151,14 @@ class Feeds extends React.Component {
             type="text"
             placeholder="댓글 달기..."
             onKeyUp={this.btnHandleChange}
-            value={commentValue}
+            value={this.state.commentValue}
             onChange={this.handleCommentInput}
           />
-          <button className="commentBtn" type="submit" disabled={disabled}>
+          <button
+            className="commentBtn"
+            type="submit"
+            disabled={this.state.disabled}
+          >
             Post
           </button>
         </form>

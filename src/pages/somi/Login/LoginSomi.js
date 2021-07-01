@@ -1,6 +1,6 @@
 import React from 'react';
-import './Login.scss';
 import { withRouter } from 'react-router-dom';
+import './Login.scss';
 
 class LoginSomi extends React.Component {
   constructor() {
@@ -13,8 +13,26 @@ class LoginSomi extends React.Component {
   }
 
   goToMain = () => {
-    const { history } = this.props;
-    history.push('/somi/main');
+    fetch('http://10.58.0.101:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idValue,
+        password: this.state.pwValue,
+        name: 'somi',
+        nickname: 'somi',
+        phone_number: '010-0000-0000',
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        if (result.message === 'SUCCESS') {
+          alert('잘했엉');
+          this.props.history.push('/somi/main');
+        } else {
+          alert('다시해봥');
+        }
+      });
   };
 
   handleChange = () => {
@@ -28,20 +46,16 @@ class LoginSomi extends React.Component {
         });
   };
 
-  handleIdInput = e => {
+  handleInput = e => {
+    console.log(this.state);
+    const { value, name } = e.target;
     this.setState({
-      idValue: e.target.value,
-    });
-  };
-
-  handlePwInput = e => {
-    this.setState({
-      pwValue: e.target.value,
+      [name]: value,
     });
   };
 
   render() {
-    const { idValue, pwValue, disabled } = this.state;
+    const { disabled } = this.state;
     return (
       <div class="loginBodySomi">
         <main className="loginMain">
@@ -88,17 +102,17 @@ class LoginSomi extends React.Component {
                 <input
                   className="idInput input"
                   type="text"
-                  onChange={this.handleIdInput}
+                  onChange={this.handleInput}
                   onKeyUp={this.handleChange}
-                  value={idValue}
+                  name="idValue"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
                 <input
                   className="passInput input"
                   type="password"
-                  onChange={this.handlePwInput}
+                  onChange={this.handleInput}
                   onKeyUp={this.handleChange}
-                  value={pwValue}
+                  name="pwValue"
                   placeholder="비밀번호"
                 />
                 <button

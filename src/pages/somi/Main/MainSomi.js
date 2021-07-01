@@ -13,7 +13,8 @@ class MainSomi extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/somi/feedData.json', {
+    const APIKEY = 'http://localhost:3000/data/somi/feedData.json';
+    fetch(APIKEY, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -34,18 +35,7 @@ class MainSomi extends React.Component {
             <main className="mainMain">
               <div class="feedContainer">
                 {feedList.map(feed => {
-                  return (
-                    <Feeds
-                      key={feed.id}
-                      name={feed.userName}
-                      feedImage={feed.feedPic}
-                      profileImage={feed.profilePic}
-                      alt={feed.alt}
-                      commentKey={feed.commentId}
-                      commentName={feed.commentUserName}
-                      comment={feed.content}
-                    />
-                  );
+                  return <Feeds key={feed.id} feedList={feed} />;
                 })}
               </div>
               <aside className="mainRight">
