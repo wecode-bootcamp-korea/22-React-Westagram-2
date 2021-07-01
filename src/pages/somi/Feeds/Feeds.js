@@ -9,6 +9,7 @@ class Feeds extends React.Component {
     this.state = {
       commentValue: '',
       commentList: [],
+      likedFeed: false,
       isLiked: false,
     };
   }
@@ -67,6 +68,22 @@ class Feeds extends React.Component {
     }
   };
 
+  likeFeed = e => {
+    const item = e.target;
+    // console.log('hi');
+    if (this.state.likedFeed === false) {
+      this.setState({
+        likedFeed: true,
+      });
+      item.src = '/images/somi/heart2.png';
+    } else {
+      this.setState({
+        likedFeed: false,
+      });
+      item.src = '/images/somi/heart.png';
+    }
+  };
+
   render() {
     return (
       <article className="feeds">
@@ -94,7 +111,7 @@ class Feeds extends React.Component {
         </div>
         <div className="contentIcons">
           <div className="iconContainerLeft">
-            <button className="contentBtn" onClick>
+            <button className="contentBtn" onClick={this.likeFeed}>
               <img alt="heart_icon" src="/images/somi/heart.png" />
             </button>
             <button className="contentBtn">
