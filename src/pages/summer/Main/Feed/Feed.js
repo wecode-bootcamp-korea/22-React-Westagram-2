@@ -7,21 +7,8 @@ import './Feed.scss';
 class Feed extends React.Component {
   state = {
     commentInput: '',
-    comments: [],
     likes: [],
     feedLike: false,
-  };
-
-  // 기존 댓글 받아오기
-  componentDidMount = () => {
-    this.setState({
-      comments: this.props.feed.comments,
-    });
-  };
-
-  // FeedLike
-  changeFeedLike = () => {
-    this.setState({ feedLike: !this.state.feedLike });
   };
 
   // CommentInput
@@ -29,17 +16,13 @@ class Feed extends React.Component {
     this.setState({ commentInput: e.target.value });
   };
 
-  handleSubmit = e => {
-    const { commentInput, comments, likes } = this.state;
+  resetCommentInput = () => {
+    this.setState({ commentInput: '' });
+  };
 
-    e.preventDefault();
-    if (commentInput === '') return;
-
-    this.setState({
-      comments: [...comments, commentInput],
-      likes: [...likes, false],
-      commentInput: '',
-    });
+  // FeedLike
+  changeFeedLike = () => {
+    this.setState({ feedLike: !this.state.feedLike });
   };
 
   // Comments
@@ -55,7 +38,8 @@ class Feed extends React.Component {
   };
 
   handleClickDel = e => {
-    const { comments, likes } = this.state;
+    const { likes } = this.state;
+    const { comments } = this.props.feed;
 
     const index = e.target.getAttribute('index');
 
@@ -68,15 +52,17 @@ class Feed extends React.Component {
     });
 
     this.setState({
-      comments: remainComments,
       likes: remainLikes,
     });
+
+    return remainComments;
   };
 
   render() {
     const { postId, postImg, postText, postTime, userImg, userName } =
       this.props.feed;
-    const { commentInput, comments, likes, feedLike } = this.state;
+    const { likes, feedLike, commentInput } = this.state;
+    const { sendingComment } = this.props;
 
     return (
       <article className="feed">
@@ -132,12 +118,12 @@ class Feed extends React.Component {
               </div>
               <div className="detail-time grey-letter">
                 <span>
-                  <b>{postTime}</b> 전
+                  <b>{postTime}</b>
                 </span>
               </div>
               <Comments
                 postId={postId}
-                comments={comments}
+                comments={this.props.feed.comments}
                 likes={likes}
                 handleClickDel={this.handleClickDel}
                 handleClickLike={this.handleClickLike}
@@ -146,9 +132,11 @@ class Feed extends React.Component {
           </section>
         </section>
         <CommentInput
+          postId={postId}
           commentInput={commentInput}
           setCommentInput={this.setCommentInput}
-          handleSubmit={this.handleSubmit}
+          sendingComment={sendingComment}
+          resetCommentInput={this.resetCommentInput}
         />
       </article>
     );

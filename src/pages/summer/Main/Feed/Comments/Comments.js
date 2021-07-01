@@ -4,15 +4,14 @@ import './Comments.scss';
 
 class Comments extends React.Component {
   render() {
-    const { postId, comments, likes, handleClickDel, handleClickLike } =
-      this.props;
+    const { comments, likes, handleClickDel, handleClickLike } = this.props;
 
     return (
       <ul className="detail-comments">
         {comments.map((cmt, i) => (
-          <li key={postId + i} className="comment">
-            <em className="user-name">im_user</em>
-            <span>{cmt}</span>
+          <li key={cmt.commentId} className="comment">
+            <em className="user-name">{cmt.userName}</em>
+            <span>{cmt.content}</span>
             <div className="comment-icons">
               <i
                 index={i}
