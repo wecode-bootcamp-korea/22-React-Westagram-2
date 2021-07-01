@@ -4,7 +4,8 @@ import '../Comment/Comment.scss';
 
 class Comment extends React.Component {
   render() {
-    const { commentName, comment, deleteComment, commentKey } = this.props;
+    const { commentName, comment, deleteComment, commentKey, likeComment } =
+      this.props;
     return (
       <li className="commentBox">
         <Link className="commentName" to="/">
@@ -12,13 +13,18 @@ class Comment extends React.Component {
         </Link>
         <span className="commentContent">{comment}</span>
         <i
-          className="likeBtn far fa-heart"
           id={commentKey}
-          onClick={this.likeComment}
+          className="likeBtn far fa-heart"
+          onClick={likeComment}
         ></i>
         <i
-          className="deleteBtn fas fa-times"
           id={commentKey}
+          className="likeBtn fas fa-heart deactive"
+          onClick={likeComment}
+        ></i>
+        <i
+          id={commentKey}
+          className="deleteBtn fas fa-times"
           onClick={deleteComment}
         ></i>
       </li>

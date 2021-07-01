@@ -7,7 +7,6 @@ class Feeds extends React.Component {
   constructor() {
     super();
     this.state = {
-      disabled: true,
       commentValue: '',
       commentList: [],
     };
@@ -18,17 +17,6 @@ class Feeds extends React.Component {
       commentList: this.props.feedList.comment,
     });
   }
-
-  btnHandleChange = () => {
-    const { commentValue } = this.state;
-    return commentValue.length >= 1
-      ? this.setState({
-          disabled: false,
-        })
-      : this.setState({
-          disabled: true,
-        });
-  };
 
   handleCommentInput = e => {
     this.setState({
@@ -50,7 +38,6 @@ class Feeds extends React.Component {
         },
       ],
       commentValue: '',
-      disabled: true,
     });
   };
 
@@ -62,14 +49,6 @@ class Feeds extends React.Component {
         return el.commentId !== Number(item.id);
       }),
     });
-  };
-
-  likeComment = e => {
-    let item = e.target;
-
-    this.setState({
-      commentList: this.state.commentList.
-    })
   };
 
   render() {
@@ -140,6 +119,7 @@ class Feeds extends React.Component {
                 commentName={comment.commentUserName}
                 comment={comment.content}
                 deleteComment={this.deleteComment}
+                likeComment={this.likeComment}
               />
             );
           })}
@@ -157,7 +137,7 @@ class Feeds extends React.Component {
           <button
             className="commentBtn"
             type="submit"
-            disabled={this.state.disabled}
+            disabled={this.state.commentValue.length >= 1 ? false : true}
           >
             Post
           </button>

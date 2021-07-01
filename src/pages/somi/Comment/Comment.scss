@@ -28,12 +28,16 @@
       cursor: pointer;
     }
 
-    .liked {
+    .likeBtn.fas {
       color: tomato;
     }
 
-    .likeClicked {
+    .active {
       display: inline-block;
+    }
+
+    .deactive {
+      display: none;
     }
 
     .likeBtnClicked {
