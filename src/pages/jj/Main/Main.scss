@@ -1,0 +1,454 @@
+@import '../../../styles/common.scss';
+
+@mixin bold-text-main($color: $color-black, $size: 14px) {
+  font-weight: 600;
+  color: $color;
+  font-size: $size;
+}
+
+* {
+  color: #262626;
+}
+
+.mainJJ {
+  .container {
+    @include display-flex;
+    width: 100%;
+    padding-top: 85px;
+    background-color: #fafafa;
+
+    .center {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+
+      .main {
+        @include display-flex(flex-end);
+        flex: 1;
+
+        @media screen and (max-width: 768px) {
+          justify-content: center;
+        }
+
+        .mainContainer {
+          display: flex;
+          flex-direction: column;
+
+          .mainBg {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 400px;
+            border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px #eee;
+            margin-bottom: 50px;
+
+            @media screen and (max-width: 768px) {
+              width: 500px;
+            }
+
+            .mainTop {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              height: 5%;
+              padding: 16px;
+
+              .mTopProfile {
+                @include display-flex;
+                font-size: 14px;
+
+                .mTopAccount {
+                  width: 32px;
+                  height: 32px;
+                  margin-right: 10px;
+                  border: none;
+                  border-radius: 50%;
+                  object-fit: cover;
+                }
+
+                .mTopUserName {
+                  @include bold-text-main($color-black, 17px);
+                }
+              }
+
+              .mTopThreeDot {
+                @include display-flex;
+                @include bold-text-main($color-black, 17px);
+                cursor: pointer;
+              }
+            }
+
+            .mainImg {
+              position: relative;
+              width: 100%;
+              height: 60%;
+
+              .bigHeart {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: rgba(255, 6, 6, 0.603);
+                font-size: 8rem;
+              }
+
+              .mainFeedImg {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+              }
+            }
+
+            .mainBottom {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+
+              .mbIconWrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 10px;
+
+                .mbIconLeft {
+                  .mbLIcons {
+                    margin-right: 5px;
+                    font-size: 24px;
+                    cursor: pointer;
+
+                    &.fa-heart {
+                      color: red;
+                    }
+
+                    &.fa-comment,
+                    &.fa-paper-plane {
+                      color: #262626;
+                    }
+                  }
+                }
+
+                .mIconRight {
+                  .mbRIcon {
+                    font-size: 24px;
+                    cursor: pointer;
+                  }
+                }
+              }
+
+              .mbLiked {
+                display: flex;
+                width: 100%;
+                padding: 10px;
+
+                .mbLikedImg {
+                  width: 20px;
+                  margin-right: 20px;
+                }
+
+                .mbLikedTextBox {
+                  @include display-flex(left);
+
+                  .mbLikedText {
+                    @include bold-text-main($color-black);
+                    cursor: pointer;
+                  }
+                }
+              }
+
+              .mbWrittenComments {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px;
+                padding-top: 0px;
+
+                .commentSection {
+                  @include display-flex(space-between);
+                  margin-top: 5px;
+                  flex-direction: column;
+
+                  .personalAccount {
+                    @include display-flex(space-between);
+                    width: 100%;
+
+                    .commentWrap {
+                      @include display-flex(space-between);
+
+                      .userId {
+                        margin-right: 5px;
+                        @include bold-text-main($color-black);
+                      }
+                    }
+
+                    .commentIconWrap {
+                      @include display-flex(space-between);
+
+                      .likesBtn {
+                        cursor: pointer;
+                        margin-right: 5px;
+
+                        &.fas {
+                          color: #d61438;
+                        }
+                      }
+
+                      .deleteBtn {
+                        cursor: pointer;
+                        color: #262626;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .mbWrittenTime {
+                padding: 10px;
+                padding-top: 0;
+                font-size: 11px;
+                font-weight: 400;
+
+                .mbTime {
+                  color: #8e8e8e;
+                }
+              }
+
+              .commentForm {
+                @include display-flex(space-between);
+                padding: 10px;
+                border-top: 1px solid rgba(219, 219, 219, 1);
+
+                .commentInput {
+                  flex: 9;
+                  resize: none;
+                  height: 30px;
+                  padding-left: 10px;
+                  color: #8e8e8e;
+                  border: none;
+                  border-radius: 5px;
+                }
+
+                .commentBtn {
+                  flex: 1;
+                  background-color: transparent;
+                  color: #0095f6;
+                  border: none;
+                  text-align: right;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .aside {
+        @include display-flex;
+        flex: 1;
+
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+
+        .asideBg {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 85px;
+          width: 350px;
+
+          .asMyAccount {
+            @include display-flex(start);
+            margin-bottom: 20px;
+            padding: 0 10px;
+            font-size: 13px;
+
+            .asMyAccountImg {
+              width: 50px;
+              height: 50px;
+              margin-right: 10px;
+              border: none;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+
+            .asMyProfile {
+              .asMyProfileTitle {
+                @include bold-text-main($color-black, 17px);
+              }
+
+              .asMyProfile_bottom {
+                display: flex;
+
+                .asMyProfile_bottom_EngTitle {
+                  padding-right: 10px;
+                  border-right: 1px solid rgba(219, 219, 219, 1);
+                  color: rgba(219, 219, 219, 1);
+                  font-size: 14px;
+                }
+
+                .asMyProfile_bottom_korTitle {
+                  padding-left: 10px;
+                  color: rgba(219, 219, 219, 1);
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+
+          .asStory {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px #eee;
+
+            .asStoryTop {
+              display: flex;
+              justify-content: space-between;
+              padding: 10px;
+              border-bottom: 1px solid rgba(219, 219, 219, 1);
+              font-size: 14px;
+
+              .asStoryTopTitle {
+                color: #c7c7c7;
+              }
+
+              .asStoryTopSeeAll {
+                cursor: pointer;
+              }
+            }
+
+            .asStoryListWrap {
+              width: 100%;
+              padding: 0 10px;
+              overflow: hidden;
+
+              .asStoryList {
+                @include display-flex(left);
+                margin-bottom: 10px;
+                font-size: 13px;
+
+                &:first-child {
+                  margin-top: 10px;
+                }
+
+                .asStoryImg {
+                  width: 30px;
+                  height: 30px;
+                  border: none;
+                  border-radius: 50%;
+                  object-fit: cover;
+                }
+
+                .asStoryInfo {
+                  padding-left: 10px;
+
+                  .asStoryInfoUserName {
+                    @include bold-text-main(17px);
+                  }
+
+                  .asStoryInfoTime {
+                    color: #c7c7c7;
+                    font-size: 13px;
+                  }
+                }
+              }
+            }
+          }
+
+          .asRecommandation {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(219, 219, 219, 1);
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px #eee;
+
+            .asReTop {
+              @include display-flex(space-between);
+              padding: 10px;
+              border-bottom: 1px solid rgba(219, 219, 219, 1);
+              font-size: 14px;
+
+              .asReTopTitle {
+                color: #c7c7c7;
+              }
+
+              .asReTopSeeAll {
+                cursor: pointer;
+              }
+            }
+
+            .asReListWrap {
+              width: 100%;
+              padding: 0 10px;
+              overflow: hidden;
+
+              .asReList {
+                @include display-flex(space-between);
+                margin-bottom: 10px;
+                font-size: 15px;
+                font-weight: 300;
+
+                &:first-child {
+                  margin-top: 10px;
+                }
+
+                .asReListLeft {
+                  @include display-flex(left);
+
+                  .asReListLeftImg {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                    border: none;
+                    border-radius: 50%;
+                    object-fit: cover;
+                  }
+
+                  .asReInfo {
+                    @include bold-text-main($color-black);
+
+                    .asReInfoLikes {
+                      color: #c7c7c7;
+                      font-size: 13px;
+                    }
+                  }
+                }
+
+                .asReListfollowBox {
+                  color: #0095f6;
+                  font-weight: 500;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+
+          .asInfoWrap {
+            padding: 0 10px;
+            font-size: 15px;
+
+            .copyrightP {
+              margin-top: 20px;
+            }
+
+            span {
+              color: #c7c7c7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
