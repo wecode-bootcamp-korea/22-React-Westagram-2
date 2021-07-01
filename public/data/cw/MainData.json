@@ -9,10 +9,16 @@
       {
         "writer": "최우하",
         "newComment": "hi",
-        "like": true,
+        "like": false,
         "number": 1
       }
-    ]
+    ],
+    "storyImg": "fas fa-user-circle",
+    "storyId": "째유하",
+    "storyTime": "20분전",
+    "sugImg": "fas fa-user-circle",
+    "sugId": "째유나",
+    "sugTime": "20분전"
   },
   {
     "id": 2,
@@ -24,9 +30,15 @@
       {
         "writer": "최우나",
         "newComment": "hi하이222",
-        "like": true,
+        "like": false,
         "number": 1
       }
-    ]
+    ],
+    "storyImg": "fas fa-user-circle",
+    "storyId": "째유하하하",
+    "storyTime": "200분전",
+    "sugImg": "fas fa-user-circle",
+    "sugId": "째유나나나",
+    "sugTime": "2000분전"
   }
 ]

@@ -3,16 +3,16 @@ import './CommentInput.scss';
 
 class CommetInput extends React.Component {
   render() {
-    const { number, writer, newComment, like } = this.props;
+    const { data, delComment, isLike } = this.props;
     return (
       <div className="CommentInput">
         <li>
-          <span>{writer}</span>
-          {newComment}
+          <span>{data.writer}</span>
+          {data.newComment}
           <button
             id="del"
             onClick={() => {
-              this.props.delComment(number);
+              delComment(data.number);
             }}
           >
             삭제
@@ -20,10 +20,10 @@ class CommetInput extends React.Component {
           <button
             id="hart"
             onClick={() => {
-              this.props.isLike(number);
+              isLike(data.number);
             }}
           >
-            <i className={(like ? 'far ' : 'fas ') + 'fa-heart'}></i>
+            <i className={(data.like ? 'fas ' : 'far ') + 'fa-heart'}></i>
           </button>
         </li>
       </div>

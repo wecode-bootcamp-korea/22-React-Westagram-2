@@ -11,8 +11,28 @@ class MainRight extends React.Component {
     return (
       <div className="MainRight">
         <RightProfile></RightProfile>
-        <RightStory></RightStory>
-        <Suggestion></Suggestion>
+        <div className="RightStory">
+          <div className="rightStoryTop">
+            <span className="grayText">스토리</span>
+            <span>모두 보기</span>
+          </div>
+          <ul>
+            {this.props.data.map(el => {
+              return <RightStory key={el.id} data={el} />;
+            })}
+          </ul>
+        </div>
+        <div className="Suggestion">
+          <div className="suggestionTop">
+            <span className="grayText">회원님을 위한 추천</span>
+            <span>모두 보기</span>
+          </div>
+          <ul>
+            {this.props.data.map(el => {
+              return <Suggestion key={el.id} data={el} />;
+            })}
+          </ul>
+        </div>
         <div className="rigthFoot">
           Westagram 정보지원 홍보센터 API 채용정보 개인정보처리방침 약관
           디렉터리 프로필 해시태그 언어

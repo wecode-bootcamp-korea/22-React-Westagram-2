@@ -5,8 +5,7 @@
   width: 100%;
 
   main {
-    display: flex;
-    justify-content: center;
+    @include display-flex(center);
     background-color: $color-lightgray;
     width: 100vw;
     height: 100%fit-content;
@@ -16,5 +15,11 @@
 
   .feeds {
     display: flex;
+  }
+
+  .rightWrap {
+    width: fit-content;
+    height: fit-content;
+    margin-right: 100px;
   }
 }

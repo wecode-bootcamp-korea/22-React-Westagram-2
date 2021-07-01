@@ -33,23 +33,12 @@ class MainCw extends React.Component {
           <div className="feeds">
             <ul>
               {this.state.data.map(el => {
-                return (
-                  <Article
-                    key={el.id}
-                    userId={el.userId}
-                    nickname={el.nickname}
-                    profileImg={el.profileImg}
-                    content={el.content}
-                    wirter={el.writer}
-                    newComment={el.newComment}
-                    like={el.like}
-                    number={el.number}
-                    data={el.comment}
-                  ></Article>
-                );
+                return <Article key={el.id} comment={el.comment} data={el} />;
               })}
             </ul>
-            <MainRight></MainRight>
+            <div className="rightWrap">
+              <MainRight data={this.state.data} />
+            </div>
           </div>
         </main>
       </section>

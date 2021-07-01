@@ -16,7 +16,7 @@ class Article extends React.Component {
 
   componentDidMount() {
     this.setState({
-      comments: this.props.data,
+      comments: this.props.comment,
     });
   }
 
@@ -33,11 +33,10 @@ class Article extends React.Component {
         writer: writer,
         number: comments.length + 1,
         newComment: newComment,
-        like: true,
+        like: false,
       }),
       newComment: '',
     });
-    console.log(`this.state`, this.state);
   };
 
   enterHandler = e => {
@@ -50,9 +49,7 @@ class Article extends React.Component {
   delComment = x => {
     const { comments } = this.state;
     this.setState({
-      comments: comments.filter(el => {
-        return el.number !== x;
-      }),
+      comments: comments.filter(el => el.number !== x),
     });
   };
 
@@ -60,29 +57,26 @@ class Article extends React.Component {
     const i = number - 1;
     const newComments = [...this.state.comments];
     newComments[i].like = !newComments[i].like;
-    return this.setState({
-      comments: newComments,
-    });
+    return this.setState({ comments: newComments });
   };
-
   render() {
-    const { userId, nickname, profileImg, content } = this.props;
+    const { data } = this.props;
     return (
       <li className="Article">
         <div className="contentHead">
           <div className="contentHeadProfileThum">
-            <i className={profileImg} id="profileThum"></i>
+            <i className={data.profileImg} id="profileThum"></i>
           </div>
           <div className="contentHeadProfile">
-            <p>{userId}</p>
-            <p>{nickname}</p>
+            <p>{data.userId}</p>
+            <p>{data.nickname}</p>
           </div>
           <div className="contentHeadMoreOption">
             <button>...</button>
           </div>
         </div>
         <div className="imgContent">
-          <img src={content} alt="메인 사진" />
+          <img src={data.content} alt="메인 사진" />
         </div>
         <div className="artcl bottom">
           <div className="bottomBts">
@@ -97,10 +91,7 @@ class Article extends React.Component {
               return (
                 <CommentInput
                   key={el.number}
-                  number={el.number}
-                  writer={el.writer}
-                  newComment={el.newComment}
-                  like={el.like}
+                  data={el}
                   delComment={this.delComment}
                   isLike={this.isLike}
                 />
