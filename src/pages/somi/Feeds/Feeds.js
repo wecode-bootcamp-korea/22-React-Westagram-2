@@ -9,6 +9,7 @@ class Feeds extends React.Component {
     this.state = {
       commentValue: '',
       commentList: [],
+      isLiked: false,
     };
   }
 
@@ -49,6 +50,21 @@ class Feeds extends React.Component {
         return el.commentId !== Number(item.id);
       }),
     });
+  };
+
+  likeComment = e => {
+    const item = e.target;
+    if (this.state.isLiked === false) {
+      this.setState({
+        isLiked: true,
+      });
+      item.className = 'likeBtn fas fa-heart';
+    } else {
+      this.setState({
+        isLiked: false,
+      });
+      item.className = 'likeBtn far fa-heart';
+    }
   };
 
   render() {

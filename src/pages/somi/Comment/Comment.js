@@ -19,11 +19,6 @@ class Comment extends React.Component {
         ></i>
         <i
           id={commentKey}
-          className="likeBtn fas fa-heart deactive"
-          onClick={likeComment}
-        ></i>
-        <i
-          id={commentKey}
           className="deleteBtn fas fa-times"
           onClick={deleteComment}
         ></i>
