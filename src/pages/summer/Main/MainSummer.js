@@ -9,9 +9,14 @@ import Footer from '../components/Footer/Footer';
 
 import './Main.scss';
 
+const IP_ADDRESS = '10.58.7.4';
+
 class MainSummer extends React.Component {
   state = {
-    IP_ADDRESS: '10.58.7.4',
+    feeds: [],
+    stories: [],
+    recommend: [],
+    myInfo: [],
   };
 
   componentDidMount = () => {
@@ -47,8 +52,6 @@ class MainSummer extends React.Component {
 
   // fetching feed data
   fetchData = () => {
-    const { IP_ADDRESS } = this.state;
-
     fetch(`http://${IP_ADDRESS}:8000/postings/post`)
       .then(res => res.json())
       .then(data => {
@@ -61,8 +64,6 @@ class MainSummer extends React.Component {
 
   // 작성된 댓글 서버 전송
   sendingComment = (postId, commentInput) => {
-    const { IP_ADDRESS } = this.state;
-
     if (commentInput === '') return;
 
     fetch(`http://${IP_ADDRESS}:8000/postings/comment`, {
@@ -82,8 +83,7 @@ class MainSummer extends React.Component {
   };
 
   render() {
-    const { myInfo, stories, feeds, recommend, commentInput, IP_ADDRESS } =
-      this.state;
+    const { myInfo, stories, feeds, recommend, commentInput } = this.state;
     const { sendingComment, fetchData } = this;
 
     return (

@@ -6,11 +6,9 @@ import Footer from '../components/Footer/Footer';
 
 import './Login.scss';
 
-class LoginSummer extends React.Component {
-  state = {
-    IP_ADDRESS: '10.58.7.4',
-  };
+const IP_ADDRESS = '10.58.7.4';
 
+class LoginSummer extends React.Component {
   render() {
     return (
       <div className="Login-summer">
@@ -19,7 +17,7 @@ class LoginSummer extends React.Component {
           <div className="right-container">
             <section className="login-container">
               <h1>Westagram</h1>
-              <LoginInput IP_ADDRESS={this.state.IP_ADDRESS} />
+              <LoginInput IP_ADDRESS={IP_ADDRESS} />
               <section
                 aria-label="페이스북으로 로그인"
                 className="login-facebook"

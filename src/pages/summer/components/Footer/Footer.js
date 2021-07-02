@@ -31,7 +31,7 @@ class Footer extends React.Component {
       <footer>
         <FooterTop footerLis={footerLis} />
         <div className="footer-bottom">
-          {langSet ? <LangSet /> : null}
+          {langSet && <LangSet />}
           <span>© 2021 Instagram from Facebook</span>
         </div>
       </footer>

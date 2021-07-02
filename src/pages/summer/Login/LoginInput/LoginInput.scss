@@ -1,6 +1,6 @@
 @import '../../../../styles/common.scss';
 
-.Login-summer .login-container form {
+.Login-summer .user-login {
   @include display-flex(unset, unset);
   flex-direction: column;
   margin-top: 45px;
@@ -24,11 +24,12 @@
     border-radius: 4px;
     @include bold-text(14px, white);
     cursor: pointer;
-  }
-  button:disabled {
-    background: #b2dffc;
-  }
-  button:enabled {
-    background: $color-active;
+
+    &:disabled {
+      background: #b2dffc;
+    }
+    &:enabled {
+      background: $color-active;
+    }
   }
 }

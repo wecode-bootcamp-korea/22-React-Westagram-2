@@ -8,21 +8,19 @@ class Comments extends React.Component {
 
     return (
       <ul className="detail-comments">
-        {comments.map((cmt, i) => (
-          <li key={cmt.commentId} className="comment">
-            <em className="user-name">{cmt.userName}</em>
-            <span>{cmt.content}</span>
+        {comments.map((comment, index) => (
+          <li key={comment.commentId} className="comment">
+            <em className="user-name">{comment.userName}</em>
+            <span>{comment.content}</span>
             <div className="comment-icons">
               <i
-                index={i}
-                onClick={() => handleClickLike(cmt.commentId)}
-                className={
-                  cmt.bool ? 'fas fa-heart cmt-like' : 'far fa-heart cmt-like'
-                }
+                index={index}
+                onClick={() => handleClickLike(comment.commentId)}
+                className={`fa-heart cmt-like ${comment.bool ? 'fas' : 'far'}`}
               ></i>
               <i
-                index={i}
-                onClick={() => handleClickDel(cmt.commentId)}
+                index={index}
+                onClick={() => handleClickDel(comment.commentId)}
                 className="fas fa-times cmt-del"
               ></i>
             </div>
