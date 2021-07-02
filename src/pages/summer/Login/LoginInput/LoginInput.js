@@ -26,6 +26,7 @@ class LoginInput extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         localStorage.setItem('TOKEN', res.access_token);
         this.props.history.push('/summer/main');
       });

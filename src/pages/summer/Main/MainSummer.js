@@ -11,7 +11,7 @@ import './Main.scss';
 
 class MainSummer extends React.Component {
   state = {
-    IP_ADDRESS: '10.58.2.204',
+    IP_ADDRESS: '10.58.7.4',
   };
 
   componentDidMount = () => {
@@ -72,7 +72,11 @@ class MainSummer extends React.Component {
         id: postId,
         content: commentInput,
       }),
-    });
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
 
     this.fetchData();
   };

@@ -9,6 +9,41 @@ class Feed extends React.Component {
     commentInput: '',
     likes: [],
     feedLike: false,
+    timeStamp: '',
+  };
+
+  componentDidMount = () => {
+    this.handlePostTime(this.props.feed.postTime);
+  };
+
+  // 피드 게시 시간
+  handlePostTime = postTime => {
+    const now = new Date();
+    const yearNow = now.getFullYear();
+    const monthNow = now.getMonth();
+    const dayNow = now.getDay();
+    const hourNow = now.getHours();
+    const minNow = now.getMinutes();
+    const secNow = now.getSeconds();
+
+    const timeNow = [yearNow, monthNow, dayNow, hourNow, minNow, secNow];
+
+    const date = postTime.slice(0, 10).split('-');
+    const time = postTime.slice(11).split(':');
+
+    const postedTime = [...date, ...time].map(item => parseInt(item));
+
+    let diffIndex = null;
+    // 0 = year, 1 = month, 2 = day, 3 = hour, 4 = min, 5 = sec
+
+    for (let i = 0; i < timeNow.length; i++) {
+      if (timeNow[i] !== postedTime[i]) {
+        diffIndex = i;
+        break;
+      }
+    }
+
+    // if() {}
   };
 
   // CommentInput
@@ -27,18 +62,13 @@ class Feed extends React.Component {
 
   // Comment Like & Del 서버 연동 중
   handleClickLike = commentId => {
-    const { IP_ADDRESS } = this.props;
-    // const index = e.target.getAttribute('index');
-    // const changedLikes = [...this.state.likes];
-    // changedLikes[index] = !changedLikes[index];
-    // this.setState({
-    //   likes: [...changedLikes],
-    // });
+    const { IP_ADDRESS, feed } = this.props;
+
     fetch(`http://${IP_ADDRESS}:8000/postings/comment/`, {
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify({
         id: commentId,
-        liked: !this.state.feedLike,
+        bool: !(feed.comments.commentId === commentId).bool,
       }),
     });
     this.props.fetchData();
@@ -54,9 +84,9 @@ class Feed extends React.Component {
   };
 
   render() {
-    const { postId, postImg, postText, postTime, userImg, userName } =
-      this.props.feed;
-    const { likes, feedLike, commentInput } = this.state;
+    console.log(this.props);
+    const { postId, postImg, postText, userImg, userName } = this.props.feed;
+    const { feedLike, commentInput, timeStamp } = this.state;
     const { sendingComment } = this.props;
 
     return (
@@ -113,13 +143,12 @@ class Feed extends React.Component {
               </div>
               <div className="detail-time grey-letter">
                 <span>
-                  <b>{postTime}</b>
+                  <b>{timeStamp}</b>
                 </span>
               </div>
               <Comments
                 postId={postId}
                 comments={this.props.feed.comments}
-                likes={likes}
                 handleClickDel={this.handleClickDel}
                 handleClickLike={this.handleClickLike}
               />

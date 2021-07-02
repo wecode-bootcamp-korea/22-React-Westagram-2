@@ -4,7 +4,7 @@ import './Comments.scss';
 
 class Comments extends React.Component {
   render() {
-    const { comments, likes, handleClickDel, handleClickLike } = this.props;
+    const { comments, handleClickDel, handleClickLike } = this.props;
 
     return (
       <ul className="detail-comments">
@@ -17,7 +17,7 @@ class Comments extends React.Component {
                 index={i}
                 onClick={() => handleClickLike(cmt.commentId)}
                 className={
-                  likes[i] ? 'fas fa-heart cmt-like' : 'far fa-heart cmt-like'
+                  cmt.bool ? 'fas fa-heart cmt-like' : 'far fa-heart cmt-like'
                 }
               ></i>
               <i

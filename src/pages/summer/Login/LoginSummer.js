@@ -8,7 +8,7 @@ import './Login.scss';
 
 class LoginSummer extends React.Component {
   state = {
-    IP_ADDRESS: '10.58.2.204',
+    IP_ADDRESS: '10.58.7.4',
   };
 
   render() {
