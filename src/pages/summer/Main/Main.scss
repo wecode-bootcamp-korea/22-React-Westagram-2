@@ -1,0 +1,77 @@
+@import '../../../styles/common.scss';
+
+.Main-summer {
+  margin-top: 80px;
+
+  /* COMMON */
+  .user-img {
+    @include radius-img;
+  }
+  em.user-name {
+    @include bold-text;
+  }
+  .gradient-back {
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+    border-radius: 50%;
+  }
+
+  main {
+    @include display-flex(center, unset);
+
+    .contents-container {
+      margin-right: 320px;
+      width: 612px;
+    }
+
+    .right-container {
+      position: fixed;
+      top: 86px;
+      left: calc(50vw + 180px);
+      width: 290px;
+    }
+  }
+
+  /* MEDIA QUERY */
+
+  /* 974px 이하 */
+  @media screen and (max-width: 974px) {
+    main {
+      .contents-container {
+        margin: 0;
+      }
+      .right-container {
+        display: none;
+      }
+    }
+  }
+
+  /* 634px 이하 */
+  @media screen and (max-width: 634px) {
+    .contents-container {
+      width: 100%;
+
+      .story-container {
+        width: 100vw;
+      }
+    }
+
+    .feeds-container .feed {
+      border: none;
+
+      .feed-contents {
+        border-bottom: none;
+
+        .post-img-container img {
+          width: 100%;
+        }
+        .post-desc-container {
+          padding: 8px 20px 40px;
+        }
+      }
+    }
+
+    .feed-comments-input {
+      display: none;
+    }
+  }
+}

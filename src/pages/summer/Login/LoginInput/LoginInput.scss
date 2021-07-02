@@ -1,0 +1,35 @@
+@import '../../../../styles/common.scss';
+
+.Login-summer .user-login {
+  @include display-flex(unset, unset);
+  flex-direction: column;
+  margin-top: 45px;
+
+  input {
+    margin-bottom: 10px;
+    padding: 9px 0px 9px 8px;
+    border: 1px solid $color-lightgray;
+    border-radius: 2px;
+
+    input:focus {
+      border: 1px solid $color-lightgray;
+    }
+    input::placeholder {
+      font-size: 12px;
+    }
+  }
+  button {
+    margin: 5px 0 60px;
+    padding: 5px 0;
+    border-radius: 4px;
+    @include bold-text(14px, white);
+    cursor: pointer;
+
+    &:disabled {
+      background: #b2dffc;
+    }
+    &:enabled {
+      background: $color-active;
+    }
+  }
+}

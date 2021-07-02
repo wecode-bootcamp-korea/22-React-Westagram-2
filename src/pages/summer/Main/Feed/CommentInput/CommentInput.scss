@@ -1,0 +1,15 @@
+@import '../../../../../styles/common.scss';
+
+.Main-summer .feed-comments-input {
+  @include display-flex(space-between, unset);
+  padding: 16px;
+
+  input {
+    width: 91%;
+  }
+
+  button {
+    @include bold-text(14px, $color-active);
+    cursor: pointer;
+  }
+}

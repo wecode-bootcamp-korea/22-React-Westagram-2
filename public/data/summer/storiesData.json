@@ -1,0 +1,46 @@
+[
+  {
+    "stories": [
+      {
+        "id": "str_1",
+        "userName": "doggy",
+        "userImg": "/images/summer/profile7.jpg"
+      },
+      {
+        "id": "str_2",
+        "userName": "katy",
+        "userImg": "/images/summer/profile2.jpg"
+      },
+      {
+        "id": "str_3",
+        "userName": "mew",
+        "userImg": "/images/summer/profile3.jpg"
+      },
+      {
+        "id": "str_4",
+        "userName": "hello",
+        "userImg": "/images/summer/profile4.jpg"
+      },
+      {
+        "id": "str_5",
+        "userName": "yellow_blue",
+        "userImg": "/images/summer/profile5.jpg"
+      },
+      {
+        "id": "str_6",
+        "userName": "ginger",
+        "userImg": "/images/summer/profile6.jpg"
+      },
+      {
+        "id": "str_7",
+        "userName": "test_user",
+        "userImg": "/images/summer/profile1.jpg"
+      },
+      {
+        "id": "str_8",
+        "userName": "imUser",
+        "userImg": "/images/summer/profile8.jpg"
+      }
+    ]
+  }
+]

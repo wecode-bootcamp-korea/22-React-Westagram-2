@@ -1,0 +1,51 @@
+@import '../../../../styles/common.scss';
+
+.Main-summer .recommend-container {
+  position: relative;
+  padding-bottom: 18px;
+
+  button {
+    cursor: pointer;
+  }
+
+  & > span {
+    display: block;
+    margin-bottom: 8px;
+    @include bold-text(inherit, $color-darkgray);
+  }
+  & > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include bold-text(12px, $color-black);
+  }
+  ul li {
+    @include display-flex(space-between, unset);
+    padding: 8px 0;
+
+    .img-container {
+      margin-right: 8px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .recommended-info {
+      @include display-flex(space-between, unset);
+      flex-direction: column;
+      width: 204px;
+      height: 30px;
+
+      .grey-letter {
+        color: $color-darkgray;
+        font-size: 12px;
+      }
+    }
+
+    button {
+      @include bold-text(12px, $color-active);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../../../styles/common.scss';
+
+.Login-summer .mobile-display {
+  position: relative;
+  display: flex;
+  margin-left: -60px;
+
+  .inner-img {
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    transform: translateX(0.3%);
+  }
+}

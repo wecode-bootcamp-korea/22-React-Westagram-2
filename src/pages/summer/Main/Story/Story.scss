@@ -1,0 +1,41 @@
+@import '../../../../styles/common.scss';
+
+.Main-summer .story-container {
+  @include display-flex(unset, unset);
+  padding: 16px 0 16px 10px;
+  margin-bottom: 24px;
+  border: 1px solid $color-lightgray;
+  border-radius: 4px;
+  overflow: hidden;
+
+  li {
+    @include display-flex(unset, unset);
+    flex-direction: column;
+    width: 66px;
+    margin: 0 7px;
+    cursor: pointer;
+
+    .gradient-back {
+      position: relative;
+      width: 64px;
+      height: 64px;
+
+      .user-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 59px;
+        height: 59px;
+        background: white;
+        border: 2px solid white;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    span {
+      font-size: 12px;
+      margin-top: 5px;
+      text-align: center;
+    }
+  }
+}
