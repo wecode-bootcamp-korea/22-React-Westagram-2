@@ -3,9 +3,30 @@ import { Link } from 'react-router-dom';
 import '../Comment/Comment.scss';
 
 class Comment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLiked: false,
+      feedLiked: false,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      isLiked: this.props.isLiked,
+    });
+  }
+
+  likeComment = () => {
+    const { isLiked } = this.state;
+    this.setState({
+      isLiked: !isLiked,
+    });
+  };
+
   render() {
-    const { commentName, comment, deleteComment, commentKey, likeComment } =
-      this.props;
+    const { commentName, comment, commentKey, deleteComment } = this.props;
+
     return (
       <li className="commentBox">
         <Link className="commentName" to="/">
@@ -13,9 +34,10 @@ class Comment extends React.Component {
         </Link>
         <span className="commentContent">{comment}</span>
         <i
-          id={commentKey}
-          className="likeBtn far fa-heart"
-          onClick={likeComment}
+          onClick={this.likeComment}
+          className={
+            this.state.isLiked ? 'likeBtn fas fa-heart' : 'likeBtn far fa-heart'
+          }
         ></i>
         <i
           id={commentKey}

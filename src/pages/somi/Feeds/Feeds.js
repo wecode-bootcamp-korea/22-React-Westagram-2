@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Comment from '../Comment/Comment';
+import CommentList from '../CommentList/CommentList';
 import '../Feeds/Feeds.scss';
 
 class Feeds extends React.Component {
   constructor() {
     super();
     this.state = {
-      commentValue: '',
       commentList: [],
-      likedFeed: false,
-      isLiked: false,
+      commentValue: '',
     };
   }
 
   componentDidMount() {
     this.setState({
       commentList: this.props.feedList.comment,
+      isLiked: this.props.isLiked,
     });
   }
 
@@ -43,6 +42,12 @@ class Feeds extends React.Component {
     });
   };
 
+  likeFeed = () => {
+    this.setState({
+      feedLiked: !this.state.feedLiked,
+    });
+  };
+
   deleteComment = e => {
     let item = e.target;
 
@@ -51,37 +56,6 @@ class Feeds extends React.Component {
         return el.commentId !== Number(item.id);
       }),
     });
-  };
-
-  likeComment = e => {
-    const item = e.target;
-    if (this.state.isLiked === false) {
-      this.setState({
-        isLiked: true,
-      });
-      item.className = 'likeBtn fas fa-heart';
-    } else {
-      this.setState({
-        isLiked: false,
-      });
-      item.className = 'likeBtn far fa-heart';
-    }
-  };
-
-  likeFeed = e => {
-    const item = e.target;
-    // console.log('hi');
-    if (this.state.likedFeed === false) {
-      this.setState({
-        likedFeed: true,
-      });
-      item.src = '/images/somi/heart2.png';
-    } else {
-      this.setState({
-        likedFeed: false,
-      });
-      item.src = '/images/somi/heart.png';
-    }
   };
 
   render() {
@@ -112,7 +86,14 @@ class Feeds extends React.Component {
         <div className="contentIcons">
           <div className="iconContainerLeft">
             <button className="contentBtn" onClick={this.likeFeed}>
-              <img alt="heart_icon" src="/images/somi/heart.png" />
+              <img
+                alt="heart_icon"
+                src={
+                  this.state.feedLiked
+                    ? '/images/somi/heart2.png'
+                    : '/images/somi/heart.png'
+                }
+              />
             </button>
             <button className="contentBtn">
               <img alt="comment_icon" src="/images/somi/comment.png" />
@@ -144,26 +125,18 @@ class Feeds extends React.Component {
             이 좋아합니다.
           </div>
         </div>
-        <ul className="commentList">
-          {this.state.commentList.map(comment => {
-            return (
-              <Comment
-                commentKey={comment.commentId}
-                commentName={comment.commentUserName}
-                comment={comment.content}
-                deleteComment={this.deleteComment}
-                likeComment={this.likeComment}
-              />
-            );
-          })}
-        </ul>
+        <CommentList
+          commentList={this.state.commentList}
+          deleteComment={this.deleteComment}
+          likeComment={this.likeComment}
+          isLiked={this.state.isLiked}
+        />
         <span className="commentTime">42분 전</span>
         <form className="commentInputBox" onSubmit={this.submitComment}>
           <input
             className="commentInput"
             type="text"
             placeholder="댓글 달기..."
-            onKeyUp={this.btnHandleChange}
             value={this.state.commentValue}
             onChange={this.handleCommentInput}
           />

@@ -42,13 +42,6 @@
   }
 }
 
-.commentTime {
-  display: inline-block;
-  color: #c8c8c8;
-  padding: 5px 0 10px 10px;
-  font-size: 0.9rem;
-}
-
 /* 댓글달기 */
 .commentInputBox {
   @include display-flex(space-between, default);

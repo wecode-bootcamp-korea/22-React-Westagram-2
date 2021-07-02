@@ -1,8 +1,7 @@
 @import '../../../styles/common.scss';
 
 .feedContainer {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 550px;
   height: 100%;
 
@@ -100,6 +99,13 @@
       .contentBtn:last-child {
         padding-right: 0;
       }
+    }
+
+    .commentTime {
+      display: inline-block;
+      color: #c8c8c8;
+      padding: 5px 0 10px 10px;
+      font-size: 0.9rem;
     }
   }
 }

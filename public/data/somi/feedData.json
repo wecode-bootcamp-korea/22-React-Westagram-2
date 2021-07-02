@@ -5,12 +5,13 @@
     "profilePic": "/images/somi/feedProfile.jpeg",
     "feedPic": "/images/somi/feedPic1.jpeg",
     "alt": "이미지1",
+    "feedLiked": false,
     "comment": [
       {
         "commentId": 1,
         "commentUserName": "wecode",
         "content": "Welcome to world best coding bootcamp!",
-        "isLiked": false
+        "isLiked": true
       },
       {
         "commentId": 2,
@@ -26,6 +27,7 @@
     "profilePic": "/images/somi/profile2.jpeg",
     "feedPic": "/images/somi/feedPic2.jpeg",
     "alt": "이미지2",
+    "feedLiked": false,
     "comment": [
       {
         "commentId": 1,
@@ -41,6 +43,7 @@
     "profilePic": "/images/somi/profile3.jpeg",
     "feedPic": "/images/somi/feedPic3.jpeg",
     "alt": "이미지3",
+    "feedLiked": false,
     "comment": [
       {
         "commentId": 1,

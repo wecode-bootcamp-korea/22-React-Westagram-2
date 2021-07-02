@@ -13,11 +13,12 @@ class LoginSomi extends React.Component {
   }
 
   goToMain = () => {
+    const { idValue, pwValue } = this.state;
     fetch('http://10.58.0.101:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.idValue,
-        password: this.state.pwValue,
+        email: idValue,
+        password: pwValue,
         name: 'somi',
         nickname: 'somi',
         phone_number: '010-0000-0000',
