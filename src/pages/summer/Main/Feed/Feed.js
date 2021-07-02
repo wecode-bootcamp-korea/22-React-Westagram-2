@@ -61,16 +61,18 @@ class Feed extends React.Component {
   };
 
   // Comment Like & Del 서버 연동 중
-  handleClickLike = commentId => {
+  handleClickLike = comment => {
     const { IP_ADDRESS, feed } = this.props;
 
-    fetch(`http://${IP_ADDRESS}:8000/postings/comment/`, {
-      method: 'PATCH',
+    fetch(`http://${IP_ADDRESS}:8000/postings/comment/like`, {
+      method: 'POST',
       body: JSON.stringify({
-        id: commentId,
-        bool: !(feed.comments.commentId === commentId).bool,
+        comment_id: comment.commentId,
+        bool: !comment.bool,
+        // bool: false,
       }),
     });
+
     this.props.fetchData();
   };
 
@@ -79,12 +81,14 @@ class Feed extends React.Component {
 
     fetch(`http://${IP_ADDRESS}:8000/postings/comment/${commentId}`, {
       method: 'DELETE',
-    });
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+
     this.props.fetchData();
   };
 
   render() {
-    console.log(this.props);
     const { postId, postImg, postText, userImg, userName } = this.props.feed;
     const { feedLike, commentInput, timeStamp } = this.state;
     const { sendingComment } = this.props;

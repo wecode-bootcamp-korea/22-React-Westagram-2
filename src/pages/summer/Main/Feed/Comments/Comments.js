@@ -15,7 +15,7 @@ class Comments extends React.Component {
             <div className="comment-icons">
               <i
                 index={index}
-                onClick={() => handleClickLike(comment.commentId)}
+                onClick={() => handleClickLike(comment)}
                 className={`fa-heart cmt-like ${comment.bool ? 'fas' : 'far'}`}
               ></i>
               <i

@@ -22,6 +22,8 @@ class MainSummer extends React.Component {
   componentDidMount = () => {
     this.fetchData();
 
+    // Promise.allSettled(promises)
+
     fetch(`http://localhost:3000/data/summer/storiesData.json`)
       .then(res => res.json())
       .then(data => {
@@ -75,9 +77,7 @@ class MainSummer extends React.Component {
       }),
     })
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-      });
+      .then(res => console.log(res));
 
     this.fetchData();
   };
