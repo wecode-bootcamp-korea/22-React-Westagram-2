@@ -11,7 +11,6 @@ class Article extends React.Component {
       newComment: '',
       comments: [],
       writer: '최유하나',
-      number: 1,
     };
   }
 
@@ -28,15 +27,15 @@ class Article extends React.Component {
   };
 
   addComment = () => {
-    const { newComment, comments, writer, number } = this.state;
+    const { newComment, comments, writer } = this.state;
     this.setState({
       comments: comments.concat({
         writer: writer,
-        number: number + 1,
+        number: comments.length + 1,
         newComment: newComment,
+        like: false,
       }),
       newComment: '',
-      number: number + 1,
     });
   };
 
@@ -55,14 +54,9 @@ class Article extends React.Component {
   };
 
   isLike = number => {
-    const { comments } = this.state;
+    const i = number - 1;
     const newComments = [...this.state.comments];
-    for (let i = 0; i < comments.length; i++) {
-      if (newComments[i]['number'] === number) {
-        newComments[i]['like'] = !newComments[i]['like'];
-      }
-    }
-    console.log(`this.state`, this.state);
+    newComments[i].like = !newComments[i].like;
     return this.setState({ comments: newComments });
   };
 
