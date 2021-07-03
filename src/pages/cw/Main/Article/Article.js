@@ -9,9 +9,9 @@ class Article extends React.Component {
     super();
     this.state = {
       newComment: '',
-      comments: [],
+      comments: [{}],
       writer: '최유하나',
-      number: 1,
+      number: 3,
     };
   }
 
@@ -34,6 +34,7 @@ class Article extends React.Component {
         writer: writer,
         number: number + 1,
         newComment: newComment,
+        like: false,
       }),
       newComment: '',
       number: number + 1,
@@ -55,14 +56,15 @@ class Article extends React.Component {
   };
 
   isLike = number => {
-    const { comments } = this.state;
     const newComments = [...this.state.comments];
-    for (let i = 0; i < comments.length; i++) {
-      if (newComments[i]['number'] === number) {
-        newComments[i]['like'] = !newComments[i]['like'];
+    newComments.forEach((el, index) => {
+      if (el.number === number) {
+        newComments[index] = {
+          ...newComments[index],
+          like: !newComments[index].like,
+        };
       }
-    }
-    console.log(`this.state`, this.state);
+    });
     return this.setState({ comments: newComments });
   };
 
@@ -94,10 +96,10 @@ class Article extends React.Component {
           </div>
           <p id="likeCount">좋아요 1,392개</p>
           <ul>
-            {this.state.comments.map(el => {
+            {this.state.comments.map((el, index) => {
               return (
                 <CommentInput
-                  key={el.number}
+                  key={index}
                   data={el}
                   delComment={this.delComment}
                   isLike={this.isLike}
