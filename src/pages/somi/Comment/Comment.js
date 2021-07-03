@@ -25,7 +25,7 @@ class Comment extends React.Component {
   };
 
   render() {
-    const { commentName, comment, commentKey, deleteComment } = this.props;
+    const { commentName, comment, commentId, deleteComment } = this.props;
 
     return (
       <li className="commentBox">
@@ -40,7 +40,7 @@ class Comment extends React.Component {
           }
         ></i>
         <i
-          id={commentKey}
+          id={commentId}
           className="deleteBtn fas fa-times"
           onClick={deleteComment}
         ></i>

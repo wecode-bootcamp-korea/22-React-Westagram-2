@@ -9,6 +9,7 @@ class CommentList extends React.Component {
           return (
             <Comment
               key={comment.commentId}
+              commentId={comment.commentId}
               commentName={comment.commentUserName}
               comment={comment.content}
               isLiked={comment.isLiked}

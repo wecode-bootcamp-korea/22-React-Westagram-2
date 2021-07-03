@@ -33,7 +33,7 @@ class MainSomi extends React.Component {
         <div className="mainBodySomi">
           <div className="container">
             <main className="mainMain">
-              <div class="feedContainer">
+              <div className="feedContainer">
                 {feedList.map(feed => {
                   return <Feeds key={feed.id} feedList={feed} />;
                 })}

@@ -42,12 +42,6 @@ class Feeds extends React.Component {
     });
   };
 
-  likeFeed = () => {
-    this.setState({
-      feedLiked: !this.state.feedLiked,
-    });
-  };
-
   deleteComment = e => {
     let item = e.target;
 
@@ -128,7 +122,6 @@ class Feeds extends React.Component {
         <CommentList
           commentList={this.state.commentList}
           deleteComment={this.deleteComment}
-          likeComment={this.likeComment}
           isLiked={this.state.isLiked}
         />
         <span className="commentTime">42분 전</span>
