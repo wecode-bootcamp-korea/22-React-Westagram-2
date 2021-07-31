@@ -1,0 +1,25 @@
+@import '../../../styles/common.scss';
+
+.MainCw {
+  height: 100vh;
+  width: 100%;
+
+  main {
+    @include display-flex(center);
+    background-color: $color-lightgray;
+    width: 100vw;
+    height: 100%fit-content;
+    min-height: 1000px;
+    margin-top: 30px;
+  }
+
+  .feeds {
+    display: flex;
+  }
+
+  .rightWrap {
+    width: fit-content;
+    height: fit-content;
+    margin-right: 100px;
+  }
+}

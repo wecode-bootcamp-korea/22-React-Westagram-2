@@ -1,0 +1,113 @@
+@import '../../../../styles/common.scss';
+
+.Article {
+  width: 100%;
+  height: fit-content;
+  min-width: 450px;
+  max-width: 550px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-top: 15px;
+  background-color: white;
+  border: 1px solid $color-darkgray;
+
+  .contentHead {
+    width: 100%;
+    display: flex;
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: white;
+  }
+
+  .contentHeadProfileThum {
+    @include display-flex(center, center);
+    margin-left: 25px;
+  }
+
+  #profileThum {
+    font-size: 30px;
+  }
+
+  .contentHeadProfile {
+    width: 150px;
+    padding-left: 15px;
+    align-self: center;
+  }
+
+  .contentHeadProfile p {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .contentHeadMoreOption {
+    margin-left: auto;
+    margin-right: 20px;
+    align-self: center;
+  }
+
+  .contentHeadMoreOption button {
+    background: none;
+  }
+
+  .imgContent {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .imgContent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bottomBts {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+
+  .far {
+    font-size: 25px;
+    margin-left: 15px;
+  }
+
+  #bookMark {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  #likeCount {
+    font-weight: bold;
+    padding: 5px 0px 5px 15px;
+    background-color: white;
+  }
+
+  .commentBox {
+    display: flex;
+    background-color: white;
+    border-top: 1px solid $color-darkgray;
+
+    #new-comment {
+      width: 100%;
+      height: 100%;
+      padding-top: 15px;
+      padding-left: 15px;
+      resize: none;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    #submitBt {
+      background-color: transparent;
+      color: $color-active;
+      width: 20%;
+    }
+  }
+}

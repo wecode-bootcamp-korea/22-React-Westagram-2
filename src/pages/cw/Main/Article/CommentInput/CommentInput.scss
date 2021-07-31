@@ -1,0 +1,28 @@
+@import '../../../../../styles/common.scss';
+
+.CommentInput {
+  li {
+    margin: 15px;
+
+    span {
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    #hart {
+      float: right;
+      margin-right: 5px;
+    }
+
+    .far {
+      font-size: 12px;
+      .ture {
+      }
+    }
+  }
+
+  #del {
+    float: right;
+    margin-right: 15px;
+  }
+}
